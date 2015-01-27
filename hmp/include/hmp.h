@@ -52,6 +52,9 @@ namespace onlineclust{
     const uint psz2[2] = {4,4};
     const uint stepsz1[2] = {1,1};
     const uint stepsz2[2] = {1,1};
+    const uint maxsize = 250;
+    const uint minsize = 50;
+    bool resizetag = false;
     uint spl[2];
     uint L1sz[2], L2sz[2];
     uint sgrid;

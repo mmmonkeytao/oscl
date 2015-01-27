@@ -1,5 +1,6 @@
 #include "hmp.h"
 #include "io.h"
+#include <fstream>
 
 void onlineclust::HMP::im2colstep(Eigen::MatrixXd &im1, Eigen::MatrixXd &im2, const char* type)
 {
@@ -23,30 +24,19 @@ void onlineclust::HMP::im2colstep(Eigen::MatrixXd &im1, Eigen::MatrixXd &im2, co
 	    uint subx = x+l;
 	    uint suby = y+m;
 
-	    uint8_t pixelgray = img1C.at<uint8_t>(subx, suby);
+	    double pixelgray = img1C.at<double>(subx, suby);
 	    // 0: B, 1: G, 2:R
-	    Vec3u8 v = img3C.at<Vec3u8>(subx, suby);
+	    cv::Vec<double,3> v = img3C.at<cv::Vec<double,3> >(subx, suby);
 
-	    im2(l + m*psz1[1], cols) = static_cast<double>(pixelgray)/255.0;
+	    im2(l + m*psz1[1], cols) = static_cast<double>(pixelgray);
 
-	    // check if using cropped image
-	    if(if_mask && pixelgray == 0){
-	      // R
-	      im1(l + m*psz1[1], cols) = 0.5;
-	      // G
-	      im1(l + m*psz1[1] + offset, cols) = 0.5;
-	      // B
-	      im1(l + m*psz1[1] + 2*offset, cols) = 0.5;
-	  
-	    } else {
+	    // R
+	    im1(l + m*psz1[1], cols) = static_cast<double>(v[2]);
+	    // G
+	    im1(l + m*psz1[1] + offset, cols) = static_cast<double>(v[1]);
+	    // B
+	    im1(l + m*psz1[1] + 2*offset, cols) = static_cast<double>(v[0]);	 
 
-	      // R
-	      im1(l + m*psz1[1], cols) = static_cast<double>(v[2])/255.0;
-	      // G
-	      im1(l + m*psz1[1] + offset, cols) = static_cast<double>(v[1])/255.0;
-	      // B
-	      im1(l + m*psz1[1] + 2*offset, cols) = static_cast<double>(v[0])/255.0;	  
-	    }	    
 	  }
 
 	++cols;		
@@ -85,12 +75,12 @@ void onlineclust::HMP::im2colstep(Eigen::MatrixXd &im1, Eigen::MatrixXd &im2, co
 	    uint row = x + m;
 	    uint col = y + l;
 
-	    // rgb
+	    // output 1
 	    uint tmp = m+l*psz2[0];
 	    for(uint k = 0; k < rgbfsz; ++k){
 	      im1(tmp + k*offset,cols) = rgbtmp(k, row + col*L1sz[0]);
 	    }
-	    // depth
+	    // output 2
 	    for(uint k = 0; k < depthfsz; ++k){
 	      im2(tmp + k*offset,cols) = depthtmp(k, row + col*L1sz[0]);
 	    }
@@ -102,21 +92,13 @@ void onlineclust::HMP::im2colstep(Eigen::MatrixXd &im1, Eigen::MatrixXd &im2, co
     //
     Eigen::MatrixXd colNorm_im1 = im1.colwise().norm();
     Eigen::MatrixXd colNorm_im2 = im2.colwise().norm();  
-    
-    for(uint i = 0; i < colNorm_im1.cols(); ++i){
-      if(colNorm_im1(0,i) < threshold){
-	colNorm_im1(0,i) = threshold;
-      }
-      if(colNorm_im2(0,i) < threshold){
-	colNorm_im2(0,i) = threshold;
-      }
-    }
-    // normalize features
-    for(uint i = 0; i < colNorm_im1.cols(); ++i){
-      im1.col(i) /= colNorm_im1(0,i);
-      im2.col(i) /= colNorm_im2(0,i);
-    }
-    
+   
+    colNorm_im1 = colNorm_im1.cwiseMax(threshold);
+    colNorm_im2 = colNorm_im2.cwiseMax(threshold);
+
+    im1.array() = im1.array() / colNorm_im1.colwise().replicate(im1.rows()).array();
+    im2.array() = im2.array() / colNorm_im2.colwise().replicate(im2.rows()).array();
+
   } else if(!strcmp(type, "depthL1")){
     uint offset = psz1[0] * psz1[1];
     uint cols = 0;
@@ -133,11 +115,14 @@ void onlineclust::HMP::im2colstep(Eigen::MatrixXd &im1, Eigen::MatrixXd &im2, co
 	    uint subx = x+l;
 	    uint suby = y+m;
 
-	    im2(l + m*psz1[1], cols) = imgDepth(subx, suby);
-	    im1(l + m*psz1[1], cols) = imgNormal[0](subx, suby);
-	    im1(l + m*psz1[1] + offset, cols) = imgNormal[1](subx, suby);
-	    im1(l + m*psz1[1] + 2*offset, cols) = imgNormal[2](subx, suby);
+	    im2(l + m*psz1[1], cols) = img1C.at<double>(subx, suby);
 
+	    cv::Vec<double, 3> v = img3C.at<cv::Vec<double,3> >(subx, suby);
+	    
+	    im1(l + m*psz1[1], cols) = v[0];
+	    im1(l + m*psz1[1] + offset, cols) = v[1];
+	    im1(l + m*psz1[1] + 2*offset, cols) = v[2];
+	    
 	  }
 	++cols;
       }

@@ -25,7 +25,10 @@ onlineclust::HMP::HMP(const char* ConfigDir, const char* ImgType, const char* Fe
   spl[0] = static_cast<uint>( atoi(param.c_str()) );
   param = engine::readParameter(ConfigDir, "spl2");
   spl[1] = static_cast<uint>( atoi(param.c_str()) );
-  
+
+  // get resize image flag
+  param = engine::readParameter(ConfigDir, "resizetag");
+  resizetag = (bool)(atoi(param.c_str()));
 }
 
 onlineclust::HMP::~HMP()

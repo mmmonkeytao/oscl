@@ -46,7 +46,7 @@ set(OSCL_LIBRARIES CACHE INTERNAL
 # compiler settings
 ########################
 set(CMAKE_CXX_COMPILER "/usr/bin/g++")
-set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -g -O3")
+set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -Wall -g -O3")
 
 ########################
 # Package Use 
@@ -62,6 +62,13 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 # Eigen  
 set(EIGEN_INCLUDE_DIR "/usr/local/Cellar/eigen/3.2.2/include/eigen3/")
 include_directories(${EIGEN_INCLUDE_DIR})
+
+# boost
+set(Boost_INCLUDE_DIR /usr/local/Cellar/boost/1.57.0/include)
+set(Boost_LIBRARY_DIR /usr/local/Cellar/boost/1.57.0/lib)
+find_package(Boost COMPONENTS system filesystem REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIR})
 
 #########################
 # add subdirectories 
@@ -96,6 +103,8 @@ if ("${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}" GREATER 2.8)
 endif()
 
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval/")
 
 #install(DIRECTORY ${ONLINECLUST_HMP_INCLUDE} DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/test/lib/inc")
 

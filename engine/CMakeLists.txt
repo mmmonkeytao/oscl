@@ -1,5 +1,6 @@
 set(SOURCES src/io.cpp
-            src/proc.cpp
+            src/reconstructIm.cpp
+	    src/procdir.cpp
   )
 
 set(HEADER_SUBDIR "include")
@@ -19,6 +20,6 @@ cache_internal_init_unique(OSCL_ENGINE_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/inclu
 cache_internal_init_unique(OSCL_ENGINE_LIBRARY oscl_engine)
 
 add_library(${OSCL_ENGINE_LIBRARY} ${SOURCES} ${PUBLIC_HEADERS})
-target_link_libraries(${OSCL_ENGINE_LIBRARY} ${OpenCV_LIBS} -L/usr/local/lib/ -ltbb)
+target_link_libraries(${OSCL_ENGINE_LIBRARY} ${OpenCV_LIBS} -L/usr/local/lib/ -ltbb ${Boost_FILESYSTEM_LIBRARIES} ${Boost_SYSTEM_LIBRARIES})
 
 cache_internal_append_unique(OSCL_LIBRARIES ${OSCL_ENGINE_LIBRARY})

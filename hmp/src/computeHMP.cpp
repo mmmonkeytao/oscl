@@ -1,6 +1,8 @@
 #include "hmp.h"
 #include "io.h"
 #include <fstream>
+#include <algorithm>
+#include <opencv2/core/eigen.hpp>
 
 void onlineclust::HMP::computeHMP(const char* rgb_dir, const char* depth_dir, Eigen::VectorXd &feaHMP)
 {
@@ -18,6 +20,7 @@ void onlineclust::HMP::computeHMP(const char* rgb_dir, const char* depth_dir, Ei
   feaHMP = Eigen::VectorXd{rgbfea.size() + depthfea.size()};
   feaHMP.head(depthfea.size()) = depthfea;
   feaHMP.tail(rgbfea.size()) = rgbfea;
+  feaHMP.normalize();
 }
 
 void onlineclust::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
@@ -38,6 +41,43 @@ void onlineclust::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
     // rgb to gray
     img1C = cv::Mat(rows, cols, CV_8UC1);
     cvtColor(img3C, img1C, CV_BGR2GRAY);
+
+    img3C.convertTo(img3C, CV_64FC3, 1.0/255.0);
+    img1C.convertTo(img1C, CV_64FC3, 1.0/255.0);
+
+    // if using image mask 
+    if(if_mask){
+      for(uint j = 0; j < cols; ++j)
+	for(uint i = 0; i < rows; ++i){
+	  double pixel = img1C.at<double>(i,j);
+
+	  if(pixel == 0.0){
+	    img3C.at<cv::Vec<double,3> >(i,j) = cv::Vec<double,3>(0.5,0.5,0.5); 
+	  }	  
+	}
+    }
+
+    // resize Image if necessary
+    if(resizetag){
+      
+      uint max = std::max(rows, cols);
+      uint min = std::min(rows, cols);
+      double scale;
+      if( max > maxsize){
+	scale = (double)maxsize / (double)max;
+	resize(img1C, img1C, cv::Size(), scale, scale, INTER_CUBIC);
+	resize(img3C, img3C, cv::Size(), scale, scale, INTER_CUBIC);
+      }
+
+      if( min < minsize){
+	scale = (double)minsize / (double)min;
+	resize(img1C, img1C, cv::Size(), scale, scale, INTER_CUBIC);
+	resize(img3C, img3C, cv::Size(), scale, scale, INTER_CUBIC);
+      }
+      // reassign values if they are changed
+      rows = img1C.rows;
+      cols = img1C.cols;
+    }
 
     // compute first level patch image size
     // 0: row, 1: col
@@ -136,48 +176,72 @@ void onlineclust::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
 	feaHMP.tail(rgb_first.size()) = rgb_first;
 	feaHMP.normalize();
 	return;      
-    }
+    } else
+      std::cerr << "Unknow feature type!\n";
 
   } else if(!ImgType.compare("depth")){
 
     // read Depth Image
-    engine::ImgReader(dir, ImgType.c_str(), imgDepth);
-
-    uint rows, cols;
-    rows = imgDepth.rows();
-    cols = imgDepth.cols();
-
-    // read location file
+    engine::ImgReader(dir, ImgType.c_str(), img1C);
+    img1C.convertTo(img1C, CV_64FC1);
+    
+    // read location file and convert from depth to normal
     string s(dir);
     s = s.substr(0, s.find_last_of("_")+1);
     s = s + "loc.txt";
-    
-    // depth to normal
+ 
     ifstream ifile(s.c_str());    
     ifile >> s;
     ifile.close();
 
-    //
     int topleft[2];
     topleft[0] = atoi(s.substr(s.find_first_of(",")+1, s.size()).c_str());
     topleft[1] = atoi(s.substr(0, s.find_first_of(",")).c_str());    
     depthtonormal(topleft);
 
-    // process imgDepth
-    double threshold = 1200.0;
+    // preprocess imgDepth
+    double lthreshold = 1200.0;
     if(if_mask){
-      imgDepth.cwiseMin(threshold);
+      img1C = min(img1C, lthreshold);
+      cv::Mat mask = img1C == 0.0;
+      img1C.setTo(400.0, mask);
+      img1C /= lthreshold;
 
-      for(uint j = 0; j < imgDepth.cols(); ++j)
-	for(uint i = 0; i < imgDepth.rows(); ++i)
-	  if(imgDepth(i,j) == 0.0)
-	    imgDepth(i,j) = 400.0;
-      imgDepth.array() = imgDepth.array() / threshold;
-      
-    } else {      
-      imgDepth.cwiseMin(threshold);
-      imgDepth.array() /= threshold;
+    } else {
+      img1C = min(img1C, lthreshold);
+      img1C /= lthreshold;
     }
+
+    // resize Image
+    if(resizetag){      
+      uint max = std::max(img1C.rows, img1C.cols);
+      uint min = std::min(img1C.rows, img1C.cols);
+      double scale;
+
+      if( max > maxsize){
+	scale = (double)maxsize / (double)max;
+	resize(img1C, img1C, cv::Size(), scale, scale, INTER_CUBIC);
+	resize(img3C, img3C, cv::Size(), scale, scale, INTER_CUBIC);
+      }
+
+      if( min < minsize){
+	scale = (double)minsize / (double)min;
+	resize(img1C, img1C, cv::Size(), scale, scale, INTER_CUBIC);
+	resize(img3C, img3C, cv::Size(), scale, scale, INTER_CUBIC);
+      }
+    }
+
+    //cv::cv2eigen(img1C, imgDepth);
+    // imgDepth = Eigen::Map<Eigen::MatrixXd,
+    // 			  Eigen::ColMajor,
+    // 			  Eigen::Stride<1,Eigen::Dynamic> >
+    //   (reinterpret_cast<double*>(img1C.data),
+    //    img1C.rows, img1C.cols,
+    //    Eigen::Stride<1,Eigen::Dynamic>(1, img1C.cols));
+
+    uint rows, cols;
+    rows = img1C.rows;
+    cols = img1C.cols;
 
     // compute first level patch image size
     // 0: row, 1: col
@@ -195,7 +259,7 @@ void onlineclust::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
     // first layer coding
     omp::Batch_OMP(normalPatch, D1normal, spl[0], Gamma3C);
     omp::Batch_OMP(depthPatch, D1depth, spl[0], Gamma1C);
-    
+
     // convert to absolute value
     Gamma3C = Gamma3C.cwiseAbs();
     Gamma1C = Gamma1C.cwiseAbs();
@@ -204,7 +268,7 @@ void onlineclust::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
     MatrixXd normal_pooling_l1, depth_pooling_l1; 
     max_pooling_layer1(normal_pooling_l1, "3C");
     max_pooling_layer1(depth_pooling_l1,"1C");
-  
+
     // update L1sz
     L1sz[0] = floor((float)L1sz[0]/(float)encode_first_pooling);
     L1sz[1] = floor((float)L1sz[1]/(float)encode_first_pooling);

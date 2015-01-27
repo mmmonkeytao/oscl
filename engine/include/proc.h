@@ -12,35 +12,17 @@ namespace onlineclust
 
   namespace engine
   {
-    /// image to patch matrix as output 
-    /// in which each column represents patch from  
-    /// every channel, the order is [r;g;b].
-    /// 
-    // template<typename T>
-    //inline void img2patchMat(Mat const& input, Size patchSize, Size stepSize,Mat &outPatch2dMat);
-    void Img2Patch(cv::Mat const& input, cv::Size patchSize, cv::Size stepSize, cv::Mat &patch2dMat);
 
-    void Img2Patch(cv::Mat const& input, cv::Size patchSize, cv::Size stepSize, Eigen::MatrixXd &patch2dMat);
+    /** process on directories */
+    void sub_dir(const char*path_prefix, std::vector<std::string> &subnames);
+    void sub_dir_files(const char*path_prefix, const char*suffix, std::vector<std::string> &subnames);
 
-    /// 
-    ///
-    /// @param im 
-    ///
+
+    /** reconstruct image from matrix */
     void reconstructIm(cv::Mat &im, cv::Size imSize, cv::Size patch, cv::Size stepsz, cv::Mat &mat);
-    /// 
-    ///
-    /// @param im 
-    /// @param imSize 
-    /// @param patch 
-    /// @param stepsz 
-    /// @param mat 
-    ///
     void reconstructIm(Eigen::MatrixXd &im, cv::Size imSize, cv::Size patch, cv::Size stepsz, cv::Mat &mat);
 
   }
-
-
-
   
 }
 
