@@ -4,11 +4,10 @@
 #include <iostream>
 #include <Eigen/Dense>
 #include <opencv2/opencv.hpp>
+#include "deftype.h"
 
-namespace onlineclust
+namespace oscl
 {
-
-  using Vec3u8 = cv::Vec<uint8_t, 3>;
 
   namespace engine
   {
@@ -22,6 +21,9 @@ namespace onlineclust
     void reconstructIm(cv::Mat &im, cv::Size imSize, cv::Size patch, cv::Size stepsz, cv::Mat &mat);
     void reconstructIm(Eigen::MatrixXd &im, cv::Size imSize, cv::Size patch, cv::Size stepsz, cv::Mat &mat);
 
+    /** process strings */
+    // convert a line of string to store in a eigen3 vector
+    void str2doubles(std::string &str, const char*separator, std::vector<double> &v);
   }
   
 }

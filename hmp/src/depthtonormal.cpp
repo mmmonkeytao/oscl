@@ -108,7 +108,7 @@
 // }
 
 
-void onlineclust::HMP::depthtonormal(int topleft[2])
+void oscl::HMP::depthtonormal(int topleft[2])
 // pcdis is to check
 {
   /** depth to point cloud */

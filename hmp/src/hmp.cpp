@@ -8,7 +8,7 @@
 //#include <cstdlib>
 //#include <algorithm>
 
-onlineclust::HMP::HMP(const char* ConfigDir, const char* ImgType, const char* FeaType)
+oscl::HMP::HMP(const char* ConfigDir, const char* ImgType, const char* FeaType)
 {
   this->FeaType = std::string(FeaType);
   this->ImgType = std::string(ImgType);
@@ -31,7 +31,7 @@ onlineclust::HMP::HMP(const char* ConfigDir, const char* ImgType, const char* Fe
   resizetag = (bool)(atoi(param.c_str()));
 }
 
-onlineclust::HMP::~HMP()
+oscl::HMP::~HMP()
 {
   D1rgb = Eigen::MatrixXd();
   D2rgb = Eigen::MatrixXd();

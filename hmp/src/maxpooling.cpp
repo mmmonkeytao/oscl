@@ -1,6 +1,6 @@
 #include "hmp.h"
 
-void onlineclust::HMP::max_pooling_layer2(Eigen::VectorXd& rgb_fea, Eigen::VectorXd& gray_fea)
+void oscl::HMP::max_pooling_layer2(Eigen::VectorXd& rgb_fea, Eigen::VectorXd& gray_fea)
 {
   uint fea_x = L2sz[0];
   uint fea_y = L2sz[1];
@@ -58,7 +58,7 @@ void onlineclust::HMP::max_pooling_layer2(Eigen::VectorXd& rgb_fea, Eigen::Vecto
   
 }
 
-void onlineclust::HMP::max_pooling_layer1(Eigen::MatrixXd &pooling_l1,
+void oscl::HMP::max_pooling_layer1(Eigen::MatrixXd &pooling_l1,
 					  const char* type)
 {
   uint pooling_row = floor((float)L1sz[0]/(float)encode_first_pooling);

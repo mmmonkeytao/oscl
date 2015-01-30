@@ -3,7 +3,7 @@
 #include <cmath>
 
 
-void onlineclust::loadDct(const char* file, int rows, int cols, Eigen::MatrixXd& D)
+void oscl::loadDct(const char* file, int rows, int cols, Eigen::MatrixXd& D)
 {
   std::ifstream input(file);
   D = Eigen::MatrixXd{rows, cols};
@@ -17,7 +17,7 @@ void onlineclust::loadDct(const char* file, int rows, int cols, Eigen::MatrixXd&
   std::cout << "Loading completes. Dictionary size is: " << D.rows() << "x" << D.cols() << std::endl;
 }
 
-void onlineclust::remove_dc(Eigen::MatrixXd &X, const char* type)
+void oscl::remove_dc(Eigen::MatrixXd &X, const char* type)
 {
   if(!strcmp(type, "column")){
     

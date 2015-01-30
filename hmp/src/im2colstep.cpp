@@ -2,7 +2,7 @@
 #include "io.h"
 #include <fstream>
 
-void onlineclust::HMP::im2colstep(Eigen::MatrixXd &im1, Eigen::MatrixXd &im2, const char* type)
+void oscl::HMP::im2colstep(Eigen::MatrixXd &im1, Eigen::MatrixXd &im2, const char* type)
 {
   // for rgb type im1 is rgb, im2 is gray
   // for depth type im1 is normal, im2 is depth

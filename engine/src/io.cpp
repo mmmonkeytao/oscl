@@ -5,7 +5,7 @@
 #include <fstream>
 #include <opencv2/core/eigen.hpp>
 
-std::string onlineclust::engine::readParameter(const char file[], const char param[])
+std::string oscl::engine::readParameter(const char file[], const char param[])
 {
   std::ifstream ifile(file);
 
@@ -25,7 +25,7 @@ std::string onlineclust::engine::readParameter(const char file[], const char par
   
 }
 
-void onlineclust::engine::saveMat(const char dir[], Eigen::MatrixXd &mat, bool if_set_dim)
+void oscl::engine::saveMat(const char dir[], Eigen::MatrixXd &mat, bool if_set_dim)
 {
   std::ofstream ofile(dir);
 
@@ -41,9 +41,7 @@ void onlineclust::engine::saveMat(const char dir[], Eigen::MatrixXd &mat, bool i
   ofile.close();
 }
 
-
-
-void onlineclust::engine::ImgReader(const char *file, const char*type, cv::Mat&matImage)
+void oscl::engine::ImgReader(const char *file, const char*type, cv::Mat&matImage)
 {
   std::cout << "\nReading " << type << " Image:\n" 
 	    << file << std::endl; 
@@ -72,7 +70,7 @@ void onlineclust::engine::ImgReader(const char *file, const char*type, cv::Mat&m
     throw std::runtime_error("\nUnknown type of image.\n");
 }
 
-void onlineclust::engine::ImgReader(const char *file, const char*type, Eigen::MatrixXd& eigenImage)
+void oscl::engine::ImgReader(const char *file, const char*type, Eigen::MatrixXd& eigenImage)
 { 
   std::cout << "\nReading " << type << " Image:\n" 
 	    << file << std::endl; 
@@ -122,13 +120,13 @@ void onlineclust::engine::ImgReader(const char *file, const char*type, Eigen::Ma
   else throw std::runtime_error("\nUnknown type of image.\n");
 }
 
-void onlineclust::engine::ImgDim(cv::Mat const&Image)
+void oscl::engine::ImgDim(cv::Mat const&Image)
 { 
   std::cout << "\nImage size:\n" 
 	    << Image.rows << "x" << Image.cols << "x" << Image.channels() << std::endl;
 }
 
-void onlineclust::engine::DispImg(cv::Mat const& Image, const char* name)
+void oscl::engine::DispImg(cv::Mat const& Image, const char* name)
 {
   namedWindow( name, cv::WINDOW_NORMAL ); // Create a window for display.
   imshow( name, Image );                // Show our image inside it.

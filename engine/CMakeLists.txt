@@ -1,12 +1,15 @@
 set(SOURCES src/io.cpp
             src/reconstructIm.cpp
 	    src/procdir.cpp
+	    src/readHMPfile.cpp
+	    src/strproc.cpp
   )
 
 set(HEADER_SUBDIR "include")
 
 set(PUBLIC_HEADERS ${HEADER_SUBDIR}/io.h
-                   ${HEADER_SUBDIR}/proc.h )
+                   ${HEADER_SUBDIR}/proc.h
+                   ${HEADER_SUBDIR}/deftype.h)
 
 # append include files
 #list(APPEND GLOBAL_INC_PATH ${PUBLIC_HEADERS})

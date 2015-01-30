@@ -70,11 +70,17 @@ find_package(Boost COMPONENTS system filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
+# gsl
+set(GSL_INCLUD_DIR "/usr/local/Cellar/gsl/1.16")
+include_directories(${GSL_INCLUDE_DIR})
+
 #########################
 # add subdirectories 
 #########################
 add_subdirectory(engine)
 add_subdirectory(hmp)
+add_subdirectory(clustering)
+add_subdirectory(lposc)
 add_subdirectory(test)
 
 
@@ -104,7 +110,15 @@ endif()
 
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp/")
 
-install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval/")
+#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval/")
+
+#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_readfile" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_readfile/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/clustering_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/clustering_test/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/lposc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/lposc_test/")
+
+#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval_full" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval_full/")
 
 #install(DIRECTORY ${ONLINECLUST_HMP_INCLUDE} DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/test/lib/inc")
 

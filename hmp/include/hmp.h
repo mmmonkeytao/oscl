@@ -7,7 +7,7 @@
 #include <opencv2/opencv.hpp>
 
 
-namespace onlineclust{
+namespace oscl{
 
   using uchar = unsigned char;
  

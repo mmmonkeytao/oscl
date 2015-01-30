@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <opencv2/core/eigen.hpp>
 
-void onlineclust::HMP::computeHMP(const char* rgb_dir, const char* depth_dir, Eigen::VectorXd &feaHMP)
+void oscl::HMP::computeHMP(const char* rgb_dir, const char* depth_dir, Eigen::VectorXd &feaHMP)
 {
 
   Eigen::VectorXd rgbfea, depthfea;
@@ -23,7 +23,7 @@ void onlineclust::HMP::computeHMP(const char* rgb_dir, const char* depth_dir, Ei
   feaHMP.normalize();
 }
 
-void onlineclust::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
+void oscl::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
 {
   using namespace Eigen;
   using namespace cv;

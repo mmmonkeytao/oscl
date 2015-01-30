@@ -5,7 +5,7 @@
 #include <fstream>
 
 
-void onlineclust::omp::Batch_OMP( Eigen::MatrixXd const& X, Eigen::MatrixXd const& D, uint SPlevel, Eigen::MatrixXd &Gamma )
+void oscl::omp::Batch_OMP( Eigen::MatrixXd const& X, Eigen::MatrixXd const& D, uint SPlevel, Eigen::MatrixXd &Gamma )
 {
   using namespace Eigen;
   using namespace std;
@@ -51,8 +51,8 @@ void onlineclust::omp::Batch_OMP( Eigen::MatrixXd const& X, Eigen::MatrixXd cons
       // select same atom or dependent atom
       if(selected[k] || alpha_k*alpha_k < 1e-14) break;
 
-      //if(j > 0 && !onlineclust::omp::updateL(L, G, I, k)) break;
-      if(j > 0 && !onlineclust::omp::updateL(L, G, I, k)){
+      //if(j > 0 && !oscl::omp::updateL(L, G, I, k)) break;
+      if(j > 0 && !oscl::omp::updateL(L, G, I, k)){
 	  break;
       } 
 
@@ -75,7 +75,7 @@ void onlineclust::omp::Batch_OMP( Eigen::MatrixXd const& X, Eigen::MatrixXd cons
   }
 }
 
-bool onlineclust::omp::updateL( Eigen::MatrixXd & L, Eigen::MatrixXd const& G, std::vector<uint> const& I, uint k)
+bool oscl::omp::updateL( Eigen::MatrixXd & L, Eigen::MatrixXd const& G, std::vector<uint> const& I, uint k)
 {
   uint dim = I.size();
   Eigen::VectorXd g{dim};
@@ -100,7 +100,7 @@ bool onlineclust::omp::updateL( Eigen::MatrixXd & L, Eigen::MatrixXd const& G, s
   return true;
 }
 
-void onlineclust::omp::LL_solver(Eigen::MatrixXd const& L, Eigen::VectorXd const& b, uint dimL, const char* type, Eigen::VectorXd& x)
+void oscl::omp::LL_solver(Eigen::MatrixXd const& L, Eigen::VectorXd const& b, uint dimL, const char* type, Eigen::VectorXd& x)
 {
   Eigen::VectorXd w{dimL}, b1{b.head(dimL)};
    
@@ -125,7 +125,7 @@ void onlineclust::omp::LL_solver(Eigen::MatrixXd const& L, Eigen::VectorXd const
   }
 }
 
-void onlineclust::omp::maxIdxVec(Eigen::VectorXd const& v, uint &maxIdx)
+void oscl::omp::maxIdxVec(Eigen::VectorXd const& v, uint &maxIdx)
 {
   double max = -1;
   

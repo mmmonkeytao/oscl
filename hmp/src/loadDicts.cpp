@@ -1,7 +1,7 @@
 #include "hmp.h"
 #include "io.h"
 
-void onlineclust::HMP::loadDicts()
+void oscl::HMP::loadDicts()
 {
   if(!ImgType.compare("rgb")){
 

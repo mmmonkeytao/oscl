@@ -8,8 +8,8 @@
 #include <fstream>
 #include <chrono>
 
-using namespace onlineclust;
-using namespace onlineclust::omp;
+using namespace oscl;
+using namespace oscl::omp;
 using namespace cv;
 using namespace Eigen;
 using namespace std;
@@ -18,13 +18,13 @@ using namespace std::chrono;
 
 int main(){
 
-      HMP hmp("hmp.config", "rgb","second+first");
-      char rgbdir[] = "bell_pepper_3_1_1_crop.png";
-      char depthdir[] = "bell_pepper_3_1_1_depthcrop.png";
+      HMP hmp("hmp.config", "depth","second+first");
+      char rgbdir[] = "camera_1_1_1_crop.png";
+      char depthdir[] = "camera_1_1_1_depthcrop.png";
 
       VectorXd fea;
       high_resolution_clock::time_point t1 = high_resolution_clock::now();
-      hmp.computeHMP(rgbdir, fea);
+      hmp.computeHMP(depthdir, fea);
       high_resolution_clock::time_point t2 = high_resolution_clock::now();
 
       cout << "Time spent for HMP feature: "
