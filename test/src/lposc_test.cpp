@@ -7,8 +7,9 @@
 using namespace std;
 using namespace oscl;
 
-const uint NUM_FILES = 5;
+const uint NUM_FILES = 1;
 const uint FEA_SIZE = 42000;
+const uint NUM_SAVE_PER_ITER = 1;
 
 int main(int argc, char** argv){
 
@@ -53,22 +54,22 @@ int main(int argc, char** argv){
 
       lposc.insert(v, static_cast<int>(label));
 
-      if( (fea_counter+1)%50 == 0 ||
+      if( (fea_counter+1)%NUM_SAVE_PER_ITER == 0 ||
 	  (i == (NUM_FILES-1) && j == fea_num-1) ){
 
 #ifdef OPTIMIZE
-	clock_t t = clock();
+	//clock_t t = clock();
 #endif
 	lposc.calc_Vmeasure();	
 	lposc.center_label_propagation("threshold");
 	lposc.center_label_propagation("current_edge");
 	lposc.center_label_propagation("all_edge");
 #ifdef OPTIMIZE
-	t = clock()-t;
+	//t = clock()-t;
 #endif
 	cout << "Inserted " << fea_counter << "\n";
 #ifdef OPTIMIZE
-	cout << "Time spent for label_propagation: "<< (float)t/CLOCKS_PER_SEC << endl << endl;
+	//cout << "Time spent for label_propagation: "<< (float)t/CLOCKS_PER_SEC << endl << endl;
 #endif	
       }
  
@@ -80,7 +81,7 @@ int main(int argc, char** argv){
   cout << "Insertion completes.\n";
   lposc.V_measure(1, true);
   lposc.exportClusterInfo("clusterInfo.dat",0);
-  //lposc.save_eval_files("./rgbd2");
+  lposc.save_eval_files("./rgbd2");
 
   return 0;
 }

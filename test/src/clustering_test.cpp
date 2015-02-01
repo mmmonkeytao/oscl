@@ -1,4 +1,5 @@
 #include "OnlineStarClustering.h"
+#include "LPOSC.h"
 #include <fstream>
 #include <Eigen/Dense>
 #include <iomanip>
@@ -89,6 +90,8 @@ int main(int argc, char** argv)
     double sigma = 0.4;
 
     while(sigma < 0.95 + 10e-3){      
+
+      cout << "Sigma: " << sigma << endl;
       
       OnlineStarClustering osc(fea_size, "Gaussian", sigma);
 
@@ -97,7 +100,7 @@ int main(int argc, char** argv)
       }
 
       osc.V_measure(1, true);
-
+      cout << "\n";
       sigma += 0.05;
 
       // if(sigma == 0.70){

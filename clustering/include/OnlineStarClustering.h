@@ -58,7 +58,7 @@ namespace oscl {
 
     // cluster measurement
     void V_measure(double beta, bool message);
-    double GaussianKernel(uint id1, uint id2, double sigma2 = 0.2) const;
+    double GaussianKernel(uint id1, uint id2, double sigma2 = 1.0) const;
     void exportSimilarityMat(const char*, bool sort);
  
   protected:

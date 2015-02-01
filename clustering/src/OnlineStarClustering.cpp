@@ -29,6 +29,6 @@ uint OnlineStarClustering::getDataSize()
 }
 
 double OnlineStarClustering::GaussianKernel(uint id1, uint id2, double sigma2) const
-{      
+{
   return exp(-(_data[id1] - _data[id2]).squaredNorm()/(2*sigma2));
 }

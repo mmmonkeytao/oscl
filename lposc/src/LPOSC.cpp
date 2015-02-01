@@ -216,12 +216,13 @@ void oscl::LPOSC::jacobi_label_propagation()
     do{
       Yt = Yt1;    
       Yt1 = Ainv.array() * (u * current_threshold_graph * Yt + Y0).array();
-    }while( (Yt - Yt1).norm() > 10e-6 );
+      
+    }while( (Yt - Yt1).norm() > 10e-3 );
 
     selectgraph.col(i) = Yt1;        
     ++i;
   }
-
+  
   Ylabel = VectorXi{datasize};
 
   for(uint i = 0; i < datasize; ++i){
@@ -230,7 +231,7 @@ void oscl::LPOSC::jacobi_label_propagation()
 
     Ylabel(i) = loclabels[maxrow];
   }
-
+  
 }
 
 void oscl::LPOSC::initialize_Ainv()
@@ -285,7 +286,9 @@ void oscl::LPOSC::insert(VectorXd vec, int label)
   // update similarity matrix and sigma graph
   //_sigmaGraph.conservativeResize(_data.size(), _data.size());
   _similarityMatrix.conservativeResize(_data.size(), _data.size());
-
+  _similarityMatrix.bottomRows(1).setZero();
+  _similarityMatrix.rightCols(1).setZero();
+  
 #ifdef OPTIMIZE
   t = clock() - t;
   std::cout << "Time spent for conservative Resize Matrix: "
