@@ -3,6 +3,7 @@
 #include <fstream>
 #include <algorithm>
 #include <opencv2/core/eigen.hpp>
+#include <cmath>
 
 void oscl::HMP::computeHMP(const char* rgb_dir, const char* depth_dir, Eigen::VectorXd &feaHMP)
 {

@@ -4,6 +4,7 @@
 #include <cmath>
 #include <fstream>
 #include <opencv2/core/eigen.hpp>
+#include <stdexcept>
 
 std::string oscl::engine::readParameter(const char file[], const char param[])
 {

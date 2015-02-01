@@ -1,6 +1,7 @@
 #include "hmp.h"
 #include "io.h"
 #include <fstream>
+#include <utility>
 
 void oscl::HMP::im2colstep(Eigen::MatrixXd &im1, Eigen::MatrixXd &im2, const char* type)
 {

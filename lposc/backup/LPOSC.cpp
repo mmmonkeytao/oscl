@@ -11,26 +11,27 @@ oscl::LPOSC::LPOSC(uint feaSize, string feaType, double sigma)
 void oscl::LPOSC::center_label_propagation(const char* type)
 {
   uint datasize = _data.size();
-
-  current_threshold_graph = MatrixXd{datasize, datasize};
-
+  
   if(!strcmp(type, "threshold")){
 
-    current_threshold_graph = _similarityMatrix;
+    current_threshold_graph = MatrixXd{datasize, datasize};
+    current_threshold_graph = MatrixXd(_sigmaGraph).array() * _similarityMatrix.array();// + MatrixXd::Identity(datasize, datasize).array();
+    
     jacobi_label_propagation();
     totlabels_threshold.push_back(Ylabel);
 
   } else if(!strcmp(type, "current_edge")){
-    
-    update_current_edge_graph();
-    current_threshold_graph = _similarityMatrix.array() * current_edges_graph.array();
+
+    current_threshold_graph = MatrixXd{datasize, datasize};
+    current_threshold_graph = MatrixXd(_sigmaGraph).array() * current_edges_graph.array();// + MatrixXd::Identity(datasize, datasize).array();
 
     jacobi_label_propagation();    
     totlabels_edges.push_back(Ylabel);    
 
   } else if(!strcmp(type, "all_edge")){
-    
-    current_threshold_graph = _similarityMatrix.array() * totedges_graph.array();
+
+    current_threshold_graph = MatrixXd{datasize, datasize};
+    current_threshold_graph = MatrixXd(_sigmaGraph).array() * totedges_graph.array();// + MatrixXd::Identity(datasize, datasize).array();
 
     jacobi_label_propagation();    
     totlabels_alledges.push_back(Ylabel);
@@ -64,13 +65,10 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   
   for(uint i = 1; i < iter_num; ++i){
 
-    uint current_size = totlabels_threshold[i].size();
-    uint previous_size = totlabels_threshold[i-1].size();
-    
     // label changed
     int counter1 = 0, counter2 = 0, counter3 = 0;
     
-    for(uint j = 0; j < previous_size; ++j){
+    for(uint j = 0; j < totlabels_threshold[i-1].size(); ++j){
       if(totlabels_threshold[i](j) != totlabels_threshold[i-1](j))
 	++counter1;
       
@@ -81,45 +79,44 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
 	++counter3;
     }
 
-    lch_threshold.push_back((float)counter1/(float)previous_size);
-    lch_edges.push_back((float)counter2/(float)previous_size);
-    lch_alledges.push_back((float)counter3/(float)previous_size);
+    lch_threshold.push_back((float)counter1/(float)(totlabels_threshold[i-1].size()));
+    lch_edges.push_back((float)counter2/(float)(totlabels_threshold[i-1].size()));
+    lch_alledges.push_back((float)counter3/(float)(totlabels_threshold[i-1].size()));
 
     // center-star changed
-    VectorXi vold = VectorXi::Zero(previous_size), vnew = VectorXi::Zero(previous_size);
-
-    for(auto &x: allcenterslist[previous_size-1])
+    VectorXi vold = VectorXi::Zero(totlabels_threshold[i-1].size()), vnew = VectorXi::Zero(totlabels_threshold[i-1].size());
+    for(auto &x: allcenterslist[totlabels_threshold[i-1].size()-1])
       vold(x) = 1;
-    for(auto &x: allcenterslist[current_size-1])
-      if(x < previous_size)
+    for(auto &x: allcenterslist[totlabels_threshold[i].size()])
+      if(x < allcenterslist[totlabels_threshold[i-1].size()-1].size())
 	vnew(x) = 1;
-    int NotEqual = (vold.cwiseNotEqual(vnew)).sum();   
-    role_ch.push_back((float)NotEqual/(float)previous_size);
-    
     // star's dom center changed
     counter1 = 0;
-    for(auto &x: allstarslist[previous_size-1])
+    for(auto &x: allstarslist[totlabels_threshold[i-1].size()-1])
       if(_graph[x].getType() == Vertex::SATELLITE){
-	auto iter = std::find(allstarslist[current_size-1].begin(), allstarslist[current_size-1].end(), x);
-	if(iter != allstarslist[current_size-1].end() && _graph[*iter].getType() == Vertex::SATELLITE){
+	auto iter = std::find(allstarslist[totlabels_threshold[i].size()-1].begin(), allstarslist[totlabels_threshold[i].size()-1].end(), x);
+	if(iter != allstarslist[totlabels_threshold[i].size()-1].end() && _graph[*iter].getType() == Vertex::SATELLITE){
 	  if(_graph[x].getDomCenter() != _graph[*iter].getDomCenter())
 	    ++counter1;
 	}
       }
-    domcenterch.push_back((float)counter1/(float)previous_size);
+    domcenterch.push_back(counter1);
+
+    int NotEqual = (vold.cwiseNotEqual(vnew)).sum();   
+    role_ch.push_back((float)NotEqual/(float)totlabels_threshold[i-1].size());
 
     // single nodes
     counter1 = 0;
-    for(uint j = 0; j < current_size; ++j){
+    for(uint j = 0; j < totlabels_threshold[i].size(); ++j){
       Vertex vertex = _graph[j];
       if(vertex.getType() == Vertex::CENTER){
 	if(_graph[j].getDomSatsList().size() == 0)
 	  ++counter1;
       }
     }
-    singleNodes.push_back((float)counter1/(float)current_size);
+    singleNodes.push_back((float)counter1/(float)totlabels_threshold[i].size());
     // Hqueries
-    Hqueries.push_back((float)(allcenterslist[current_size-1].size()-counter1)/(float)current_size);
+    Hqueries.push_back((float)(allcenterslist[totlabels_threshold[i].size()-1].size()-counter1)/(float)totlabels_threshold[i].size());
         
   }
 
@@ -215,7 +212,7 @@ void oscl::LPOSC::jacobi_label_propagation()
 
     do{
       Yt = Yt1;    
-      Yt1 = Ainv.array() * (u * current_threshold_graph * Yt + Y0).array();
+      Yt1 = Ainv * (u * current_threshold_graph * Yt + Y0);
     }while( (Yt - Yt1).norm() > 10e-6 );
 
     selectgraph.col(i) = Yt1;        
@@ -235,16 +232,19 @@ void oscl::LPOSC::jacobi_label_propagation()
 
 void oscl::LPOSC::initialize_Ainv()
 {
-  Ainv = Eigen::VectorXd::Zero(_data.size());
-  Ainv = current_threshold_graph.rowwise().sum();
+  Ainv = Eigen::MatrixXd::Identity(_data.size(), _data.size());
 
-  Ainv = (Ainv*u).array() + u*eps;
+  Eigen::VectorXd W(_data.size());
+  W = current_threshold_graph.rowwise().sum();
+
+  W = (W*u).array() + u*eps;
 
   for(auto &x: allcenterslist[_data.size()-1]){
-    Ainv(x) += 1; 
+    W(x) += 1; 
   }
 
-  Ainv = Ainv.array().inverse();    
+  W = W.array().inverse();    
+  Ainv = MatrixXd(W.asDiagonal());    
 }
 
 void oscl::LPOSC::initialize_current_label_vector(int label)
@@ -269,7 +269,6 @@ void oscl::LPOSC::insert(VectorXd vec, int label)
   _labels[_data.size()-1] = static_cast<int>(label);
 
   // insert into label list
-  // check for new labels
   if(labelist.find(label) != labelist.end()){
     labelist[label]++;
   }else{
@@ -283,24 +282,24 @@ void oscl::LPOSC::insert(VectorXd vec, int label)
   clock_t t = clock();
 #endif
   // update similarity matrix and sigma graph
-  //_sigmaGraph.conservativeResize(_data.size(), _data.size());
+  _sigmaGraph.conservativeResize(_data.size(), _data.size());
   _similarityMatrix.conservativeResize(_data.size(), _data.size());
 
 #ifdef OPTIMIZE
   t = clock() - t;
   std::cout << "Time spent for conservative Resize Matrix: "
 	    << (float)t / CLOCKS_PER_SEC << std::endl;
-  t = clock();
+t = clock();
 #endif
 
   uint dataID = _data.size()-1;
   for(uint i = 0; i < _data.size()-1; ++i){
 
     double sv = computeSimilarity(i, dataID);
+    _similarityMatrix(i, dataID) = _similarityMatrix(dataID, i) = sv;
 
-    if ( sv > _sigma){
-      _similarityMatrix(i, dataID) = _similarityMatrix(dataID, i) = sv;
-      //_sigmaGraph.insert(dataID, i) = 1;
+    if ( sv > _sigma){        
+      _sigmaGraph.insert(dataID, i) = 1;
       L.push_back(i);
     }
 
@@ -326,7 +325,7 @@ void oscl::LPOSC::insert(VectorXd vec, int label)
   t = clock();
 #endif
   init_center_star_list();
-  update_totedge_graph();
+  update_edge_graph();
 
 #ifdef OPTIMIZE
   t = clock() - t;
@@ -342,7 +341,7 @@ void oscl::LPOSC::calc_Vmeasure()
   complete.push_back(c);  
 }
 
-void oscl::LPOSC::update_totedge_graph()
+void oscl::LPOSC::update_edge_graph()
 {
   totedges_graph.conservativeResize(_data.size(), _data.size());
   totedges_graph.bottomRows(1).setZero();
@@ -354,24 +353,11 @@ void oscl::LPOSC::update_totedge_graph()
 
     for(auto &id2: ls){
       totedges_graph(id2, id1) = totedges_graph(id1, id2) = 1;
+      current_edges_graph(id2, id1) = current_edges_graph(id1, id2) = 1;
     }
     
-  }  
-}
-
-void oscl::LPOSC::update_current_edge_graph()
-{
-  current_edges_graph = Eigen::MatrixXd::Zero(_data.size(), _data.size());
-
-  for(auto &id1: allcenterslist[_data.size()-1]){
-    auto ls = _graph[id1].getDomSatsList();
-
-    for(auto &id2: ls){
-     current_edges_graph(id2, id1) = current_edges_graph(id1, id2) = 1;
-    }
-    
-  }  
-
+  }
+  
 }
 
 void oscl::LPOSC::init_center_star_list()

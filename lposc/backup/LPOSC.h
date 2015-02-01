@@ -30,8 +30,7 @@ namespace oscl{
     void jacobi_label_propagation();
 
     void init_center_star_list();
-    void update_totedge_graph();
-    void update_current_edge_graph();
+    void update_edge_graph();
 
     void save_eval_files(const char* prefix);
     void current_accuracy();
@@ -43,8 +42,7 @@ namespace oscl{
     vector<Eigen::VectorXi> totlabels_threshold;
     vector<Eigen::VectorXi> totlabels_edges;
     vector<Eigen::VectorXi> totlabels_alledges;
-
-    //    Eigen::SparseMatrix<double> similarityMatrix;
+    
     Eigen::MatrixXd current_threshold_graph;
     Eigen::MatrixXd totedges_graph;
     Eigen::MatrixXd current_edges_graph;
@@ -55,7 +53,7 @@ namespace oscl{
     vector<double> homo, complete;
     
     Eigen::VectorXd Y0;
-    Eigen::VectorXd Ainv;
+    Eigen::MatrixXd Ainv;
     Eigen::VectorXi Ylabel;
     
     map<int, uint> labelist;
