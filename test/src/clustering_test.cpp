@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 
   } else {
 
-    string path_depth21("rgbd21_");
+    string path_depth21("rgbd2_");
     string labels("label_");
 
     vector<VectorXd> data;
@@ -86,11 +86,11 @@ int main(int argc, char** argv)
 
     cout << "loaded data\n";
 
-    double sigma = 0.65;
+    double sigma = 0.4;
 
     while(sigma < 0.95 + 10e-3){      
       
-      OnlineStarClustering osc(fea_size, "dot", sigma);
+      OnlineStarClustering osc(fea_size, "Gaussian", sigma);
 
       for(uint i = 0; i < data.size(); ++i){
       	osc.insert(data[i], label[i]);
@@ -100,11 +100,11 @@ int main(int argc, char** argv)
 
       sigma += 0.05;
 
-      if(sigma == 0.70){
-      	ofstream out("simMat.dat");
-      	out << osc.getSimilarityMat() << endl;
-      	out.close();
-      }
+      // if(sigma == 0.70){
+      // 	ofstream out("simMat.dat");
+      // 	out << osc.getSimilarityMat() << endl;
+      // 	out.close();
+      // }
     }
     
   }

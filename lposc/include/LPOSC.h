@@ -34,6 +34,8 @@ namespace oscl{
 
     void save_eval_files(const char* prefix);
     void current_accuracy();
+    void calc_Vmeasure();
+    
   private:
 
     // store all previous propagated labels

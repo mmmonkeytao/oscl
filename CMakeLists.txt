@@ -45,8 +45,17 @@ set(OSCL_LIBRARIES CACHE INTERNAL
 ########################
 # compiler settings
 ########################
-set(CMAKE_CXX_COMPILER "/usr/bin/g++")
+# major working compiler clang++3.5
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -Wall -g -O3")
+
+# openmp/clang
+set(CMAKE_CXX_COMPILER "/Users/taoyeandy/code/llvm/build/Debug+Asserts/bin/clang2++")
+set(CMAKE_CXX_FLAGS "-std=c++11 -fopenmp -stdlib=libstdc++ -Wall -g -O3 -fopenmp -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include/c++/4.2.1 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include/c++/4.2.1/backward -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/include")
+
+# optional trial with bugs to be fixed
+#set(CMAKE_CXX_COMPILER "g++-4.9")
+#set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -g -O3 -Duint=uint32_t")
 
 ########################
 # Package Use 
@@ -83,7 +92,6 @@ add_subdirectory(clustering)
 add_subdirectory(lposc)
 add_subdirectory(test)
 
-
 # We want to create dynamic libraries
 set(BUILD_SHARED_LIBS true)
 
@@ -114,9 +122,11 @@ install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_test" DESTINATION "${CMA
 
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_readfile" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_readfile/")
 
-install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/clustering_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/clustering_test/")
+#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/clustering_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/clustering_test/")
 
-install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/lposc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/lposc_test/")
+#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/omp_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/omp_test/")
+
+#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/lposc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/lposc_test/")
 
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval_full" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval_full/")
 

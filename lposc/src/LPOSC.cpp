@@ -47,6 +47,7 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   vector<double> role_ch;
   vector<double> Hqueries;
   vector<double> singleNodes;
+  vector<double> domcenterch;
 
   lch_threshold.push_back(1.0);
   lch_edges.push_back(1.0);
@@ -54,12 +55,16 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   role_ch.push_back(1.0);
   Hqueries.push_back(1.0);
   singleNodes.push_back(1.0);
+  domcenterch.push_back(1.0);
+
+  uint iter_num = totlabels_threshold.size();
   
-  for(uint i = 1; i < _data.size(); ++i){
+  for(uint i = 1; i < iter_num; ++i){
 
     // label changed
     int counter1 = 0, counter2 = 0, counter3 = 0;
-    for(uint j = 0; j < i; ++j){
+    
+    for(uint j = 0; j < totlabels_threshold[i-1].size(); ++j){
       if(totlabels_threshold[i](j) != totlabels_threshold[i-1](j))
 	++counter1;
       
@@ -70,33 +75,44 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
 	++counter3;
     }
 
-    lch_threshold.push_back((float)counter1/(float)i);
-    lch_edges.push_back((float)counter2/(float)i);
-    lch_alledges.push_back((float)counter3/(float)i);
+    lch_threshold.push_back((float)counter1/(float)(totlabels_threshold[i-1].size()));
+    lch_edges.push_back((float)counter2/(float)(totlabels_threshold[i-1].size()));
+    lch_alledges.push_back((float)counter3/(float)(totlabels_threshold[i-1].size()));
 
     // center-star changed
-    VectorXi vold = VectorXi::Zero(i), vnew = VectorXi::Zero(i);
-    for(auto &x: allcenterslist[i-1])
+    VectorXi vold = VectorXi::Zero(totlabels_threshold[i-1].size()), vnew = VectorXi::Zero(totlabels_threshold[i-1].size());
+    for(auto &x: allcenterslist[totlabels_threshold[i-1].size()-1])
       vold(x) = 1;
-    for(auto &x: allcenterslist[i])
-      if(x != i)
+    for(auto &x: allcenterslist[totlabels_threshold[i].size()])
+      if(x < allcenterslist[totlabels_threshold[i-1].size()-1].size())
 	vnew(x) = 1;
+    // star's dom center changed
+    counter1 = 0;
+    for(auto &x: allstarslist[totlabels_threshold[i-1].size()-1])
+      if(_graph[x].getType() == Vertex::SATELLITE){
+	auto iter = std::find(allstarslist[totlabels_threshold[i].size()-1].begin(), allstarslist[totlabels_threshold[i].size()-1].end(), x);
+	if(iter != allstarslist[totlabels_threshold[i].size()-1].end() && _graph[*iter].getType() == Vertex::SATELLITE){
+	  if(_graph[x].getDomCenter() != _graph[*iter].getDomCenter())
+	    ++counter1;
+	}
+      }
+    domcenterch.push_back(counter1);
 
     int NotEqual = (vold.cwiseNotEqual(vnew)).sum();   
-    role_ch.push_back((float)NotEqual/(float)i);
+    role_ch.push_back((float)NotEqual/(float)totlabels_threshold[i-1].size());
 
     // single nodes
     counter1 = 0;
-    for(uint j = 0; j <= i; ++j){
+    for(uint j = 0; j < totlabels_threshold[i].size(); ++j){
       Vertex vertex = _graph[j];
       if(vertex.getType() == Vertex::CENTER){
 	if(_graph[j].getDomSatsList().size() == 0)
 	  ++counter1;
       }
     }
-    singleNodes.push_back((float)counter1/(float)(i+1));
+    singleNodes.push_back((float)counter1/(float)totlabels_threshold[i].size());
     // Hqueries
-    Hqueries.push_back((float)(allcenterslist[i].size()-counter1)/(float)(i+1));
+    Hqueries.push_back((float)(allcenterslist[totlabels_threshold[i].size()-1].size()-counter1)/(float)totlabels_threshold[i].size());
         
   }
 
@@ -104,7 +120,7 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   savepath = strprefix + iterpath;
   ofstream of1(savepath.c_str());
 
-  of1 << "threshold edges alledges rolechange Hqueries singleNodes Homo Completeness" << std::endl;
+  of1 << "threshold edges alledges rolechange Hqueries singleNodes Homo Completeness DomCenterCh" << std::endl;
 
   for(uint i = 0; i < lch_threshold.size(); ++i)
     of1 << lch_threshold[i] << " ";
@@ -130,6 +146,9 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   for(uint i = 0; i < complete.size(); ++i)
     of1 << complete[i] << " ";
   of1 << std::endl;
+  for(uint i = 0; i < domcenterch.size(); ++i)
+    of1 << domcenterch[i] << " ";
+  of1 << std::endl;
   of1.close();
 
   // save label proped at each iteration
@@ -137,7 +156,7 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   of1 = ofstream(savepath.c_str());
   for(uint i = 0; i < totlabels_threshold.size(); ++i){
     VectorXi v = VectorXi::Zero(_data.size());
-    v.head(i+1) = totlabels_threshold[i];
+    v.head(totlabels_threshold[i].size()) = totlabels_threshold[i];
     of1 << v.transpose() << std::endl;
   }
   of1.close();
@@ -146,7 +165,7 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   of1 = ofstream(savepath.c_str());
   for(uint i = 0; i < totlabels_edges.size(); ++i){
     VectorXi v = VectorXi::Zero(_data.size());
-    v.head(i+1) = totlabels_edges[i];
+    v.head(totlabels_edges[i].size()) = totlabels_edges[i];
     of1 << v.transpose() << std::endl;
   }
   of1.close();
@@ -155,7 +174,7 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   of1 = ofstream(savepath.c_str());
   for(uint i = 0; i < totlabels_alledges.size(); ++i){
     VectorXi v = VectorXi::Zero(_data.size());
-    v.head(i+1) = totlabels_alledges[i];
+    v.head(totlabels_alledges[i].size()) = totlabels_alledges[i];
     of1 << v.transpose() << std::endl;
   }
   of1.close();
@@ -261,7 +280,7 @@ void oscl::LPOSC::insert(VectorXd vec, int label)
     double sv = computeSimilarity(i, dataID);
     _similarityMatrix(i, dataID) = _similarityMatrix(dataID, i) = sv;
 
-    if ( sv >= _sigma){        
+    if ( sv > _sigma){        
       _sigmaGraph.insert(dataID, i) = 1;
       L.push_back(i);
     }
@@ -271,12 +290,16 @@ void oscl::LPOSC::insert(VectorXd vec, int label)
   fastInsert(dataID, L);
   L.clear();
 
-  init_center_star_list();
-  update_edge_graph();
+  //init_center_star_list();
+  //update_edge_graph();
 
+}
+
+void oscl::LPOSC::calc_Vmeasure()
+{
   V_measure(1, false);
   homo.push_back(h);
-  complete.push_back(c);
+  complete.push_back(c);  
 }
 
 void oscl::LPOSC::update_edge_graph()
