@@ -1,5 +1,7 @@
 set(SOURCES src/LPOSC.cpp
-            #src/Fmeasure.cpp
+            src/save_eval_files.cpp
+	    src/insert.cpp
+	    src/label_prop.cpp
             )
 
 set(HEADER_SUBDIR "include")
