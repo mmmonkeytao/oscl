@@ -77,9 +77,9 @@ namespace oscl{
     
     map<int, uint> labelist;
 
-    const double alpha = 0.2;
+    const double alpha = 0.001;
     const double u = alpha/(1-alpha);
-    const double eps = 0.1;
+    const double eps = 0.7;
     
   };
 

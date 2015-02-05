@@ -69,9 +69,9 @@ int main(int argc, char** argv){
 	clock_t t = clock();
 #endif
 	lposc.calc_Vmeasure();	
-	lposc.center_label_propagation("threshold");
+	//lposc.center_label_propagation("threshold");
 	lposc.center_label_propagation("current_edge");
-	lposc.center_label_propagation("all_edge");
+	//lposc.center_label_propagation("all_edge");
 #ifdef OPTIMIZE
 	t = clock()-t;
 #endif
@@ -87,12 +87,12 @@ int main(int argc, char** argv){
     idata.close();
   }
 
-    t = clock() - t;
+  t = clock() - t;
   cout << (float)t/CLOCKS_PER_SEC << endl;
   cout << "Insertion completes.\n";
   //lposc.V_measure(1, true);
-  //lposc.exportClusterInfo("clusterInfo.dat",0);
   lposc.save_eval_files("./rgbd2");
+  lposc.exportClusterInfo("clusterInfo.dat",0);
 
   return 0;
 }
