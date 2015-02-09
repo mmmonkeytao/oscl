@@ -88,8 +88,8 @@ void oscl::LPOSC::jacobi_label_propagation()
     do{
       Yt = Yt1;    
       Yt1 = Ainv.array() * (u * current_threshold_graph * Yt + Y0).array();
-      
-    }while( (Yt - Yt1).norm() > 10e-3 );
+
+    }while( (Yt - Yt1).norm() > 10e-6 );
 
     selectgraph.col(i) = Yt1;        
     ++i;

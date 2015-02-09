@@ -130,6 +130,14 @@ install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/openmp_test" DESTINATION "${
 
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/lposc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/lposc_test/")
 
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/print_distr" DESTINATION "${CMAKE_SOURCE_DIR}/app/similarity_analysis/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/similarity_analysis" DESTINATION "${CMAKE_SOURCE_DIR}/app/similarity_analysis/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Adlposc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/Adlposc/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/center_sim_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/center_sim/")
+
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval_full" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval_full/")
 
 #install(DIRECTORY ${ONLINECLUST_HMP_INCLUDE} DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/test/lib/inc")

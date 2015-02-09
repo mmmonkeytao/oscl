@@ -1,44 +1,41 @@
 #include "omp.h"
 #include <iostream>
 #include <Eigen/Dense>
-#include <time.h>
+#include <chrono>
 
 using namespace std;
 using namespace Eigen;
+using namespace std::chrono;
 
 int main()
 {
   VectorXd v1{30000}, v2{30000};
-  MatrixXd dm1(30000,30000), dm2(30000,30000);
-  v1.setRandom();
-  v2.setRandom();
-  dm1.setRandom();
-
-  // clock_t t = clock();
-  // #pragma omp parallel for
-  // for(uint i = 0; i < v1.size(); ++i)
-  //   v2(i) = dm1.row(i) * v1;
-  // t = clock() - t;
-  // cout << (float)t/CLOCKS_PER_SEC << "\n\n";
-
-  // #pragma omp parallel
-  // cout << omp_get_thread_num() << endl;
-
-// #pragma omp parallel
-//   {
-//     clock_t t = clock();
-// #pragma omp for schedule(dynamic)
-//     for(uint i = 0; i < 4*10e8; ++i){
-//       double var = v1.transpose() * v2;
-//       //if(var > 0)
-//       //  int x = 0;
-//     }
-//     t = clock() - t;
+  v1.setRandom(); v2.setRandom();
   
-//     printf("%d time spent %f.2\n", omp_get_thread_num(),(float)t/CLOCKS_PER_SEC);
-//   }
-  //#pragma omp parallel
-  //printf("Hello from thread %d, nthreads %d\n", omp_get_thread_num(), omp_get_num_threads()); 
+// #pragma omp for nowait
+//   for(uint i = 0; i < 3*10e10; ++i)
+//     double a = 1+1.0;
 
+  //time = omp_get_wtime() - time;
+//   cout << time << "\n";
+
+//   #pragma omp parallel
+//   printf("Number of threads: %d\n", omp_get_num_threads());
+
+  high_resolution_clock::time_point t1 = high_resolution_clock::now();
+  
+#pragma omp parallel 
+  {
+    //double time = omp_get_wtime();
+#pragma omp for schedule(static)
+    for(uint i = 0; i < 5000000; ++i){
+      double var = v1.transpose() * v2;
+    }
+  }
+
+  high_resolution_clock::time_point t2 = high_resolution_clock::now();
+
+  cout << "time: " << duration_cast<milliseconds>(t2-t1).count() << endl;
+  
  return 0;
 }

@@ -29,3 +29,16 @@ target_link_libraries(lposc_test ${OSCL_LPOSC_LIBRARY})
 # omp_test.cpp
 add_executable(openmp_test src/openmp_test.cpp)
 
+# print_distr.cpp
+add_executable(print_distr src/print_distr.cpp)
+
+# similarity_analysis
+add_executable(similarity_analysis src/similarity_analysis.cpp)
+
+# Adlposc_test.cpp
+add_executable(Adlposc_test src/Adlposc_test.cpp)
+target_link_libraries(Adlposc_test ${OSCL_LPOSC_LIBRARY})
+
+# center_sim_test.cpp
+add_executable(center_sim_test src/center_sim_test.cpp)
+target_link_libraries(center_sim_test ${OSCL_LPOSC_LIBRARY})

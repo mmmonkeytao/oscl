@@ -46,8 +46,11 @@ void oscl::LPOSC::insert(VectorXd vec, int label)
   uint dataID = datasize-1;
   for(uint i = 0; i < datasize-1; ++i){
 
-    double sv = computeSimilarity(i, dataID);
+    //double sv = computeSimilarity(i, dataID);
+    double sv = (_data[i]-_data[dataID]).squaredNorm();
 
+    sv = exp(-sv*2.5);
+    
     if ( sv > _sigma){
       _similarityMatrix(i, dataID) = _similarityMatrix(dataID, i) = sv;
       //_sigmaGraph.insert(dataID, i) = 1;

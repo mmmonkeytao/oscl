@@ -33,6 +33,10 @@ namespace oscl{
     void initialize_Ainv();
     void initialize_current_label_vector(int);
     void insert(Eigen::VectorXd vec, int label);
+    // newly invented insert
+    void insert1(Eigen::VectorXd vec, int label);
+    void preInitData(Eigen::VectorXd vec, int label);
+    
     void jacobi_label_propagation();
 
     void init_center_star_list();
@@ -40,7 +44,7 @@ namespace oscl{
     void update_totedge_graph();
     void update_current_edge_graph();
     void update_Sp_totedge_graph();
-    
+
     void save_eval_files(const char* prefix);
     void current_accuracy();
     void calc_Vmeasure();

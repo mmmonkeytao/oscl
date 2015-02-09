@@ -7,9 +7,9 @@
 using namespace std;
 using namespace oscl;
 
-const uint NUM_FILES = 42;
+const uint NUM_FILES = 15;
 const uint FEA_SIZE = 42000;
-const uint NUM_SAVE_PER_ITER = 50;
+const uint NUM_SAVE_PER_ITER = 100;
 
 int main(int argc, char** argv){
 
@@ -38,7 +38,7 @@ int main(int argc, char** argv){
     string path("_");
     path = prefix + path + ss.str() + suffix;
     labelprefix += ss.str() + ".dat";
-    cout << path << endl;
+
     cout << "current file:" << i+1 << endl;
     
     ifstream ilabel(labelprefix.c_str()), idata(path.c_str());
@@ -90,9 +90,9 @@ int main(int argc, char** argv){
   t = clock() - t;
   cout << (float)t/CLOCKS_PER_SEC << endl;
   cout << "Insertion completes.\n";
-  //lposc.V_measure(1, true);
+
   lposc.save_eval_files("./rgbd2");
   lposc.exportClusterInfo("clusterInfo.dat",0);
-
+  lposc.V_measure(1, true);
   return 0;
 }
