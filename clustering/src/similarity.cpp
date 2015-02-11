@@ -25,6 +25,11 @@ double oscl::OnlineStarClustering::computeSimilarity(uint id1, uint id2) const
     
   } else if(!_simtype.compare("Gaussian")){
     return GaussianKernel(id1, id2);
+    
+  } else if(!_simtype.compare("exp")){
+    double n1 = x1.norm();
+    double n2 = x2.norm();
+    return exp(-(x1/n1 - x2/n2).norm()/(_param));
   }
   else{
     std::cerr << "Unknown similarity type!\n";

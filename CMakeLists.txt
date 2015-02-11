@@ -124,7 +124,7 @@ endif()
 
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_readfile" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_readfile/")
 
-#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/clustering_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/clustering_test/")
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/clustering_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/clustering_test/")
 
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/openmp_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/openmp_test/")
 

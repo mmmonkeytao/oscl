@@ -3,6 +3,7 @@ set(SOURCES src/LPOSC.cpp
 	    src/insert.cpp
 	    src/label_prop.cpp
 	    src/insert1.cpp
+	    src/insert2.cpp
             )
 
 set(HEADER_SUBDIR "include")

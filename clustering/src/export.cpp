@@ -49,7 +49,48 @@ void oscl::OnlineStarClustering::exportDot(char const *filename, bool use_data) 
 
   ofile << "}" << std::endl;
   ofile.close();
+}
 
+void oscl::OnlineStarClustering::exportClustDot(char const *filename) const
+{
+  std::ofstream ofile(filename);
+
+  ofile << "digraph {" << std::endl;
+  ofile << "overlap = false;" << std::endl; 
+  ofile << "splines = true;" << std::endl; 
+  ofile << "size = \"20,30\";" << std::endl;
+  
+  for(std::map<uint,Vertex>::const_iterator it = _graph.begin(); 
+      it != _graph.end(); ++it){
+
+    Vertex v = it->second;
+    if(v.getType() == Vertex::CENTER)
+      
+      ofile << it->first << "  [shape = doublecircle,style=filled,"
+	    << "fontsize = 20,label=\"" << it->first << "\"";
+    
+    else 
+      ofile << it->first << "  [shape = circle,fontsize = 15,label=\""
+	    << it->first << "\"";
+    
+    ofile << "]" << std::endl;
+  }
+
+  ofile << "edge [dir=none]" << std::endl;
+  for(std::map<uint,Vertex>::const_iterator it1 = _graph.begin(); 
+      it1 != _graph.end(); ++it1){
+
+    if(it1->second.getType() == Vertex::CENTER){
+      auto adj_list = it1->second.getConstDomSatsList();
+
+      for(std::list<uint>::const_iterator it2 = adj_list.begin(); 
+	  it2 != adj_list.end(); ++it2)
+	ofile << it1->first << " -> " << *it2 << ";" << std::endl;
+    }
+  }
+
+  ofile << "}" << std::endl;
+  ofile.close();
 }
 
 void oscl::OnlineStarClustering::exportClusterInfo(const char* save_dir, uint threshold)
@@ -61,6 +102,7 @@ void oscl::OnlineStarClustering::exportClusterInfo(const char* save_dir, uint th
   
   for(auto it = _graph.begin(); it != _graph.end(); ++it){
     Vertex v = it->second;
+
     if(v.getType() == Vertex::CENTER){
       list<uint> ls = v.getDomSatsList();
       ++clust_count;
@@ -76,6 +118,11 @@ void oscl::OnlineStarClustering::exportClusterInfo(const char* save_dir, uint th
 	  ofile << _labels[x] << " ";
 	  similarity += computeSimilarity(v.getID(), x);
 	}
+	ofile << "\nstars's ID:\n";
+	for(auto &x: ls){
+	  ofile << x << " ";
+	}
+	
 	ofile << endl;
 	ofile << "Average Similarity: " << similarity/ls.size() << endl << endl;
 	

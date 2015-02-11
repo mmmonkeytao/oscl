@@ -61,7 +61,9 @@ void init_data()
       
       string label_path = label_prefix + "label_" + ss.str() +".dat";
       string data_path = data_prefix + "_" + ss.str() +".dat";
-     
+
+      cout << label_path << "    " << data_path << endl;
+      
       ifstream ifdata(data_path.c_str()), iflabel(label_path.c_str());
       cout << "Loading file: " << file_counter + 1 << endl;
       uint fea_num, fea_size;
@@ -167,7 +169,9 @@ double compute_similarity(VectorXd& v1, VectorXd& v2, const char* type)
     }
   else if(!strcmp(type, "Gaussian"))
     {
-      double sigma = 4;
+      double sigma = 2;
+      v1 = v1.normalized();
+      v2 = v2.normalized();
       return exp(-(v1 - v2).squaredNorm() / (2*sigma));
     }
   else if(!strcmp(type, "exp"))
@@ -190,7 +194,7 @@ double compute_similarity(VectorXd& v1, VectorXd& v2, const char* type)
     }
   else if(!strcmp(type, "power"))
     {
-      double d = 1.0;
+      double d = 0.5;
       double norm = (v1-v2).norm();
       return pow(norm, d);
     }

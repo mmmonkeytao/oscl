@@ -4,9 +4,12 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
 {    
   // Make a vertex and insert in graph sigma.
   Vertex alpha;
+
+  // initialize vertex
+  alpha.setType(Vertex::SATELLITE);
+  alpha.setDegree(0);
+  alpha.setDomCenterNull();  
   alpha.setID(alphaID);
-    
-  alpha.setDomCenterNull();
   alpha.setInQStatus(false);
     
   _graph.insert(std::pair<uint, Vertex>(alphaID ,alpha));
@@ -25,22 +28,22 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
     // Insert alphaID and betaID in each other's adjacency lists.
     _graph[alphaID].insertAdjVertex(betaID);
     _graph[betaID].insertAdjVertex(alphaID);
-    
-    ///////
-    // list<uint> DomSL, AdjCL;
-    // uint DomCenterID;
 
-    // if (!_graph[betaID].isDomCenterNull()){
-    //   betaDomCenterID = _graph[betaID].getDomCenter();
-    //   DomSL = _graph[betaDomCenterID].getDomSatsList();
+    /* not really necessary to have   
+    list<uint> DomSL, AdjCL;
+    uint DomCenterID;
 
-    //   for (auto &iter1: DomSL){
-    //     DomCenterID = *iter1;
-    //     AdjCL = _graph[DomCenterID].getAdjCentersList();
-    //     sortList(AdjCL);
-    //   }
-    // }  
-    ///////
+    if (!_graph[betaID].isDomCenterNull()){
+      betaDomCenterID = _graph[betaID].getDomCenter();
+      DomSL = _graph[betaDomCenterID].getDomSatsList();
+
+      for (auto &iter1: DomSL){
+        DomCenterID = *iter1;
+        AdjCL = _graph[DomCenterID].getAdjCentersList();
+        sortList(AdjCL);
+      }
+      }
+    */    
 
     // Update center adjacency list if beta was a center.
     if (_graph[betaID].getType() == Vertex::CENTER) {
@@ -80,7 +83,7 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
     _graph[alphaID].setDomCenter(alphaDomCenterID);
     
     // Insert alphaID into alpha's dom center's domsats.
-    _graph[alphaDomCenterID].insertDomCenter(alphaID);
+    _graph[alphaDomCenterID].insertDomSats(alphaID);
     
     // If alpha's degree exceeds alpha's dom center's degree.
     if ( _graph[alphaID].getDegree() > _graph[alphaDomCenterID].getDegree() ) {

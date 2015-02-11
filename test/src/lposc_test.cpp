@@ -37,11 +37,11 @@ int main(int argc, char** argv){
     ss << i+1;
     string path("_");
     path = prefix + path + ss.str() + suffix;
-    labelprefix += ss.str() + ".dat";
+    string labelpath = labelprefix + ss.str() + ".dat";
 
     cout << "current file:" << i+1 << endl;
     
-    ifstream ilabel(labelprefix.c_str()), idata(path.c_str());
+    ifstream ilabel(labelpath.c_str()), idata(path.c_str());
     //ifstream ilabel("2Dclusterslabels.dat"), idata("2DClusters.dat");
     uint fea_num, fea_size;
     idata >> fea_num >> fea_size;

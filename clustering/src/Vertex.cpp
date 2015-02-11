@@ -8,12 +8,15 @@ using namespace oscl;
 Vertex:: Vertex()
 {
   // Setting the defaults.
-  _id = 10;
-  _type = SATELLITE;
-  _degree = 0;
-  _inQ = false;
-  _marked = false;
-  _domCenter = -1;
+  // _id = 10;
+  // _type = SATELLITE;
+  // _degree = 0;
+  // _inQ = false;
+  // _marked = false;
+  // _domCenter = -1;
+  _adjVerticesList = std::list<uint>();
+  _adjCentersList = std::list<uint>();
+  _domSatsList = std::list<uint>();
 }
 
 
@@ -196,19 +199,19 @@ bool Vertex::isDomCenterNull()
 // Related to domSatsList
 
 // Insert a satellite ID into the dominant satellite list.
-void Vertex::insertDomCenter(unsigned domSatIDToInsert)
+void Vertex::insertDomSats(unsigned domSatIDToInsert)
 {
   _domSatsList.push_back(domSatIDToInsert);
 }
 
 // Delete a satellite ID into the dominant satellite list.
-void Vertex::deleteDomCenter(unsigned domSatIDToDelete)
+void Vertex::deleteDomSats(unsigned domSatIDToDelete)
 {
   _domSatsList.remove(domSatIDToDelete);
 }
 
 // Clear the dominant centers list.
-void Vertex::clearDomCentersList()
+void Vertex::clearDomSatsList()
 {
   _domSatsList.clear();
 }
@@ -231,6 +234,10 @@ list <unsigned> Vertex::getCopyOfDomSatsList()
   return _domSatsList;
 }
 
+const list <unsigned>& Vertex::getConstDomSatsList() const
+{
+  return _domSatsList;
+}
 
 // Printing a vector
 void Vertex::print()

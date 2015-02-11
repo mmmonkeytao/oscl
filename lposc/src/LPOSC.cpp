@@ -1,7 +1,7 @@
 #include "LPOSC.h"
 
-oscl::LPOSC::LPOSC(uint feaSize, string feaType, double sigma) 
-  :OnlineStarClustering(feaSize, feaType, sigma)
+oscl::LPOSC::LPOSC(uint feaSize, string feaType, double sigma, double param) 
+  :OnlineStarClustering(feaSize, feaType, sigma, param)
 {}
 
 void oscl::LPOSC::calc_Vmeasure()

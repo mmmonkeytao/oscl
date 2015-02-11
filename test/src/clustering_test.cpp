@@ -46,7 +46,8 @@ int main(int argc, char** argv)
     }
 
     osc.V_measure(1, true);
-
+    osc.exportClustDot("ClustDot.dot");
+    osc.exportDot("NomalDot.dot", false);
   } else {
 
     string path_depth21("rgbd2_");

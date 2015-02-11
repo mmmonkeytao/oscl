@@ -24,7 +24,7 @@ namespace oscl{
   public:
 
     
-    LPOSC(uint feaSize, string feaType, double sigma = 0.6);
+    LPOSC(uint feaSize, string feaType, double sigma = 0.6, double param = 2.0);
     ~LPOSC(){};
 
     void center_label_propagation(const char* type);
@@ -35,6 +35,8 @@ namespace oscl{
     void insert(Eigen::VectorXd vec, int label);
     // newly invented insert
     void insert1(Eigen::VectorXd vec, int label);
+    void insert2(Eigen::VectorXd vec, int label, uint iter = 0, double select_threshold = 0.9);
+    
     void preInitData(Eigen::VectorXd vec, int label);
     
     void jacobi_label_propagation();

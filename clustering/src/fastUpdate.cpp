@@ -40,12 +40,12 @@ void oscl::OnlineStarClustering::fastUpdate(uint alphaID)
 	  if (!_graph[phiID].isDomCenterNull()){
 	    
 	    domCenterIDForPhi = _graph[phiID].getDomCenter();
-	    _graph[domCenterIDForPhi].deleteDomCenter(phiID);
+	    _graph[domCenterIDForPhi].deleteDomSats(phiID);
 	  }
 	  
 	  // If phi does not have a dom center then make lambda as its dom center.
 	  _graph[phiID].setDomCenter(lambdaID);
-	  _graph[lambdaID].insertDomCenter(phiID);
+	  _graph[lambdaID].insertDomSats(phiID);
 	}
 	
 	else {
@@ -68,7 +68,7 @@ void oscl::OnlineStarClustering::fastUpdate(uint alphaID)
 	    deltaID = iter3;
 	    _graph[deltaID].setType(Vertex::SATELLITE);   // Broken star.
 	    _graph[deltaID].setDomCenter(phiID);    
-	    _graph[phiID].insertDomCenter(deltaID); // Add deltaID to phiID's dom center list.
+	    _graph[phiID].insertDomSats(deltaID); // Add deltaID to phiID's dom center list.
 	    
 	    //_perIterStarsBroken[alphaID]++;         // Record broken star.
 	    //_perIterNumClusters[alphaID]--;         // Record dec in num of clusters.
@@ -91,7 +91,7 @@ void oscl::OnlineStarClustering::fastUpdate(uint alphaID)
 	    }                        
             
 	    // Clear delta's dom centers list.
-	    _graph[deltaID].clearDomCentersList();
+	    _graph[deltaID].clearDomSatsList();
 	  }
 	  
 	  // Clear phi's center list.

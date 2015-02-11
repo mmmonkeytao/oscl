@@ -30,7 +30,7 @@ namespace oscl {
 
     typedef std::vector<Eigen::VectorXd> DataSet;
 
-    OnlineStarClustering(uint feaSize, std::string similaritytype,double sigma = 0.3);
+    OnlineStarClustering(uint feaSize, std::string similaritytype,double sigma = 0.6, double param = 2.0);
     
     // Destructor
     virtual ~OnlineStarClustering();    
@@ -47,6 +47,7 @@ namespace oscl {
     // I/O
     void exportClusterInfo(const char* save_dir, uint threshold);
     void exportDot(char const *filename, bool use_data) const;
+    void exportClustDot(char const*filename) const;
     void loadAndAddData(char const *filename);
     void loadAndAddSparseData(char const *filename);
     void addPoint(Eigen::VectorXd const &p, uint idx);
@@ -58,7 +59,7 @@ namespace oscl {
 
     // cluster measurement
     void V_measure(double beta, bool message);
-    double GaussianKernel(uint id1, uint id2, double sigma2 = 4.0) const;
+    double GaussianKernel(uint id1, uint id2) const;
     void exportSimilarityMat(const char*, bool sort);
  
   protected:
@@ -72,6 +73,7 @@ namespace oscl {
     uint _feaSize;
     std::string _simtype;
     double _sigma;
+    double _param;
     
     DataSet _data;
     SparseDataSet _spData;

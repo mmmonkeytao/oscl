@@ -6,6 +6,7 @@
 #include <iostream>
 #include <iterator>
 #include <cstdint>
+#include <Eigen/Dense>
 
 namespace oscl{
 
@@ -77,11 +78,12 @@ namespace oscl{
     // *******************
     // DomSatsList Related
     // *******************
-    void insertDomCenter(uint domSatIDToInsert);
-    void deleteDomCenter(uint domSatIDToDelete);
-    void clearDomCentersList();
+    void insertDomSats(uint domSatIDToInsert);
+    void deleteDomSats(uint domSatIDToDelete);
+    void clearDomSatsList();
     bool isDomSatsListEmpty();
     std::list <uint>& getDomSatsList();
+    const std::list<uint>& getConstDomSatsList() const;
     std::list <uint> getCopyOfDomSatsList();
         
   private:
@@ -101,6 +103,8 @@ namespace oscl{
     // Extra fields for optimized versions.
     std::list<uint> _domSatsList;   // List of dominating centers.
     int _domCenter;        // Id of dominant center. (-1) if null.
+
+    Eigen::VectorXd centroid;
         
   };
 
