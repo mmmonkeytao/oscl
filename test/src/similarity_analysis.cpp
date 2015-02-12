@@ -5,7 +5,9 @@
 #include <fstream>
 #include <cmath>
 #include <Eigen/Dense>
+#include <chrono>
 
+using namespace std::chrono;
 using namespace std;
 using namespace Eigen;
 
@@ -38,11 +40,15 @@ int main(int argc, char** argv){
   init_data();
 
   // feeding similarity information
-  cout << "feeding sim.\n"; 
+  cout << "feeding sim.\n";
+
+  high_resolution_clock::time_point t1 = high_resolution_clock::now();
   feed_sim(argv[5]);
   cout << "saving file.\n";
   save_sim(argv[4]);
-  
+  high_resolution_clock::time_point t2 = high_resolution_clock::now();
+
+  cout << "Time spent: " << duration_cast<seconds>(t2-t1).count() << endl;
   return 0;
 }
 
@@ -169,14 +175,14 @@ double compute_similarity(VectorXd& v1, VectorXd& v2, const char* type)
     }
   else if(!strcmp(type, "Gaussian"))
     {
-      double sigma = 2;
+      double sigma = 1.0;
       v1 = v1.normalized();
       v2 = v2.normalized();
       return exp(-(v1 - v2).squaredNorm() / (2*sigma));
     }
   else if(!strcmp(type, "exp"))
     {
-      double sigma = 8;
+      double sigma = 4;
       return exp(-(v1 - v2).norm() * sigma);
     }
   else if(!strcmp(type, "RQ"))
@@ -194,7 +200,7 @@ double compute_similarity(VectorXd& v1, VectorXd& v2, const char* type)
     }
   else if(!strcmp(type, "power"))
     {
-      double d = 0.5;
+      double d = 1.0;
       double norm = (v1-v2).norm();
       return pow(norm, d);
     }
@@ -217,6 +223,14 @@ double compute_similarity(VectorXd& v1, VectorXd& v2, const char* type)
       for(uint i = 0; i < diff.size(); ++i)
 	sum += exp(-diff(i)/2);
       return sum;
+    }
+  else if(!strcmp(type, "CityBlock"))
+    {
+      return (v1 - v2).cwiseAbs().sum();
+    }
+  else if(!strcmp(type, "Max"))
+    {
+      return (v1-v2).cwiseAbs().maxCoeff();
     }
   else if(!strcmp(type, "new"))
     {

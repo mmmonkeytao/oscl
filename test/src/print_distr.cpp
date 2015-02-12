@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const uint NUM_FILES = 1;
+const uint NUM_FILES = 5;
 
 
 int main(int argc, char** argv){
@@ -47,6 +47,14 @@ int main(int argc, char** argv){
       //cout << "Label: " << x.first << " distribution: "
 	   cout<< (double)x.second / (double)labels.size() << endl;
     }
+
+  // save distribution
+  ofstream ofile("distribution.dat");
+  for(auto &x: labelist)
+    {
+      ofile << x.first << " " << x.second << endl;
+    }
+  ofile.close();
   
   return 0;
 }
