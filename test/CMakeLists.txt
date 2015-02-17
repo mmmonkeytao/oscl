@@ -42,3 +42,12 @@ target_link_libraries(Adlposc_test ${OSCL_LPOSC_LIBRARY})
 # center_sim_test.cpp
 add_executable(center_sim_test src/center_sim_test.cpp)
 target_link_libraries(center_sim_test ${OSCL_LPOSC_LIBRARY})
+
+# magnetic_osc.cpp
+include_directories(${OSCL_GALAXY_INCLUDE})
+add_executable(magnetic_osc src/magnetic_osc.cpp)
+target_link_libraries(magnetic_osc ${OSCL_GALAXY_LIBRARY})
+
+# loaded_insert_noSim_test.cpp
+add_executable(loaded_insert_noSim_test src/loaded_insert_noSim_test.cpp)
+target_link_libraries(loaded_insert_noSim_test ${OSCL_GALAXY_LIBRARY})

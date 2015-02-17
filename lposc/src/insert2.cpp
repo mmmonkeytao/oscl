@@ -25,7 +25,7 @@ void oscl::LPOSC::insert2(VectorXd vec, int label, uint iter, double select_thre
   _similarityMatrix.rightCols(1).setZero();
   
   uint dataID = datasize-1;
-  const uint min_clust_size = 50;
+  const uint min_clust_size = (uint)ceil(100.0 * (1.0 - exp(-0.0002*iter)));
 
   /* get number of current labels*/
   uint label_number = labelist.size();
@@ -56,17 +56,20 @@ void oscl::LPOSC::insert2(VectorXd vec, int label, uint iter, double select_thre
     uint max_center_id = center_iter->second;
     double max_center_sim = center_iter->first;
     selected_centers.push_back(max_center_id);
+    //cout << iter << "  "<<max_center_id << "  " << max_center_sim << "  "<< _data[max_center_id].transpose() << " ";
     ++center_iter;
-
+    
     /* compute select rules */
     // select_threshold * (1 - exp(-0.002*iter))
-    double current_threshold = select_threshold * (1 - exp(-0.002*iter));
+    double current_threshold = select_threshold * (1 - exp(-0.0002*iter));
     while(center_iter != max_centers.end())
       {
 	if( max_center_sim*current_threshold < center_iter->first )
 	  {
 	    selected_centers.push_back(center_iter->second);
+	    //cout << center_iter->second << "  " << center_iter->first<<" " << _data[center_iter->second].transpose()<< "  ";
 	    ++center_iter;
+	    
 	  }
 	else
 	  break;
@@ -81,7 +84,7 @@ void oscl::LPOSC::insert2(VectorXd vec, int label, uint iter, double select_thre
     alpha.setDegree(0);
     // insert into graph
     _graph.insert(std::pair<uint, Vertex>(dataID, alpha));
-
+    //cout <<"  "<< dataID << "  " << _data[dataID].transpose() << endl;
     /* loop to go through all sub-stars of selected centers*/
     for(auto &c: selected_centers)
       {
@@ -100,7 +103,7 @@ void oscl::LPOSC::insert2(VectorXd vec, int label, uint iter, double select_thre
     	  double domSim = computeSimilarity(dataID, domSat);
 	  _similarityMatrix(dataID, domSat)
 	    =_similarityMatrix(domSat, dataID) = domSim;
-
+	  //cout << domSat << "  " << domSim << "  "<< _data[domSat].transpose() << endl;
     	  if(domSim*attr_threshold > cSim)
 	    {
 	      // if rule satisfied, separate this node

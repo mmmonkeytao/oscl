@@ -85,6 +85,10 @@ link_directories(${Boost_LIBRARY_DIR})
 set(GSL_INCLUD_DIR "/usr/local/Cellar/gsl/1.16")
 include_directories(${GSL_INCLUDE_DIR})
 
+# stxxl
+find_package(stxxl PATHS "./3dparty/stxxl-1.4.1/build")
+include_directories(${STXXL_INCLUDE_DIRS})
+  
 #########################
 # add subdirectories 
 #########################
@@ -92,6 +96,7 @@ add_subdirectory(engine)
 add_subdirectory(hmp)
 add_subdirectory(clustering)
 add_subdirectory(lposc)
+add_subdirectory(galaxy)
 add_subdirectory(test)
 
 # We want to create dynamic libraries
@@ -137,6 +142,10 @@ install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/similarity_analysis" DESTINA
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Adlposc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/Adlposc/")
 
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/center_sim_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/center_sim/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/magnetic_osc" DESTINATION "${CMAKE_SOURCE_DIR}/app/magnetic_osc/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/loaded_insert_noSim_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/loaded_insert_noSim_test/")
 
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval_full" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval_full/")
 

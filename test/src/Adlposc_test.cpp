@@ -85,7 +85,7 @@ int main(int argc, char** argv){
       if( (fea_counter+1)%NUM_SAVE_PER_ITER == 0 ||
 	  (i == (NUM_FILES-1) && j == fea_num-1) ){
 
-	cout <<" Time spent for inserting " << count << " "
+	cout <<"Time spent for inserting " << count << " "
 	     << (long double)ttot/(long double)count << endl;
 
 	/* set to zero */
