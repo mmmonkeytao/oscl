@@ -1,18 +1,18 @@
-#include "OnlineStarClustering.h"
+#include "Galaxy.h"
 
-void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
+void oscl::Galaxy::oscInsert(uint alphaID, std::list<uint> &L)
 {    
   // Make a vertex and insert in graph sigma.
-  Vertex alpha;
+  Planet alpha;
 
   // initialize vertex
-  alpha.setType(Vertex::SATELLITE);
+  alpha.setType(Planet::STAR);
   alpha.setDegree(0);
   alpha.setDomCenterNull();  
   alpha.setID(alphaID);
   alpha.setInQStatus(false);
     
-  _graph.insert(std::pair<uint, Vertex>(alphaID ,alpha));
+  _graph.insert(std::pair<uint, Planet>(alphaID, alpha));
     
   uint betaID, betaDomCenterID, alphaDomCenterID;
     
@@ -26,8 +26,8 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
     _graph[betaID].incrementDegree();
     
     // Insert alphaID and betaID in each other's adjacency lists.
-    _graph[alphaID].insertAdjVertex(betaID);
-    _graph[betaID].insertAdjVertex(alphaID);
+    _graph[alphaID].insertAdjPlanet(betaID);
+    _graph[betaID].insertAdjPlanet(alphaID);
 
     /* not really necessary to have   
     list<uint> DomSL, AdjCL;
@@ -46,7 +46,7 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
     */    
 
     // Update center adjacency list if beta was a center.
-    if (_graph[betaID].getType() == Vertex::CENTER) {
+    if (_graph[betaID].getType() == Planet::CENTER) {      
       _graph[alphaID].insertAdjCenter(betaID);
     }
     else {
@@ -56,7 +56,6 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
       
       // Insert if deg of beta has exceeded the one of its dom center.
       if ( _graph[betaID].getDegree() > _graph[betaDomCenterID].getDegree() ) {
-	
 	// Insert beta into the priority queue.
 	_graph[betaID].setInQStatus(true);
 	_priorityQ.push(_graph[betaID]);
@@ -69,7 +68,7 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
     
   // If alpha's adjacent Center list is empty
   if (_graph[alphaID].isAdjCentersListEmpty()){
-    
+
     // Insert alpha into the priority queue.
     _graph[alphaID].setInQStatus(true);
     _priorityQ.push(_graph[alphaID]); 
@@ -78,7 +77,13 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
   else {
     // Find alpha's dominant center.
     alphaDomCenterID = vertexIDMaxDeg(_graph[alphaID].getAdjCentersList());
-    
+
+    /////////////////////
+    // cluster evaluation
+    /////////////////////
+    ++_center_star_changed;
+    /////// end /////////
+
     // Assign alpha's dominant center.
     _graph[alphaID].setDomCenter(alphaDomCenterID);
     
@@ -95,5 +100,5 @@ void oscl::OnlineStarClustering::fastInsert(uint alphaID, std::list <uint> &L)
   }
           
   // Update using priority queue.
-  fastUpdate(alphaID);
+  oscUpdate(alphaID);
 }

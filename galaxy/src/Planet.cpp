@@ -11,6 +11,8 @@ Planet:: Planet()
   _degree = 0;
   _attrSum = 0.0;
   setDomCenterNull();
+  _adjPlanetsList = std::set<uint>();
+  _adjCentersList = std::set<uint>();
 }
 
 Planet:: Planet(uint ID)
@@ -22,6 +24,8 @@ Planet:: Planet(uint ID)
   setDomCenterNull();
   setID(ID);
   setType(Planet::STAR);
+  _adjPlanetsList = std::set<uint>();
+  _adjCentersList = std::set<uint>();
 }
 
 
@@ -168,6 +172,83 @@ double Planet::getAttrSum() {
   return _attrSum;
 }
 
+// *********************
+// Adjacent Vertices List
+// *********************
+
+// Output reference to the list.
+const set<uint>& Planet::getAdjPlanetsList() const
+{
+  return _adjPlanetsList;
+}
+
+// Obtain the whole list.
+set<uint> Planet::getCopyOfAdjPlanetsList() const
+{
+  return _adjPlanetsList;
+}
+
+// Insert a vertex into the adjacency list.
+void Planet::insertAdjPlanet(uint adjPlanetIDToInsert)
+{
+  _adjPlanetsList.insert(adjPlanetIDToInsert);
+}
+
+// Delete a vertex from the adjacency list.
+void Planet::deleteAdjPlanet(uint adjPlanetIDToDelete)
+{
+  _adjPlanetsList.erase(adjPlanetIDToDelete);
+}
+
+// *********************
+// Adjacent Centers List
+// *********************
+// Output reference
+set<uint>& Planet::getAdjCentersList()
+{
+  return _adjCentersList;
+}
+
+// Output whole list
+set <uint> Planet::getCopyOfAdjCentersList()
+{
+  return _adjCentersList;
+}
+
+// Insert a vertex into the adjacency list.
+void Planet::insertAdjCenter(uint adjCenterIDToInsert)
+{
+  _adjCentersList.insert(adjCenterIDToInsert);
+}
+
+// Delete a vertex from the adjacency list.
+void Planet::deleteAdjCenter(uint adjCenterIDToDelete)
+{
+  _adjCentersList.erase(adjCenterIDToDelete);
+}
+
+// Is adjacent centers list empty?
+bool Planet::isAdjCentersListEmpty()
+{
+  return _adjCentersList.empty();
+}
+
+void Planet::clearCentersList()
+{
+  _adjCentersList.clear();
+}
+
+// Boolean status to indicate presence in the queue.
+bool Planet::getInQStatus() 
+{
+  return _inQ;
+}
+
+void Planet::setInQStatus(bool bInQStatus)
+{
+  _inQ = bInQStatus;
+}
+
 int Planet::getClustSize() {
 
   if(_type == Planet::CENTER)
@@ -177,7 +258,6 @@ int Planet::getClustSize() {
     return -1;
   }
 }
-
 
 // Printing a vector
 void Planet::print()

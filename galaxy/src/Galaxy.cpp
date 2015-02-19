@@ -86,3 +86,8 @@ const std::vector<uint>& Galaxy::getStarBrokenNum(){
 
   return star_broken_num;
 }
+
+const std::vector<uint>& Galaxy::getCSChangedNum(){
+
+  return _cs_changed;
+}

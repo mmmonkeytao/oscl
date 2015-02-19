@@ -1,0 +1,2049 @@
+[ 76%] Built target oscl_lposc
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:3: error: use of undeclared identifier 'retrun'
+  retrun 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+  ^
+1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 21%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:34: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  return 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+                ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:59: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  return 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+                                         ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 23%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+[ 36%] Built target openmp_test
+[ 39%] [ 41%] Built target print_distr
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:34: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  return 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+                ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:59: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  return 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+                                         ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j3
+Scanning dependencies of target oscl_galaxy
+[  2%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 13%] Built target oscl_engine
+[ 36%] Built target oscl_clustering
+[ 39%] Built target print_distr
+[ 41%] Built target openmp_test
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:36: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  VectorXd vec1 = _current_fea_pool[id1];
+                  ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:32:36: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  VectorXd vec2 = _current_fea_pool[id2];
+                  ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j3
+Scanning dependencies of target oscl_galaxy
+[ 23%] Built target oscl_clustering
+[ 34%] Built target oscl_engine
+[ 36%] [ 39%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 41%] Built target openmp_test
+[ 43%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 45%] Built target print_distr
+[ 47%] [ 50%] Built target similarity_analysis
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 67%] Built target oscl_hmp
+[ 80%] Built target oscl_lposc
+[ 82%] Built target clustering_test
+[ 84%] Built target hmp_readfile
+[ 86%] [ 89%] Built target hmp_rgbdeval
+Built target hmp_rgbdeval_full
+[ 91%] [ 93%] Built target lposc_test
+Built target hmp_test
+[ 95%] Built target center_sim_test
+[ 97%] Built target Adlposc_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:28:22: error: out-of-line definition of 'loaded_computeSimilarity' does
+      not match any declaration in 'oscl::Galaxy'
+double oscl::Galaxy::loaded_computeSimilarity(uint id1, uint id2) const
+                     ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:62:20: note: member declaration does not match because it is not const qualified
+    virtual double loaded_computeSimilarity(uint id1, uint id2);
+                   ^                                          ~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:36: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  VectorXd vec1 = _current_fea_pool[id1];
+                  ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:32:36: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  VectorXd vec2 = _current_fea_pool[id2];
+                  ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+3 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j3
+Scanning dependencies of target oscl_galaxy
+[  4%] [ 13%] Built target oscl_engine
+[ 36%] Built target oscl_clustering
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 39%] [ 41%] Built target openmp_test
+Built target print_distr
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:28:22: error: out-of-line definition of 'loaded_computeSimilarity' does
+      not match any declaration in 'oscl::Galaxy'
+double oscl::Galaxy::loaded_computeSimilarity(uint id1, uint id2)const
+                     ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:62:20: note: member declaration does not match because it is not const qualified
+    virtual double loaded_computeSimilarity(uint id1, uint id2);
+                   ^                                          ~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:37: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  VectorXd &vec1 = _current_fea_pool[id1];
+                   ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:32:37: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  VectorXd &vec2 = _current_fea_pool[id2];
+                   ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+3 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j3
+Scanning dependencies of target oscl_galaxy
+[ 10%] Built target oscl_engine
+[ 34%] Built target oscl_clustering
+[ 36%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 39%] Built target openmp_test
+[ 41%] Built target print_distr
+[ 43%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 45%] Built target similarity_analysis
+[ 63%] Built target oscl_hmp
+[ 76%] Built target oscl_lposc
+[ 78%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 80%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 82%] Built target clustering_test
+[ 84%] Built target hmp_readfile
+[ 86%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+[ 95%] Built target Adlposc_test
+[ 97%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:37: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  VectorXd &vec1 = _current_fea_pool[id1];
+                   ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:32:37: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  VectorXd &vec2 = _current_fea_pool[id2];
+                   ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 23%] [ 34%] Built target oscl_clustering
+Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target clustering_test
+[ 39%] Built target openmp_test
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 43%] Built target print_distr
+[ 45%] Built target similarity_analysis
+[ 63%] Built target oscl_hmp
+[ 76%] Built target oscl_lposc
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:13: error: non-const lvalue reference to type 'VectorXd'
+      (aka 'Matrix<double, Dynamic, 1>') cannot bind to a value of unrelated type 'const value_type' (aka 'const pair<__key_type, __mapped_type>')
+  VectorXd &vec1 = (*_current_fea_pool.find(id1));
+            ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:32:13: error: non-const lvalue reference to type 'VectorXd'
+      (aka 'Matrix<double, Dynamic, 1>') cannot bind to a value of unrelated type 'const value_type' (aka 'const pair<__key_type, __mapped_type>')
+  VectorXd &vec2 = (*_current_fea_pool.find(id2));
+            ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 21%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] [ 43%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:19: error: no viable conversion from 'const value_type'
+      (aka 'const pair<__key_type, __mapped_type>') to 'const VectorXd' (aka 'const Matrix<double, Dynamic, 1>')
+  const VectorXd &vec1 = (*_current_fea_pool.find(id1));
+                  ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:210:5: note: candidate constructor not viable: no known conversion from 'const value_type'
+      (aka 'const pair<__key_type, __mapped_type>') to 'internal::constructor_without_unaligned_array_assert' for 1st argument
+    Matrix(internal::constructor_without_unaligned_array_assert)
+    ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:284:25: note: candidate constructor not viable: no known conversion from 'const value_type'
+      (aka 'const pair<__key_type, __mapped_type>') to 'const Eigen::Matrix<double, -1, 1, 0, -1, 1> &' for 1st argument
+    EIGEN_STRONG_INLINE Matrix(const Matrix& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:272:25: note: candidate template ignored: could not match 'MatrixBase' against 'pair'
+    EIGEN_STRONG_INLINE Matrix(const MatrixBase<OtherDerived>& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:292:25: note: candidate template ignored: could not match 'ReturnByValue' against 'pair'
+    EIGEN_STRONG_INLINE Matrix(const ReturnByValue<OtherDerived>& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:303:25: note: candidate template ignored: could not match 'EigenBase' against 'pair'
+    EIGEN_STRONG_INLINE Matrix(const EigenBase<OtherDerived> &other)
+                        ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:32:19: error: no viable conversion from 'const value_type'
+      (aka 'const pair<__key_type, __mapped_type>') to 'const VectorXd' (aka 'const Matrix<double, Dynamic, 1>')
+  const VectorXd &vec2 = (*_current_fea_pool.find(id2));
+                  ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:210:5: note: candidate constructor not viable: no known conversion from 'const value_type'
+      (aka 'const pair<__key_type, __mapped_type>') to 'internal::constructor_without_unaligned_array_assert' for 1st argument
+    Matrix(internal::constructor_without_unaligned_array_assert)
+    ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:284:25: note: candidate constructor not viable: no known conversion from 'const value_type'
+      (aka 'const pair<__key_type, __mapped_type>') to 'const Eigen::Matrix<double, -1, 1, 0, -1, 1> &' for 1st argument
+    EIGEN_STRONG_INLINE Matrix(const Matrix& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:272:25: note: candidate template ignored: could not match 'MatrixBase' against 'pair'
+    EIGEN_STRONG_INLINE Matrix(const MatrixBase<OtherDerived>& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:292:25: note: candidate template ignored: could not match 'ReturnByValue' against 'pair'
+    EIGEN_STRONG_INLINE Matrix(const ReturnByValue<OtherDerived>& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:303:25: note: candidate template ignored: could not match 'EigenBase' against 'pair'
+    EIGEN_STRONG_INLINE Matrix(const EigenBase<OtherDerived> &other)
+                        ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 21%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:28:22: error: out-of-line definition of 'loaded_computeSimilarity' does
+      not match any declaration in 'oscl::Galaxy'
+double oscl::Galaxy::loaded_computeSimilarity(uint id1, uint id2)
+                     ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:62:20: note: member declaration does not match because it is const qualified
+    virtual double loaded_computeSimilarity(uint id1, uint id2) const;
+                   ^                                            ~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:34:22: error: invalid operands to binary expression ('value_type'
+      (aka 'pair<__key_type, __mapped_type>') and 'value_type')
+  return 1.0 / (*it1 - *it2).cwiseAbs().sum();
+                ~~~~ ^ ~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:622:1: note: candidate template ignored: could not
+      match 'reverse_iterator' against 'pair'
+operator-(const reverse_iterator<_Iter1>& __x, const reverse_iterator<_Iter2>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1017:1: note: candidate template ignored: could not
+      match 'move_iterator' against 'pair'
+operator-(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1369:1: note: candidate template ignored: could not
+      match '__wrap_iter' against 'pair'
+operator-(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter2>& __y) _NOEXCEPT
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:486:11: note: candidate template ignored: could not
+      match 'fpos' against 'pair'
+streamoff operator-(const fpos<_StateT>& __x, const fpos<_StateT>& __y)
+          ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:558:1: note: candidate template ignored: could not
+      match 'complex' against 'pair'
+operator-(const complex<_Tp>& __x, const complex<_Tp>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:568:1: note: candidate template ignored: could not
+      match 'complex' against 'pair'
+operator-(const complex<_Tp>& __x, const _Tp& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:578:1: note: candidate template ignored: could not
+      match 'complex' against 'pair'
+operator-(const _Tp& __x, const complex<_Tp>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:737:1: note: candidate function template not viable:
+      requires single argument '__x', but 2 arguments were provided
+operator-(const complex<_Tp>& __x)
+^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] Built target similarity_analysis
+[ 43%] [ 45%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 47%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 50%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:34:22: error: invalid operands to binary expression ('value_type'
+      (aka 'pair<__key_type, __mapped_type>') and 'value_type')
+  return 1.0 / (*it1 - *it2).cwiseAbs().sum();
+                ~~~~ ^ ~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:622:1: note: candidate template ignored: could not
+      match 'reverse_iterator' against 'pair'
+operator-(const reverse_iterator<_Iter1>& __x, const reverse_iterator<_Iter2>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1017:1: note: candidate template ignored: could not
+      match 'move_iterator' against 'pair'
+operator-(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1369:1: note: candidate template ignored: could not
+      match '__wrap_iter' against 'pair'
+operator-(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter2>& __y) _NOEXCEPT
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:486:11: note: candidate template ignored: could not
+      match 'fpos' against 'pair'
+streamoff operator-(const fpos<_StateT>& __x, const fpos<_StateT>& __y)
+          ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:558:1: note: candidate template ignored: could not
+      match 'complex' against 'pair'
+operator-(const complex<_Tp>& __x, const complex<_Tp>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:568:1: note: candidate template ignored: could not
+      match 'complex' against 'pair'
+operator-(const complex<_Tp>& __x, const _Tp& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:578:1: note: candidate template ignored: could not
+      match 'complex' against 'pair'
+operator-(const _Tp& __x, const complex<_Tp>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:737:1: note: candidate function template not viable:
+      requires single argument '__x', but 2 arguments were provided
+operator-(const complex<_Tp>& __x)
+^
+1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[ 67%] Built target oscl_hmp
+[ 80%] Built target oscl_lposc
+[ 82%] Built target clustering_test
+[ 84%] Built target hmp_readfile
+[ 86%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+[ 95%] Built target Adlposc_test
+[ 97%] Built target center_sim_test
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] [ 43%] Built target similarity_analysis
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:12: error: no viable conversion from 'iterator'
+      (aka '__map_iterator<typename __base::iterator>') to 'VectorXd' (aka 'Matrix<double, Dynamic, 1>')
+  VectorXd it1 = _current_fea_pool.find(id1);
+           ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:210:5: note: candidate constructor not viable: no known conversion from 'iterator'
+      (aka '__map_iterator<typename __base::iterator>') to 'internal::constructor_without_unaligned_array_assert' for 1st argument
+    Matrix(internal::constructor_without_unaligned_array_assert)
+    ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:284:25: note: candidate constructor not viable: no known conversion from 'iterator'
+      (aka '__map_iterator<typename __base::iterator>') to 'const Eigen::Matrix<double, -1, 1, 0, -1, 1> &' for 1st argument
+    EIGEN_STRONG_INLINE Matrix(const Matrix& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:272:25: note: candidate template ignored: could not match 'MatrixBase' against '__map_iterator'
+    EIGEN_STRONG_INLINE Matrix(const MatrixBase<OtherDerived>& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:292:25: note: candidate template ignored: could not match 'ReturnByValue' against
+      '__map_iterator'
+    EIGEN_STRONG_INLINE Matrix(const ReturnByValue<OtherDerived>& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:303:25: note: candidate template ignored: could not match 'EigenBase' against '__map_iterator'
+    EIGEN_STRONG_INLINE Matrix(const EigenBase<OtherDerived> &other)
+                        ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:32:12: error: no viable conversion from 'iterator'
+      (aka '__map_iterator<typename __base::iterator>') to 'VectorXd' (aka 'Matrix<double, Dynamic, 1>')
+  VectorXd it2 = _current_fea_pool.find(id2);
+           ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:210:5: note: candidate constructor not viable: no known conversion from 'iterator'
+      (aka '__map_iterator<typename __base::iterator>') to 'internal::constructor_without_unaligned_array_assert' for 1st argument
+    Matrix(internal::constructor_without_unaligned_array_assert)
+    ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:284:25: note: candidate constructor not viable: no known conversion from 'iterator'
+      (aka '__map_iterator<typename __base::iterator>') to 'const Eigen::Matrix<double, -1, 1, 0, -1, 1> &' for 1st argument
+    EIGEN_STRONG_INLINE Matrix(const Matrix& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:272:25: note: candidate template ignored: could not match 'MatrixBase' against '__map_iterator'
+    EIGEN_STRONG_INLINE Matrix(const MatrixBase<OtherDerived>& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:292:25: note: candidate template ignored: could not match 'ReturnByValue' against
+      '__map_iterator'
+    EIGEN_STRONG_INLINE Matrix(const ReturnByValue<OtherDerived>& other)
+                        ^
+/usr/local/Cellar/eigen/3.2.2/include/eigen3/Eigen/src/Core/Matrix.h:303:25: note: candidate template ignored: could not match 'EigenBase' against '__map_iterator'
+    EIGEN_STRONG_INLINE Matrix(const EigenBase<OtherDerived> &other)
+                        ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 23%] Built target oscl_clustering
+[ 34%] Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target clustering_test
+[ 39%] Built target openmp_test
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 43%] Built target print_distr
+[ 45%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 47%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 50%] Built target similarity_analysis
+[ 52%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+Linking CXX static library ../lib/liboscl_galaxy.a
+[ 69%] Built target oscl_hmp
+[ 82%] Built target oscl_lposc
+[ 86%] [ 86%] Built target hmp_readfile
+Built target oscl_galaxy
+[ 91%] [ 91%] Built target hmp_rgbdeval_full
+Built target hmp_rgbdeval
+[ 93%] Built target lposc_test
+[ 95%] Built target hmp_test
+[ 97%] [100%] Built target center_sim_test
+Built target Adlposc_test
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 23%] [ 34%] Built target oscl_clustering
+Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target clustering_test
+[ 39%] Built target openmp_test
+[ 43%] [ 43%] Built target print_distr
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 45%] Built target similarity_analysis
+[ 47%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 65%] Built target oscl_hmp
+[ 67%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 80%] Built target oscl_lposc
+[ 82%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:34: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  return 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+                ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:31:59: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  return 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+                                         ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[ 84%] Built target hmp_readfile
+[ 86%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+[ 95%] Built target Adlposc_test
+[ 97%] Built target center_sim_test
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] Built target oscl_engine
+[ 34%] Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:43: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  Eigen::VectorXd &res = _current_fea_pool[id1] - _current_fea_pool[id2]; 
+                         ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:68: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  Eigen::VectorXd &res = _current_fea_pool[id1] - _current_fea_pool[id2]; 
+                                                  ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] Built target oscl_engine
+[ 34%] Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 73%] Built target oscl_lposc
+[ 76%] Built target clustering_test
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:42: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  Eigen::VectorXd res = _current_fea_pool[id1] - _current_fea_pool[id2]; 
+                        ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:67: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  Eigen::VectorXd res = _current_fea_pool[id1] - _current_fea_pool[id2]; 
+                                                 ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 23%] [ 34%] Built target oscl_clustering
+Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target clustering_test
+[ 39%] Built target openmp_test
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 43%] Built target print_distr
+[ 45%] Built target similarity_analysis
+[ 63%] Built target oscl_hmp
+[ 76%] Built target oscl_lposc
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:48: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  Eigen::VectorXd const res = _current_fea_pool[id1] - _current_fea_pool[id2]; 
+                              ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:73: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  Eigen::VectorXd const res = _current_fea_pool[id1] - _current_fea_pool[id2]; 
+                                                       ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+2 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 23%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] [ 43%] Built target similarity_analysis
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 45%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 47%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 65%] Built target oscl_hmp
+[ 67%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:28:22: error: out-of-line definition of 'loaded_computeSimilarity' does
+      not match any declaration in 'oscl::Galaxy'
+double oscl::Galaxy::loaded_computeSimilarity(uint id1, uint id2) const
+                     ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:62:20: note: member declaration does not match because it is not const qualified
+    virtual double loaded_computeSimilarity(uint id1, uint id2);
+                   ^                                          ~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:34: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  return 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+                ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/computeSimilarity.cpp:30:59: error: no viable overloaded operator[] for type
+      'const std::map<uint, Eigen::VectorXd>'
+  return 1.0 / (_current_fea_pool[id1] - _current_fea_pool[id2]).cwiseAbs().sum();
+                                         ~~~~~~~~~~~~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not viable: 'this'
+      argument has type 'const std::map<uint, Eigen::VectorXd>', but method is not marked const
+    mapped_type& operator[](key_type&& __k);
+                 ^
+3 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[ 80%] Built target oscl_lposc
+[ 82%] Built target clustering_test
+[ 84%] Built target hmp_readfile
+[ 86%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 95%] Built target Adlposc_test
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 30%] [ 34%] Built target oscl_clustering
+Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target clustering_test
+[ 39%] Built target openmp_test
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 43%] Built target print_distr
+[ 45%] Built target similarity_analysis
+[ 63%] Built target oscl_hmp
+[ 76%] Built target oscl_lposc
+[ 78%] Built target hmp_readfile
+[ 80%] Built target hmp_rgbdeval
+[ 82%] Built target hmp_rgbdeval_full
+[ 84%] Built target hmp_test
+[ 86%] Built target lposc_test
+[ 89%] Built target Adlposc_test
+[ 91%] Built target center_sim_test
+Linking CXX static library ../lib/liboscl_galaxy.a
+[100%] Built target oscl_galaxy
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+[ 36%] Built target openmp_test
+[ 47%] Built target oscl_galaxy
+[ 50%] Built target print_distr
+[ 52%] Built target similarity_analysis
+[ 69%] Built target oscl_hmp
+[ 82%] Built target oscl_lposc
+[ 84%] Built target clustering_test
+[ 86%] Built target hmp_readfile
+[ 89%] Built target hmp_rgbdeval
+[ 91%] Built target hmp_rgbdeval_full
+[ 93%] Built target hmp_test
+[ 95%] Built target lposc_test
+[ 97%] Built target Adlposc_test
+[100%] Built target center_sim_test
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+CMake Error at galaxy/CMakeLists.txt:24 (add_library):
+  Cannot find source file:
+
+    src/LoadDeaPool.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+
+
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 12%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 38%] Built target print_distr
+[ 40%] Built target similarity_analysis
+[ 42%] [ 44%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 46%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 63%] Built target oscl_hmp
+[ 76%] Built target oscl_lposc
+[ 78%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 80%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 82%] Built target clustering_test
+[ 85%] Built target hmp_readfile
+[ 87%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+[ 95%] Built target Adlposc_test
+[ 97%] Built target center_sim_test
+Linking CXX static library ../lib/liboscl_galaxy.a
+[100%] Built target oscl_galaxy
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 27%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+[ 36%] Scanning dependencies of target oscl_galaxy
+Built target openmp_test
+[ 38%] Built target print_distr
+[ 40%] Built target similarity_analysis
+[ 42%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 59%] Built target oscl_hmp
+[ 61%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 74%] Built target oscl_lposc
+[ 76%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 78%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 80%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 82%] Built target clustering_test
+[ 85%] Built target hmp_readfile
+[ 87%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+[ 95%] Built target Adlposc_test
+[ 97%] Built target center_sim_test
+Linking CXX static library ../lib/liboscl_galaxy.a
+[100%] Built target oscl_galaxy
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 23%] Built target oscl_clustering
+[ 34%] Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target clustering_test
+[ 38%] Built target openmp_test
+[ 40%] Built target print_distr
+[ 42%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 44%] Built target similarity_analysis
+[ 46%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 63%] Built target oscl_hmp
+[ 65%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 78%] Built target oscl_lposc
+[ 80%] Built target hmp_readfile
+[ 82%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 85%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 87%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+[ 95%] Built target Adlposc_test
+[ 97%] Built target center_sim_test
+Linking CXX static library ../lib/liboscl_galaxy.a
+[100%] Built target oscl_galaxy
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] Built target oscl_engine
+[ 34%] Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 38%] Built target print_distr
+[ 40%] [ 42%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+Built target similarity_analysis
+[ 44%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 46%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 63%] Built target oscl_hmp
+[ 65%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 78%] Built target oscl_lposc
+[ 80%] Built target clustering_test
+[ 82%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 85%] Built target hmp_readfile
+[ 87%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+[ 95%] Built target Adlposc_test
+[ 97%] Built target center_sim_test
+Linking CXX static library ../lib/liboscl_galaxy.a
+[100%] Built target oscl_galaxy
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 19%] [ 34%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target openmp_test
+[ 38%] Built target print_distr
+[ 40%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 42%] Built target similarity_analysis
+[ 59%] Built target oscl_hmp
+[ 72%] Built target oscl_lposc
+[ 74%] Built target clustering_test
+[ 76%] Built target hmp_readfile
+[ 78%] Built target hmp_rgbdeval
+[ 80%] Built target hmp_rgbdeval_full
+[ 82%] Built target hmp_test
+[ 85%] Built target lposc_test
+[ 87%] Built target Adlposc_test
+[ 89%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp:36:15: error: use of undeclared identifier 'max_center_end'; did you mean
+      'max_centers_end'?
+  while(it != max_center_end)
+              ^~~~~~~~~~~~~~
+              max_centers_end
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp:32:60: note: 'max_centers_end' declared here
+void oscl::Galaxy::load_fea_pool(std::set<uint>::iterator& max_centers_end)
+                                                           ^
+1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 21%] [ 34%] Built target oscl_clustering
+Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 36%] Built target clustering_test
+[ 38%] Built target openmp_test
+[ 40%] [ 42%] Built target print_distr
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 44%] Built target similarity_analysis
+[ 61%] Built target oscl_hmp
+[ 74%] Built target oscl_lposc
+[ 76%] Built target hmp_readfile
+[ 78%] Built target hmp_rgbdeval
+[ 80%] Built target hmp_rgbdeval_full
+[ 82%] Built target hmp_test
+[ 85%] Built target lposc_test
+[ 87%] Built target Adlposc_test
+[ 89%] Built target center_sim_test
+Linking CXX static library ../lib/liboscl_galaxy.a
+[100%] Built target oscl_galaxy
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] [ 33%] Built target oscl_engine
+Built target oscl_clustering
+[ 35%] Built target openmp_test
+Scanning dependencies of target oscl_galaxy
+[ 37%] Built target print_distr
+[ 39%] Built target similarity_analysis
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 58%] Built target oscl_hmp
+[ 60%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Planet.cpp.o
+[ 72%] Built target oscl_lposc
+[ 75%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 77%] Built target clustering_test
+[ 79%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 81%] Built target hmp_readfile
+[ 83%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 85%] Built target hmp_rgbdeval
+[ 87%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 89%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o
+[ 91%] Built target hmp_rgbdeval_full
+[ 93%] Built target hmp_test
+[ 95%] Built target lposc_test
+[ 97%] Built target Adlposc_test
+[100%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:26:42: error: use of undeclared identifier 'datasize';
+      did you mean '_datasize'?
+    bool attr_flag = min_clust_size*51 < datasize;
+                                         ^~~~~~~~
+                                         _datasize
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:83:9: note: '_datasize' declared here
+    int _datasize;
+        ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:60:5: error: no matching member function for call to
+      'load_fea_pool'
+    load_fea_pool(select_iter_end);
+    ^~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:62:10: note: candidate function not viable: no known conversion
+      from 'std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> >' to 'uint' (aka 'unsigned int') for 1st argument
+    void load_fea_pool(uint id);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:63:10: note: candidate function not viable: no known conversion
+      from 'std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> >' to 'std::set<uint> &' for 1st argument
+    void load_fea_pool(std::set<uint>&);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:64:10: note: candidate function not viable: no known conversion
+      from 'std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> >' to 'std::set<uint>::iterator &' (aka
+      '__tree_const_iterator<value_type, __node_pointer, difference_type> &') for 1st argument
+    void load_fea_pool(std::set<uint>::iterator&);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:72:27: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+        auto domL = _graph[*cIter].getCopyOfDomSatsList();
+                    ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:90:9: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+                _graph[*cIter] >> _graph[domSat];
+                ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:109:26: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+        if( attr_flag && (_graph[*cIter].getDegree()+1) < min_clust_size)
+                          ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:112:18: error: no matching member function for call to
+      'erase'
+            _centerList.erase(*cIter);
+            ~~~~~~~~~~~~^~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:618:15: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const_iterator' (aka
+      '__tree_const_iterator<value_type, __node_pointer, difference_type>') for 1st argument
+    iterator  erase(const_iterator __p) {return __tree_.erase(__p);}
+              ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:620:15: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    size_type erase(const key_type& __k)
+              ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:623:15: note: candidate function not
+      viable: requires 2 arguments, but 1 was provided
+    iterator  erase(const_iterator __f, const_iterator __l)
+              ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:113:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setType(Planet::STAR);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:122:47: error: no viable conversion from 'value_type'
+      (aka 'pair<__key_type, __mapped_type>') to 'uint' (aka 'unsigned int')
+              double svar = loaded_computeSimilarity(*cIter, center);
+                                                     ^~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:69:50: note: passing argument to parameter 'id1' here
+    virtual double loaded_computeSimilarity(uint id1, uint id2);
+                                                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:138:28: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            for(auto &sats: _graph[*cIter].getDomSatsList())
+                            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:147:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setDegree(0);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:149:34: error: no viable conversion from 'value_type'
+      (aka 'pair<__key_type, __mapped_type>') to 'uint' (aka 'unsigned int')
+            _graph[maxID].insertDomSats(*cIter);
+                                        ^~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Planet.h:50:29: note: passing argument to parameter 'domSatIDToInsert'
+      here
+    void insertDomSats(uint domSatIDToInsert);
+                            ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:150:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setDomCenter(maxID);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:151:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].clearDomSatsList();
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:185:7: error: unknown type name 'Vertex'
+      Vertex alpha(dataID);
+      ^
+14 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 29%] [ 33%] Built target oscl_clustering
+Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 35%] Built target clustering_test
+[ 37%] Built target openmp_test
+[ 39%] Built target print_distr
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 72%] Built target oscl_lposc
+[ 75%] Built target hmp_readfile
+[ 77%] Built target hmp_rgbdeval
+[ 79%] Built target hmp_rgbdeval_full
+[ 81%] Built target hmp_test
+[ 83%] Built target lposc_test
+[ 85%] Built target Adlposc_test
+[ 87%] Built target center_sim_test
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:60:5: error: no matching member function for call to
+      'load_fea_pool'
+    load_fea_pool(select_iter_end);
+    ^~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:62:10: note: candidate function not viable: no known conversion
+      from 'std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> >' to 'uint' (aka 'unsigned int') for 1st argument
+    void load_fea_pool(uint id);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:63:10: note: candidate function not viable: no known conversion
+      from 'std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> >' to 'std::set<uint> &' for 1st argument
+    void load_fea_pool(std::set<uint>&);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:64:10: note: candidate function not viable: no known conversion
+      from 'std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> >' to 'std::set<uint>::iterator &' (aka
+      '__tree_const_iterator<value_type, __node_pointer, difference_type> &') for 1st argument
+    void load_fea_pool(std::set<uint>::iterator&);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:72:27: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+        auto domL = _graph[*cIter].getCopyOfDomSatsList();
+                    ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:90:9: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+                _graph[*cIter] >> _graph[domSat];
+                ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:109:26: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+        if( attr_flag && (_graph[*cIter].getDegree()+1) < min_clust_size)
+                          ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:112:18: error: no matching member function for call to
+      'erase'
+            _centerList.erase(*cIter);
+            ~~~~~~~~~~~~^~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:618:15: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const_iterator' (aka
+      '__tree_const_iterator<value_type, __node_pointer, difference_type>') for 1st argument
+    iterator  erase(const_iterator __p) {return __tree_.erase(__p);}
+              ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:620:15: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    size_type erase(const key_type& __k)
+              ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:623:15: note: candidate function not
+      viable: requires 2 arguments, but 1 was provided
+    iterator  erase(const_iterator __f, const_iterator __l)
+              ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:113:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setType(Planet::STAR);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:122:47: error: no viable conversion from 'value_type'
+      (aka 'pair<__key_type, __mapped_type>') to 'uint' (aka 'unsigned int')
+              double svar = loaded_computeSimilarity(*cIter, center);
+                                                     ^~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:69:50: note: passing argument to parameter 'id1' here
+    virtual double loaded_computeSimilarity(uint id1, uint id2);
+                                                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:138:28: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            for(auto &sats: _graph[*cIter].getDomSatsList())
+                            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:147:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setDegree(0);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:149:34: error: no viable conversion from 'value_type'
+      (aka 'pair<__key_type, __mapped_type>') to 'uint' (aka 'unsigned int')
+            _graph[maxID].insertDomSats(*cIter);
+                                        ^~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Planet.h:50:29: note: passing argument to parameter 'domSatIDToInsert'
+      here
+    void insertDomSats(uint domSatIDToInsert);
+                            ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:150:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setDomCenter(maxID);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:151:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].clearDomSatsList();
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:185:7: error: unknown type name 'Vertex'
+      Vertex alpha(dataID);
+      ^
+13 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] [ 33%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 35%] Built target openmp_test
+[ 37%] Built target print_distr
+[ 39%] Built target similarity_analysis
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 58%] Built target oscl_hmp
+[ 60%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 62%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 64%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 77%] Built target oscl_lposc
+[ 79%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 81%] Built target clustering_test
+[ 83%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:72:27: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+        auto domL = _graph[*cIter].getCopyOfDomSatsList();
+                    ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:90:9: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+                _graph[*cIter] >> _graph[domSat];
+                ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp
+:34:65: error: no viable conversion from 'iterator'    mapped_type& operator[](const key_type& __k); 
+(aka
+                 ^      
+'__tree_const_iterator<value_type, __node_pointer, difference_type>') to 'std::map<double, uint, std::greater<double> >::const_iterator' (aka
+      '__map_const_iterator<typename __base::const_iterator>')
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int')  std::map<double, uin
+t, std::greater<double> >::const_iterator it = _centerList.begin();                                                                                
+for                                                                 ^    ~~~~~~~~~~~~~~~~~~~1st
+ argument
+    mapped_type& operator[](key_type&& __k);/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1
+/map                                                                                                                                               
+:713:29:                  ^
+note: candidate constructor
+      (the implicit copy constructor) not viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer,
+      difference_type>') to 'const std::__1::__map_const_iterator<std::__1::__tree_const_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> > &' for 1st argument
+class _LIBCPP_TYPE_VIS_ONLY __map_const_iterator
+                            ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:109:26: error: /Applications/Xcode.app/Contents/Developer
+/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:713no: 29viable:  overloaded operator[]note : for typecandidate                 
+       constructor'std::map<uint, Planet>'
+      (the implicit move constructor)
+ not viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer,
+      difference_type>') to 'std::__1::__map_const_iterator<std::__1::__tree_const_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> > &&' for 1st argument
+        if( attr_flag && (_graph[*cIter].getDegree()+1) < min_clust_size)
+                          ~~~~~~^~~~~~~
+class _LIBCPP_TYPE_VIS_ONLY __map_const_iterator
+                            ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:112:18: error: no matching member function for call to
+      'erase'
+            _centerList.erase(*cIter);
+            ~~~~~~~~~~~~^~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:618:15: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const_iterator' (aka
+      '__tree_const_iterator<value_type, __node_pointer, difference_type>') for 1st argument
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:737:5: note: candidate constructor not
+      viable:     iterator  erase(const_iterator __p) {return __tree_.erase(__p);}no
+ known               ^conversion
+ from '__tree_const_iterator<value_type, __node_pointer, [...]>' to '__tree_const_iterator<union
+      std::__1::__value_type<double, unsigned int>, class std::__1::__tree_node<union std::__1::__value_type<double, unsigned int>, void *> *,
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set      :[...]>'620 :for15 :1st  argumentn
+ote                                                                                                                                                
+: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    __map_const_iterator(_TreeIterator __i) _NOEXCEPT : __i_(__i) {}
+    ^
+    size_type erase(const key_type& __k)
+              ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:623:15: note: candidate function not
+      /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/mapviable:: 739requires: 52:  argumen
+ts, notebut:  1candidate  wasconstructor  providednot                                                                                              
+      
+viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer, difference_type>') to
+      '__map_iterator<typename __tree_const_iterator<__value_type<double, unsigned int>, __tree_node<__value_type<double, unsigned int>, void *> *, 
+   iterator  erase(const_iterator __f, const_iterator __l)                                                                                         
+      
+long>::__non_const_iterator>' for              ^ 
+1st argument
+    __map_const_iterator(
+    ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:113:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setType(Planet::STAR);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+1 error generated.
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:122:47: error: no viable conversion from 'value_type'
+      (aka 'pair<__key_type, __mapped_type>') to 'uint' (aka 'unsigned int')
+              double svar = loaded_computeSimilarity(*cIter, center);
+                                                     ^~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:69:50: note: passing argument to parameter 'id1' here
+    virtual double loaded_computeSimilarity(uint id1, uint id2);
+                                                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:138:28: error: no viable overloadedmake[2]:  operator[] f
+or type                                                                                                                                            
+      'std::map<uint, Planet>'*** [galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o] Error 1
+
+make[2]: *** Waiting for unfinished jobs....
+            for(auto &sats: _graph[*cIter].getDomSatsList())
+                            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st[ 85%]  argume
+nt                                                                                                                                                 
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:147:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setDegree(0);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type'Built target hmp_readfile
+ (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:149:34: error: no viable conversion from 'value_type'
+      (aka 'pair<__key_type, __mapped_type>') to 'uint' (aka 'unsigned int')
+            _graph[maxID].insertDomSats(*cIter);
+                                        ^~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Planet.h:50:29: note: passing argument to parameter 'domSatIDToInsert'
+      here
+    void insertDomSats(uint domSatIDToInsert);
+                            ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:150:12: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+            _graph[*cIter].setDomCenter(maxID);
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:151:12: error: [ 87%] no viable overloaded operator[] for
+ type                                                                                                                                              
+      'std::map<uint, Planet>'
+            _graph[*cIter].clearDomSatsList();
+            ~~~~~~^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'const key_type' (aka 'const unsigned int') for 1st
+      argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'value_type' (aka 'pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st argument
+    mapped_type& operator[](key_type&& __k);
+                 ^Built target hmp_rgbdeval
+
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:185:7: error: unknown type name 'Vertex'
+      Vertex alpha(dataID);
+      ^
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+12 errors generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 95%] Built target Adlposc_test
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ cmake ..
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/build
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 22%] [ 33%] Built target oscl_engine
+Built target oscl_clustering
+[ 35%] Scanning dependencies of target oscl_galaxy
+Built target openmp_test
+[ 37%] Built target print_distr
+[ 39%] Built target similarity_analysis
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 58%] Built target oscl_hmp
+[ 60%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:40:10: warning: unused variable 'max_center_id'
+      [-Wunused-variable]
+    uint max_center_id = center_iter->second;
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp:34:65: error: no viable conversion from 'iterator' (aka
+      '__tree_const_iterator<value_type, __node_pointer, difference_type>') to 'std::map<double, uint, std::greater<double> >::const_iterator' (aka
+      '__map_const_iterator<typename __base::const_iterator>')
+  std::map<double, uint, std::greater<double> >::const_iterator it = _centerList.begin();
+                                                                ^    ~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:713:29: note: candidate constructor
+      (the implicit copy constructor) not viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer,
+      difference_type>') to 'const std::__1::__map_const_iterator<std::__1::__tree_const_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> > &' for 1st argument
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:185:7: error: unknown type name 'Vertex'
+class _LIBCPP_TYPE_VIS_ONLY __map_const_iterator
+                            ^
+      Vertex alpha(dataID);
+      ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:713:29: note: candidate constructor
+      (the implicit move constructor) not viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer,
+      difference_type>') to 'std::__1::__map_const_iterator<std::__1::__tree_const_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> > &&' for 1st argument
+class _LIBCPP_TYPE_VIS_ONLY __map_const_iterator
+                            ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:737:5: note: candidate constructor not
+      viable: no known conversion from '__tree_const_iterator<value_type, __node_pointer, [...]>' to '__tree_const_iterator<union
+      std::__1::__value_type<double, unsigned int>, class std::__1::__tree_node<union std::__1::__value_type<double, unsigned int>, void *> *,
+      [...]>' for 1st argument
+    __map_const_iterator(_TreeIterator __i) _NOEXCEPT : __i_(__i) {}
+    ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:739:5: note: candidate constructor not
+      viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer, difference_type>') to
+      '__map_iterator<typename __tree_const_iterator<__value_type<double, unsigned int>, __tree_node<__value_type<double, unsigned int>, void *> *,
+      long>::__non_const_iterator>' for 1st argument
+    __map_const_iterator(
+    ^
+1 warning and 1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 72%] Built target oscl_lposc
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 14%] [ 33%] Built target oscl_engine
+Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 35%] Built target openmp_test
+[ 37%] Built target print_distr
+[ 39%] Built target similarity_analysis
+[ 41%] [ 43%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:40:10: warning: unused variable 'max_center_id'
+      [-Wunused-variable]
+    uint max_center_id = center_iter->second;
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:185:7: error: unknown type name 'Vertex'
+      Vertex alpha(dataID);
+      ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp:34:59: error: no viable conversion from 'iterator' (aka
+      '__tree_const_iterator<value_type, __node_pointer, difference_type>') to 'std::map<double, uint, std::greater<double> >::iterator' (aka
+      '__map_iterator<typename __base::iterator>')
+  std::map<double, uint, std::greater<double> >::iterator it = _centerList.begin();
+                                                          ^    ~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:648:29: note: candidate constructor
+      (the implicit copy constructor) not viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer,
+      difference_type>') to 'const std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double,1 warning unsigned  and int>,1  errorvoid generated.
+ *> *, long> > &' for 1st argument
+class _LIBCPP_TYPE_VIS_ONLY __map_iterator
+                            ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:648:29: note: candidate constructor
+      (the implicit move constructor) not viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer,
+      difference_type>') to 'std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> > &&' for 1st argument
+class _LIBCPP_TYPE_VIS_ONLY __map_iterator
+                            ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:672:5: note: candidate constructor not
+ make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+     viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer, difference_type>') to
+      'std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>, std::__1::__tree_node<std::__1::__value_type<double, unsigned int>,
+      void *> *, long>' for 1st argument
+    __map_iterator(_TreeIterator __i) _NOEXCEPT : __i_(__i) {}
+    ^
+1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 60%] Built target oscl_hmp
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 10%] Built target oscl_engine
+[ 33%] Built target oscl_clustering
+Scanning dependencies of target oscl_galaxy
+[ 35%] Built target openmp_test
+[ 37%] Built target print_distr
+[ 39%] Built target similarity_analysis
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 58%] Built target oscl_hmp
+[ 60%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp:34:59: error: no viable conversion from 'iterator' (aka
+      '__tree_const_iterator<value_type, __node_pointer, difference_type>') to 'std::map<double, uint, std::greater<double> >::iterator' (aka
+      '__map_iterator<typename __base::iterator>')
+  std::map<double, uint, std::greater<double> >::iterator it = _centerList.begin();
+                                                          ^    ~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:648:29: note: candidate constructor
+      (the implicit copy constructor) not viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer,
+      difference_type>') to 'const std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> > &' for 1st argument
+class _LIBCPP_TYPE_VIS_ONLY __map_iterator
+                            ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:648:29: note: candidate constructor
+      (the implicit move constructor) not viable: no known conversion from 'iterator' (aka '__tree_const_iterator<value_type, __node_pointer,
+      difference_type>') to 'std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type<double, unsigned int>,
+      std::__1::__tree_node<std::__1::__value_type<double, unsigned int>, void *> *, long> > &&' for 1st argument
+class _LIBCPP_TYPE_VIS_ONLY __map_iterator
+                            ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:672:5: note: candidate constructor not
+      viable: no known conversion from/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp :'iterator'40 :(aka
+ '__tree_const_iterator<value_type, __node_pointer, difference_type>')10 :to                                                                       
+      warning'std::__1::__tree_iterator<std::__1::__value_type<double,:  unsigned int>, std::__1::__tree_node<std::__1::__value_type<double, unsigne
+d int>,                                                                                                                                            
+unused       voidvariable  *>'max_center_id' 
+*,       [-Wunused-variable]long>' 
+for 1st argument
+    __map_iterator(_TreeIterator __i) _NOEXCEPT : __i_(__i) {}
+    ^    uint max_center_id = center_iter->second;
+
+         ^
+1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[ 72%] Built target oscl_lposc
+[ 75%] Built target clustering_test
+[ 77%] Built target hmp_readfile
+[ 79%] Built target hmp_rgbdeval
+[ 81%] Built target hmp_rgbdeval_full
+[ 83%] Built target hmp_test
+[ 85%] Built target lposc_test
+[ 87%] Built target Adlposc_test
+[ 89%] Built target center_sim_test
+1 warning generated.
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 20%] [ 33%] Built target oscl_engine
+Built target oscl_clustering
+[ 35%] Scanning dependencies of target oscl_galaxy
+Built target openmp_test
+[ 37%] Built target print_distr
+[ 39%] Built target similarity_analysis
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 58%] Built target oscl_hmp
+[ 60%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:60:5: error: no matching member function for call to
+      'load_fea_pool'
+    load_fea_pool(max_centers, select_iter_end);
+    ^~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:62:10: note: candidate function not viable: requires single
+      argument 'id', but 2 arguments were provided
+    void load_fea_pool(uint id);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:63:10: note: candidate function not viable: requires 1 argument,
+      but 2 were provided
+    void load_fea_pool(std::set<uint>&);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/include/Galaxy.h:64:10: note: candidate function not viable: requires 1 argument,
+      but 2 were provided
+    void load_fea_pool(std::map<double, uint, std::greater<double> >::iterator&);
+         ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp:32:20: error: out-of-line definition of 'load_fea_pool' does
+      not match any declaration in 'oscl::Galaxy'
+void oscl::Galaxy::load_fea_pool(std::map<double, uint, std::greater<double> > &max_centers, std::map<double, uint, std::greater<double> >::...
+                   ^~~~~~~~~~~~~
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp:39:23: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+      auto ls = _graph[*it].getDomSatsList();
+                ~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'const value_type' (aka 'const pair<__key_type, __mapped_type>') to 'const key_type'
+      (aka 'const unsigned int') for 1st argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'const value_type' (aka 'const pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st
+      argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o] Error 1
+make[2][ 72%] : *** Waiting for unfinished jobs....
+2 errors generated.
+Built target oscl_lposc
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o] Error 1
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 75%] Built target clustering_test
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 20%] [ 33%] Built target oscl_engine
+Built target oscl_clustering
+[ 35%] Built target openmp_test
+Scanning dependencies of target oscl_galaxy
+[ 37%] Built target print_distr
+[ 39%] Built target similarity_analysis
+[ 41%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/Galaxy.cpp.o
+[ 58%] Built target oscl_hmp
+[ 60%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/GalaxyIO.cpp.o
+[ 62%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/galaxy_Vmeasure.cpp.o
+[ 75%] Built target oscl_lposc
+[ 77%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/computeSimilarity.cpp.o
+[ 79%] Built target clustering_test
+[ 81%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 83%] Built target hmp_readfile
+[ 85%] Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/unloaded_insert.cpp.o
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/LoadFeaPool.cpp:39:23: error: no viable overloaded operator[] for type
+      'std::map<uint, Planet>'
+      auto ls = _graph[*it].getDomSatsList();
+                ~~~~~~^~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:997:18: note: candidate function not
+      viable: no known conversion from 'const value_type' (aka 'const pair<__key_type, __mapped_type>') to 'const key_type'
+      (aka 'const unsigned int') for 1st argument
+    mapped_type& operator[](const key_type& __k);
+                 ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:999:18: note: candidate function not
+      viable: no known conversion from 'const value_type' (aka 'const pair<__key_type, __mapped_type>') to 'key_type' (aka 'unsigned int') for 1st
+      argument
+    mapped_type& operator[](key_type&& __k);
+                 ^
+/Users/taoyeandy/workspace/thesis/thesis2/osc_learning/code/galaxy/src/unloaded_insert.cpp:40:10: warning: unused variable 'max_center_id'
+      [-Wunused-variable]
+    uint max_center_id = center_iter->second;
+         ^
+1 error generated.
+make[2]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[ 87%] Built target hmp_rgbdeval
+[ 89%] Built target hmp_rgbdeval_full
+[ 91%] Built target hmp_test
+[ 93%] Built target lposc_test
+[ 95%] Built target Adlposc_test
+[ 97%] Built target center_sim_test
+1 warning generated.
+make[1]: *** [galaxy/CMakeFiles/oscl_galaxy.dir/all] Error 2
+make: *** [all] Error 2
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ make -j2
+[ 20%] [ 33%] Built target oscl_clustering
+Built target oscl_engine
+Scanning dependencies of target oscl_galaxy
+[ 35%] Built target clustering_test
+[ 37%] Built target openmp_test
+[ 39%] [ 41%] Built target print_distr
+Building CXX object galaxy/CMakeFiles/oscl_galaxy.dir/src/LoadFeaPool.cpp.o
+[ 43%] Built target similarity_analysis
+[ 60%] Built target oscl_hmp
+[ 72%] Built target oscl_lposc
+[ 75%] Built target hmp_readfile
+[ 77%] Built target hmp_rgbdeval
+[ 79%] Built target hmp_rgbdeval_full
+[ 81%] Built target hmp_test
+[ 83%] Built target lposc_test
+[ 85%] Built target Adlposc_test
+[ 87%] Built target center_sim_test
+Linking CXX static library ../lib/liboscl_galaxy.a
+[100%] Built target oscl_galaxy
+taoyeandy#16.02.2015:~/workspace/thesis/thesis2/osc_learning/code/build$ 

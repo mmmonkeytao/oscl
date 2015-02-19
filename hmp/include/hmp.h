@@ -25,9 +25,13 @@ namespace oscl{
     
     void loadDicts();
 
+    /* matlab optimized HMP version */
     void computeHMP(const char* dir, Eigen::VectorXd &);
     void computeHMP(const char* rgb_dir, const char* depth_dir, Eigen::VectorXd&);
 
+    /* original HMP same results as in paper */
+    void computeHMP_original(const char*rgb_dir, const char* depth_dir, Eigen::VectorXd&);
+    
     void im2colstep(Eigen::MatrixXd &rgb, Eigen::MatrixXd &gray, const char* type);
 
     void max_pooling_layer1(Eigen::MatrixXd &, const char*);

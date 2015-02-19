@@ -7,6 +7,11 @@ set(SOURCES src/Galaxy.cpp
 	    src/unloaded_insert.cpp
 	    src/loaded_insert_noSim.cpp
 	    src/Hquery_accuracy.cpp
+	    src/oscInsert.cpp
+	    src/helper.cpp
+	    src/oscUpdate.cpp
+	    src/guided_osc_insert.cpp
+	    src/normal_osc_insert.cpp
 	    )
 
 set(HEADER_SUBDIR "include")

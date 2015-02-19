@@ -88,7 +88,20 @@ include_directories(${GSL_INCLUDE_DIR})
 # stxxl
 find_package(stxxl PATHS "./3dparty/stxxl-1.4.1/build")
 include_directories(${STXXL_INCLUDE_DIRS})
-  
+
+# pcl
+list(APPEND CMAKE_MODULE_PATH "/usr/local/Cellar/pcl/1.7.2/share/pcl-1.7/")
+find_package(PCL 1.7 REQUIRED)
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
+# vtk
+list(APPEND CMAKE_MODULE_PATH "/usr/local/Cellar/vtk/6.1.0/lib/cmake/vtk-6.1/")
+find_package(VTK 6.1 REQUIRED)
+include(${VTK_USE_FILE})
+
+
 #########################
 # add subdirectories 
 #########################
@@ -97,6 +110,7 @@ add_subdirectory(hmp)
 add_subdirectory(clustering)
 add_subdirectory(lposc)
 add_subdirectory(galaxy)
+add_subdirectory(pcl)
 add_subdirectory(test)
 
 # We want to create dynamic libraries
@@ -146,6 +160,10 @@ install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/center_sim_test" DESTINATION
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/magnetic_osc" DESTINATION "${CMAKE_SOURCE_DIR}/app/magnetic_osc/")
 
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/loaded_insert_noSim_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/loaded_insert_noSim_test/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/guided_osc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/guided_osc_test/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/normal_osc_insert_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/normal_osc_insert_test/")
 
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval_full" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval_full/")
 

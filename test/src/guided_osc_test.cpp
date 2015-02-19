@@ -54,7 +54,7 @@ int main(int argc, char** argv){
     // print label and data path
     //cout << label_path << "\n" << data_path << endl;
     tt1 = high_resolution_clock::now();
-    galaxy.loaded_insert_noSim(vec, i, label, i, 0.8);
+    galaxy.guided_osc_insert(vec, i, label, i, 0.9);
     tt2 = high_resolution_clock::now();
 
     ttot += duration_cast<milliseconds>(tt2-tt1).count();
@@ -69,10 +69,12 @@ int main(int argc, char** argv){
       galaxy.V_measure(1, true);
 
       auto vcnum = galaxy.getCenterCheckNum();
-      auto vsbnum = galaxy.getStarBrokenNum();
+      //auto vsbnum = galaxy.getStarBrokenNum();
+      auto cschangednum = galaxy.getCSChangedNum();
 
+      cout << "Star Center Broken: " << cschangednum[i] << endl;
       cout << "Center evaluated: " << vcnum[i] << endl;
-      cout << "Center star broken: " << vsbnum[i] << endl;
+      //cout << "Center star broken: " << vsbnum[i] << endl;
 
       ttot = 0;
       

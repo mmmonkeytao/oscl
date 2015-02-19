@@ -67,6 +67,31 @@ namespace oscl{
     double getAttrSum();
 
     int getClustSize();
+
+    // *********************
+    // Adjacent Vertices List
+    // *********************
+    const std::set<uint>& getAdjPlanetsList()const;
+    std::set<uint> getCopyOfAdjPlanetsList() const;        
+    void insertAdjPlanet(uint adjPlanetsIDToInsert);
+    void deleteAdjPlanet(uint adjPlanetsIDToDelete);
+        
+    // *********************
+    // Adjacent Centers List
+    // *********************
+    std::set<uint>& getAdjCentersList();
+    std::set<uint> getCopyOfAdjCentersList();
+    void insertAdjCenter(uint adjCenterIDToInsert);
+    void deleteAdjCenter(uint adjCenterIDToDelete);
+    bool isAdjCentersListEmpty();
+    void clearCentersList();
+    
+    // *********************
+    // Priority Queue status related.
+    // *********************
+    bool getInQStatus();
+    void setInQStatus(bool bInQStatus);
+
     
   private:
     //********************
@@ -80,6 +105,10 @@ namespace oscl{
     int _domCenter;  // Id of dominant center. (-1) if null.    
 
     std::set<uint> _domSatsList;   // List of dominating stars
+    std::set<uint> _adjPlanetsList;  // List of adjacent vertices
+    std::set<uint> _adjCentersList;
+
+    bool _inQ;
 
     Eigen::VectorXd centroid;
         

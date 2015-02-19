@@ -46,8 +46,11 @@ namespace oscl {
     // access functions
     uint getDataSize();
     void incrementDataSize();
+
+    // get cluster eval functions
     const std::vector<uint>& getCenterCheckNum();
     const std::vector<uint>& getStarBrokenNum();
+    const std::vector<uint>& getCSChangedNum();
     
     const DataSet& getData();
     const std::map<uint, int>& getLabelList();
@@ -62,7 +65,10 @@ namespace oscl {
     void unloaded_insert(uint id, int label, uint iter, double select_threshold);
 
     void loaded_insert_noSim(Eigen::VectorXd vec, uint id, int label, uint iter, double select_threshold);
-    
+
+    void guided_osc_insert(Eigen::VectorXd vec, uint id, int label, uint iter, double select_threshold);
+
+    void normal_osc_insert(Eigen::VectorXd vec, uint id, int label, uint iter, double select_threshold);
     // cluster evaluation
     void V_measure(double beta, bool message);
     void Hquery_accuracy();
@@ -73,6 +79,13 @@ namespace oscl {
     void load_fea_pool(std::set<uint>&);
     void load_fea_pool(std::map<double, uint, std::greater<double> >&, std::map<double, uint, std::greater<double> >::iterator&);
 
+    // osc
+    void oscInsert(uint, std::list<uint>&);
+    void oscUpdate(uint);
+
+    // helper functions
+    uint vertexIDMaxDeg(std::set<uint> const&) const;
+    
   protected:
 
     virtual double unloaded_computeSimilarity(uint id1, uint id2) const;
@@ -107,10 +120,16 @@ namespace oscl {
     const double _min_cluster_size_wanted = 25.0;
     const double _clust_size_eps = 0.0002;
     const double _threshold_eps = 0.0002;
-    
+
+    // priority Q
+    std::priority_queue<Planet> _priorityQ;
+
     // measures for cluster evaluation
     std::vector<uint> center_check_num;
     std::vector<uint> star_broken_num;
+
+    uint _center_star_changed;
+    std::vector<uint> _cs_changed;
   };
   
 }

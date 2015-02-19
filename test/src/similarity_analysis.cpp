@@ -73,9 +73,9 @@ void init_data()
       ifstream ifdata(data_path.c_str()), iflabel(label_path.c_str());
       cout << "Loading file: " << file_counter + 1 << endl;
       uint fea_num, fea_size;
-      ifdata >> fea_num >> fea_size;
+      //ifdata >> fea_num >> fea_size;
 
-      //fea_num = 3672; fea_size = 94150;
+      fea_num = 6999; fea_size = 94150;
       for(uint fea_num_idx = 0; fea_num_idx < fea_num; ++fea_num_idx)
 	{
 	  VectorXd vec(fea_size);

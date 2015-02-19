@@ -51,3 +51,11 @@ target_link_libraries(magnetic_osc ${OSCL_GALAXY_LIBRARY})
 # loaded_insert_noSim_test.cpp
 add_executable(loaded_insert_noSim_test src/loaded_insert_noSim_test.cpp)
 target_link_libraries(loaded_insert_noSim_test ${OSCL_GALAXY_LIBRARY})
+
+# guided_osc_test.cpp
+add_executable(guided_osc_test src/guided_osc_test.cpp)
+target_link_libraries(guided_osc_test ${OSCL_GALAXY_LIBRARY})
+
+# normal_osc_test.cpp
+add_executable(normal_osc_insert_test src/normal_osc_insert_test.cpp)
+target_link_libraries(normal_osc_insert_test ${OSCL_GALAXY_LIBRARY})
