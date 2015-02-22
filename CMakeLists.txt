@@ -77,7 +77,7 @@ include_directories(${EIGEN_INCLUDE_DIR})
 # boost
 set(Boost_INCLUDE_DIR /usr/local/Cellar/boost/1.57.0/include)
 set(Boost_LIBRARY_DIR /usr/local/Cellar/boost/1.57.0/lib)
-find_package(Boost COMPONENTS system filesystem REQUIRED)
+find_package(Boost COMPONENTS system filesystem program_options REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
@@ -164,6 +164,16 @@ install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/loaded_insert_noSim_test" DE
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/guided_osc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/guided_osc_test/")
 
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/normal_osc_insert_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/normal_osc_insert_test/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/pcl_visualizer" DESTINATION "${CMAKE_SOURCE_DIR}/app/pcl_visualizer/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/pcl_viewer" DESTINATION "${CMAKE_SOURCE_DIR}/app/pcl_viewer/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/convert_pcd2_dni" DESTINATION "${CMAKE_SOURCE_DIR}/app/convert_pcd2_dni/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/convert2DepNorm" DESTINATION "${CMAKE_SOURCE_DIR}/app/convert2DDepNorm/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/pcd2hmp" DESTINATION "${CMAKE_SOURCE_DIR}/app/pcd2hmp/")
 
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval_full" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval_full/")
 

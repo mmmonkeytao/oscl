@@ -9,7 +9,7 @@
 #include <pcl/segmentation/conditional_euclidean_clustering.h>
 
 
-void onlineclust::PCloud::load_pcloud(const char *dir, int nfiles)
+void oscl::PCloud::load_pcloud(const char *dir, int nfiles)
 {
   this->cloud = new _pclType1[nfiles];
 
@@ -45,7 +45,7 @@ void onlineclust::PCloud::load_pcloud(const char *dir, int nfiles)
 
 }
 
-void onlineclust::PCloud::proc_pcloud(_pclType1::Ptr& pcloud, uint ith)
+void oscl::PCloud::proc_pcloud(_pclType1::Ptr& pcloud, uint ith)
 {
   // segmentation using different normals
   // this->diff_normal_segmentation(ocloud, pcloud, ith);
@@ -65,7 +65,7 @@ void onlineclust::PCloud::proc_pcloud(_pclType1::Ptr& pcloud, uint ith)
 
 }
 
-void onlineclust::PCloud::cloud_normal(_pclType1::Ptr &cloud, pcl::PointCloud<pcl::Normal>::Ptr &cloud_normals)
+void oscl::PCloud::cloud_normal(_pclType1::Ptr &cloud, pcl::PointCloud<pcl::Normal>::Ptr &cloud_normals)
 {
 
     pcl::NormalEstimation<pcl::PointXYZI, pcl::Normal> ne1;
@@ -78,7 +78,7 @@ void onlineclust::PCloud::cloud_normal(_pclType1::Ptr &cloud, pcl::PointCloud<pc
 }
 
 
-void onlineclust::PCloud::setViewerPose (pcl::visualization::PCLVisualizer& viewer, const Eigen::Affine3f& viewer_pose)
+void oscl::PCloud::setViewerPose (pcl::visualization::PCLVisualizer& viewer, const Eigen::Affine3f& viewer_pose)
 {
   Eigen::Vector3f pos_vector = viewer_pose * Eigen::Vector3f(0, 0, 0);
   Eigen::Vector3f look_at_vector = viewer_pose.rotation () * Eigen::Vector3f(0, 0, 1) + pos_vector;

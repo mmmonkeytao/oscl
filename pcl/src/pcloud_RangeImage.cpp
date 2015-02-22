@@ -20,7 +20,7 @@
 #include <vtkImageCast.h>
 
 
-void onlineclust::PCloud::getRangeImage(_pclType1::Ptr &pcloud, std::vector<pcl::PointIndices> &cluster_indices, pcl::RangeImage *&range_image, uint &rangeImage_num)
+void oscl::PCloud::getRangeImage(_pclType1::Ptr &pcloud, std::vector<pcl::PointIndices> &cluster_indices, pcl::RangeImage *&range_image, uint &rangeImage_num)
 {
     pcl::ExtractIndices<pcl::PointXYZI> extract;
     std::cout << "no. of range images: " << cluster_indices.size() << std::endl;
@@ -46,7 +46,7 @@ void onlineclust::PCloud::getRangeImage(_pclType1::Ptr &pcloud, std::vector<pcl:
         float maxAngleWidth     = (float) (360.0f * (M_PI/180.0f));  // 360.0 degree in radians
         float maxAngleHeight    = (float) (180.0f * (M_PI/180.0f));  // 180.0 degree in radians
         Eigen::Affine3f sensorPose = (Eigen::Affine3f)Eigen::Translation3f(0.0f, 0.0f, 0.0f);
-        pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::LASER_FRAME;
+        pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
         float noiseLevel = 0.00;
         float minRange = 0.0f;
         int borderSize = 1;
@@ -60,7 +60,7 @@ void onlineclust::PCloud::getRangeImage(_pclType1::Ptr &pcloud, std::vector<pcl:
     }
 }
 
-void onlineclust::PCloud::vis_pointcloud2rangeimage(_pclType1::Ptr &pcloud, std::vector<pcl::PointIndices> &cluster_indices)
+void oscl::PCloud::vis_pointcloud2rangeimage(_pclType1::Ptr &pcloud, std::vector<pcl::PointIndices> &cluster_indices)
 {
     pcl::ExtractIndices<pcl::PointXYZI> extract;
     std::cout << "no. of clusters: " << cluster_indices.size() << std::endl;

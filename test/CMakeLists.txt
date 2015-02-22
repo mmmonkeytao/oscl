@@ -59,3 +59,27 @@ target_link_libraries(guided_osc_test ${OSCL_GALAXY_LIBRARY})
 # normal_osc_test.cpp
 add_executable(normal_osc_insert_test src/normal_osc_insert_test.cpp)
 target_link_libraries(normal_osc_insert_test ${OSCL_GALAXY_LIBRARY})
+
+# pcl_visualizer.cpp
+add_executable(pcl_visualizer src/pcl_visualizer.cpp)
+target_link_libraries(pcl_visualizer ${PCL_LIBRARIES})
+
+# pcl_viewer.cpp
+add_executable(pcl_viewer src/pcl_viewer.cpp)
+target_link_libraries(pcl_viewer ${PCL_LIBRARIES}  ${Boost_PROGRAM_OPTIONS_LIBRARY})
+
+# convert_pcd2_dni.cpp
+include_directories(${OSCL_PCLOUD_INCLUDE})
+add_executable(convert_pcd2_dni src/convert_pcd2_dni.cpp)
+target_link_libraries(convert_pcd2_dni ${OSCL_PCLOUD_LIBRARY} ${PCL_LIBRARIES}  ${Boost_PROGRAM_OPTIONS_LIBRARY})
+
+# convert2DepNorm.cpp
+include_directories(${OSCL_PCLOUD_INCLUDE})
+add_executable(convert2DepNorm src/convert2DepNorm.cpp)
+target_link_libraries(convert2DepNorm ${OSCL_PCLOUD_LIBRARY} ${PCL_LIBRARIES}  ${Boost_PROGRAM_OPTIONS_LIBRARY} ${OSCL_ENGINE_LIBRARY})
+
+# pcd2hmp.cpp
+add_executable(pcd2hmp src/pcd2hmp.cpp)
+target_link_libraries(pcd2hmp ${OSCL_HMP_LIBRARY})
+
+

@@ -5,7 +5,7 @@
 #include <pcl/segmentation/sac_segmentation.h>
 
 
-void onlineclust::PCloud::euclidean_cluster_extraction(_pclType1::Ptr &pcloud,  std::vector<pcl::PointIndices>&cluster_indices)
+void oscl::PCloud::euclidean_cluster_extraction(_pclType1::Ptr &pcloud,  std::vector<pcl::PointIndices>&cluster_indices)
 {
       // Creating the KdTree object for the search method of the extraction
     pcl::search::KdTree<pcl::PointXYZI>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZI>);
@@ -40,7 +40,7 @@ void onlineclust::PCloud::euclidean_cluster_extraction(_pclType1::Ptr &pcloud,  
 
 }
 
-void onlineclust::PCloud::diff_normal_segmentation(_pclType1& icloud, _pclType1::Ptr& pcloud, uint ith)
+void oscl::PCloud::diff_normal_segmentation(_pclType1& icloud, _pclType1::Ptr& pcloud, uint ith)
 {
  // filters, remove outliers
     pcl::StatisticalOutlierRemoval<pcl::PointXYZI> sor;
@@ -190,7 +190,7 @@ void onlineclust::PCloud::diff_normal_segmentation(_pclType1& icloud, _pclType1:
   
 }
 
-void onlineclust::PCloud::plane_model_segmentation(_pclType1 &cloud, _pclType1::Ptr &pcloud)
+void oscl::PCloud::plane_model_segmentation(_pclType1 &cloud, _pclType1::Ptr &pcloud)
 {
     pcl::PointIndices::Ptr inliers(new pcl::PointIndices ());
 

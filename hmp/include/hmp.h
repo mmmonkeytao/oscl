@@ -29,6 +29,9 @@ namespace oscl{
     void computeHMP(const char* dir, Eigen::VectorXd &);
     void computeHMP(const char* rgb_dir, const char* depth_dir, Eigen::VectorXd&);
 
+    // interface with Eigen::MatrixXd
+    void computeHMPfromPCD(cv::Mat&matDepth, cv::Mat&matNormal, Eigen::VectorXd&);
+    
     /* original HMP same results as in paper */
     void computeHMP_original(const char*rgb_dir, const char* depth_dir, Eigen::VectorXd&);
     

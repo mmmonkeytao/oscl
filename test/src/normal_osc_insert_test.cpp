@@ -11,7 +11,7 @@ using namespace std::chrono;
 
 uint NUM_FEAS;
 uint FEA_SIZE;
-const uint NUM_SAVE_PER_ITER = 200;
+const uint NUM_SAVE_PER_ITER = 10;
 
 int main(int argc, char** argv){
 
@@ -28,6 +28,13 @@ int main(int argc, char** argv){
   
   Galaxy galaxy(FEA_SIZE, argv[1]);
 
+  string data_path = prefix + "_1.dat";
+  ifstream idata(data_path.c_str());
+  int buf; idata >> buf >> buf;
+
+  string label_path = labelprefix + "label_1.dat";
+  ifstream ilabel(label_path.c_str());
+
   /*time measurement*/
   long int ttot = 0;
   high_resolution_clock::time_point tt1, tt2;
@@ -38,15 +45,15 @@ int main(int argc, char** argv){
     ss << i;
 
     /* load label*/
-    string label_path = labelprefix + "label_" + ss.str() +".dat";
-    ifstream ilabel(label_path.c_str());
+    // string label_path = labelprefix + "label_" + ss.str() +".dat";
+    // ifstream ilabel(label_path.c_str());
 
-    uint label;  ilabel >> label;  ilabel.close();
+    uint label;  ilabel >> label;  
 
     /* load vector*/
     VectorXd vec{FEA_SIZE};
-    string data_path = prefix + "_" + ss.str() + ".dat";
-    ifstream idata(data_path.c_str());
+    // string data_path = prefix + "_" + ss.str() + ".dat";
+    // ifstream idata(data_path.c_str());
     for(uint k = 0; k < FEA_SIZE; ++k)
       idata >> vec(k);
 
@@ -54,7 +61,8 @@ int main(int argc, char** argv){
     // print label and data path
     //cout << label_path << "\n" << data_path << endl;
     tt1 = high_resolution_clock::now();
-    galaxy.normal_osc_insert(vec, i, label, i, 0.009);
+    //galaxy.normal_osc_insert(vec, i, label, i, 0.009);
+    galaxy.guided_osc_insert(vec, i, label, i, 0.9);
     tt2 = high_resolution_clock::now();
 
     ttot += duration_cast<milliseconds>(tt2-tt1).count();
@@ -79,7 +87,7 @@ int main(int argc, char** argv){
       cout << "\n";
     }
   }
-  
+ilabel.close();  
   cout << "Insertion completes.\n";
  
   galaxy.exportClusterInfo("clusterInfo.dat",0);

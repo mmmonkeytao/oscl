@@ -49,7 +49,7 @@ int main(int argc, char** argv){
     ifstream idata(data_path.c_str());
     for(uint k = 0; k < FEA_SIZE; ++k)
       idata >> vec(k);
-
+   
     /* insert data */
     // print label and data path
     //cout << label_path << "\n" << data_path << endl;

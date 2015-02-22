@@ -11,7 +11,7 @@ using namespace std::chrono;
 using namespace std;
 using namespace Eigen;
 
-const uint NUM_CLASS = 51;
+uint NUM_CLASS;
 
 uint NUM_FILES;
 vector<int> labels;
@@ -28,14 +28,15 @@ void save_sim(const char*);
 
 int main(int argc, char** argv){
 
-  if(argc != 6){
-    cerr << "Usage: <exec> <label_file_dir> <data_file_dir> <NUM_FILES> <save_dir> <sim_type>\n";
+  if(argc != 7){
+    cerr << "Usage: <exec> <label_file_dir> <data_file_dir> <NUM_FILES> <save_dir> <sim_type> <number of class>\n";
     return -1;
   }
 
   label_prefix = string(argv[1]);
   data_prefix = string(argv[2]);
   NUM_FILES = atoi(argv[3]);
+  NUM_CLASS = atoi(argv[6]);
   
   init_data();
 
@@ -73,22 +74,24 @@ void init_data()
       ifstream ifdata(data_path.c_str()), iflabel(label_path.c_str());
       cout << "Loading file: " << file_counter + 1 << endl;
       uint fea_num, fea_size;
-      //ifdata >> fea_num >> fea_size;
+      ifdata >> fea_num >> fea_size;
 
-      fea_num = 6999; fea_size = 94150;
+      //fea_num = 6999; fea_size = 94150;
       for(uint fea_num_idx = 0; fea_num_idx < fea_num; ++fea_num_idx)
 	{
 	  VectorXd vec(fea_size);
-	  int l;
+	  double l;
 	  
 	  for(uint fea_size_idx = 0; fea_size_idx < fea_size; ++fea_size_idx){
 	    ifdata >> vec(fea_size_idx);
 	  }
 
 	  iflabel >> l;
-	  
-	  labels.push_back(l);
-	  labelist[l].push_back(data_idx);
+
+	  int label = static_cast<int>(l);
+	  //cout << vec.sum() << " " << fea_num_idx << endl;
+	  labels.push_back(label);
+	  labelist[label].push_back(data_idx);
 	  vec.normalize();
 	  
 	  data.push_back(vec);
@@ -98,7 +101,7 @@ void init_data()
 
       ifdata.close(); iflabel.close();
     }
-
+  cout << "file size: " << labels.size() << "  " << data.size() << endl;
   for(uint i = 0; i < NUM_CLASS; ++i)
     {
       VectorXd vec = VectorXd::Zero(NUM_CLASS);
@@ -109,12 +112,15 @@ void init_data()
 void feed_sim(const char* type)
 {
   // compute similarity inside each class
+  auto labelist_iter = labelist.begin();
+  
   for(uint i = 0; i < NUM_CLASS; ++i)
     {
-      uint class_size = labelist[i].size();
+      uint class_size = (labelist_iter->second).size();//labelist[i].size();
+
       VectorXd totsim(class_size * (class_size-1) / 2);
 
-      auto &list = labelist[i];
+      auto &list = labelist_iter->second;
 
       uint counter = 0;
       for(uint m = 0; m < class_size-1; ++ m)
@@ -124,19 +130,26 @@ void feed_sim(const char* type)
 	    id1 = list[m]; id2 = list[l];
 	    
 	    totsim(counter++) = compute_similarity(data[id1], data[id2], type);
-	  }
 
-      sim[i](i) = totsim.sum() / (double)totsim.size();
+	  }
       
+      sim[i](i) = totsim.sum() / (double)totsim.size();
+
       cout << sim[i](i) << endl;
+
+      ++labelist_iter;
     }
 
+  auto it1 = labelist.begin();
+  
+  for(uint i = 0; i < NUM_CLASS-1; ++i){
 
-  for(uint i = 0; i < NUM_CLASS-1; ++i)
+    auto it2 = it1;
+    
     for(uint j = i + 1; j < NUM_CLASS; ++j)
       {
-	auto &listi = labelist[i];
-	auto &listj = labelist[j];
+	auto &listi = it1->second;
+	auto &listj = it2->second;
 
 	uint count = 0;
 	double var = 0.0;
@@ -151,7 +164,12 @@ void feed_sim(const char* type)
 	      }
 	  }
 	sim[j](i) = sim[i](j) = var / (double)count;
-      }  
+
+	++it2;
+      }
+
+    ++it1;
+  }
 }
 
 void save_sim(const char* dir)
