@@ -12,7 +12,7 @@ void oscl::HMP::max_pooling_layer2(Eigen::VectorXd& rgb_fea, Eigen::VectorXd& gr
   pgrid[2] = pgrid[0] + pgrid[1];
   pgrid[1] = pgrid[0];
   pgrid[0] = 0;
-  
+
   for(uint i = 0; i < 3; ++i){
 
     uint ngrid = pooling[i] * pooling[i];
@@ -39,6 +39,7 @@ void oscl::HMP::max_pooling_layer2(Eigen::VectorXd& rgb_fea, Eigen::VectorXd& gr
       
     for(uint j = 0; j < ngrid; ++j){
       uint size = idx[j].size();
+
       Eigen::MatrixXd rgbtmp = {rgb_feasz, size};
       Eigen::MatrixXd graytmp = {gray_feasz, size};
 

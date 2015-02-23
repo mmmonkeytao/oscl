@@ -103,7 +103,7 @@ int main(int argc, char** argv)
       saveRangeImage(range_image, outfile.c_str());      
     }
   else
-    cout << "Range Image is too small, we don't save file: " << infile << endl;
+    cout << "Range Image dim is smaller than 15*15, we don't save file: " << infile << endl;
 
   cout << "done." << endl;
   

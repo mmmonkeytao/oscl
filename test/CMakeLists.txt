@@ -82,4 +82,12 @@ target_link_libraries(convert2DepNorm ${OSCL_PCLOUD_LIBRARY} ${PCL_LIBRARIES}  $
 add_executable(pcd2hmp src/pcd2hmp.cpp)
 target_link_libraries(pcd2hmp ${OSCL_HMP_LIBRARY})
 
+# kitti_sim_analyze.cpp
+add_executable(kitti_sim_analyze src/kitti_sim_analyze.cpp)
+target_link_libraries(kitti_sim_analyze ${OSCL_ENGINE_LIBRARY})
+
+# kitti_osc_test.cpp
+add_executable(kitti_osc_test src/kitti_osc_test.cpp)
+target_link_libraries(kitti_osc_test ${OSCL_ENGINE_LIBRARY} ${OSCL_GALAXY_LIBRARY})
+
 

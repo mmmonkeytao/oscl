@@ -23,7 +23,7 @@ void oscl::Galaxy::guided_osc_insert(Eigen::VectorXd vec, uint dataID, int label
   // adjacent list
   std::list<uint> L;
 
-  if(_datasize >= 400){
+  if(_datasize >= 50){
     /* extract best similar centers from the group */
     // to sort current centers
     std::map<double, uint, std::greater<double> > max_centers;

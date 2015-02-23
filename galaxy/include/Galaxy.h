@@ -120,6 +120,8 @@ namespace oscl {
     const double _min_cluster_size_wanted = 25.0;
     const double _clust_size_eps = 0.0002;
     const double _threshold_eps = 0.0002;
+    // const double _clust_size_eps = 0.002;
+    // const double _threshold_eps = 0.002;
 
     // priority Q
     std::priority_queue<Planet> _priorityQ;

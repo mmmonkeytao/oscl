@@ -20,11 +20,11 @@ void oscl::Galaxy::loaded_insert_noSim(Eigen::VectorXd vec, uint dataID, int lab
 
   if(_datasize > 1){
     
-    const uint min_clust_size
-      = (uint)ceil(_min_cluster_size_wanted * (1.0 - exp(-_clust_size_eps*iter)));
-
-    bool attr_flag = min_clust_size*_labelist.size() < _datasize;
-    //bool attr_flag = 500 < _datasize;
+    //const uint min_clust_size = (uint)ceil(_min_cluster_size_wanted * (1.0 - exp(-_clust_size_eps*iter)));
+    const uint min_clust_size = 15; //_min_cluster_size_wanted;
+    
+    //bool attr_flag = min_clust_size*_labelist.size() < _datasize;
+    bool attr_flag = 50 < _datasize;
     
     /* extract best similar centers from the group */
     // to sort current centers

@@ -62,7 +62,7 @@ void oscl::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
     if(resizetag){
       
       uint max = std::max(rows, cols);
-      uint min = std::min(rows, cols);
+
       double scale;
       if( max > maxsize){
 	scale = (double)maxsize / (double)max;
@@ -70,6 +70,8 @@ void oscl::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
 	resize(img3C, img3C, cv::Size(), scale, scale, INTER_CUBIC);
       }
 
+      uint min = std::min(img3C.rows, img3C.cols);
+      
       if( min < minsize){
 	scale = (double)minsize / (double)min;
 	resize(img1C, img1C, cv::Size(), scale, scale, INTER_CUBIC);
@@ -216,7 +218,6 @@ void oscl::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
     // resize Image
     if(resizetag){      
       uint max = std::max(img1C.rows, img1C.cols);
-      uint min = std::min(img1C.rows, img1C.cols);
       double scale;
 
       if( max > maxsize){
@@ -225,6 +226,8 @@ void oscl::HMP::computeHMP(const char* dir, Eigen::VectorXd &feaHMP)
 	resize(img3C, img3C, cv::Size(), scale, scale, INTER_CUBIC);
       }
 
+      uint min = std::min(img1C.rows, img1C.cols);
+      
       if( min < minsize){
 	scale = (double)minsize / (double)min;
 	resize(img1C, img1C, cv::Size(), scale, scale, INTER_CUBIC);
@@ -355,11 +358,10 @@ void oscl::HMP::computeHMPfromPCD(cv::Mat& matDepth, cv::Mat&matNormal, Eigen::V
 
     matDepth.copyTo(img1C);
     matNormal.copyTo(img3C);
-    
+
     // resize Image
     if(resizetag){      
       uint max = std::max(img1C.rows, img1C.cols);
-      uint min = std::min(img1C.rows, img1C.cols);
       double scale;
 
       if( max > maxsize){
@@ -367,6 +369,8 @@ void oscl::HMP::computeHMPfromPCD(cv::Mat& matDepth, cv::Mat&matNormal, Eigen::V
 	resize(img1C, img1C, cv::Size(), scale, scale, INTER_CUBIC);
 	resize(img3C, img3C, cv::Size(), scale, scale, INTER_CUBIC);
       }
+      
+      uint min = std::min(img1C.rows, img1C.cols);
 
       if( min < minsize){
 	scale = (double)minsize / (double)min;
@@ -441,7 +445,7 @@ void oscl::HMP::computeHMPfromPCD(cv::Mat& matDepth, cv::Mat&matNormal, Eigen::V
 
       normal_first /= sqrt(normal_first.squaredNorm() + eps);
       depth_first /= sqrt(depth_first.squaredNorm() + eps);
-      
+
       if(!FeaType.compare("first")){
 	feaHMP = VectorXd{normal_first.size() + depth_first.size()};
 	feaHMP.head(depth_first.size()) = depth_first;
