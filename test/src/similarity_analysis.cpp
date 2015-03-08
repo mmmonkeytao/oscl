@@ -29,7 +29,7 @@ void save_sim(const char*);
 int main(int argc, char** argv){
 
   if(argc != 7){
-    cerr << "Usage: <exec> <label_file_dir> <data_file_dir> <NUM_FILES> <save_dir> <sim_type> <number of class>\n";
+    cerr << "Usage: <exec> <label_file_dir(e.g. ../hmp_rgbd/)> <data_file_dir(e.g. ../hmp_rgbd/rgbd2)> <NUM_FILES> <save_dir> <sim_type> <number of class>\n";
     return -1;
   }
 
@@ -193,7 +193,7 @@ double compute_similarity(VectorXd& v1, VectorXd& v2, const char* type)
     }
   else if(!strcmp(type, "Gaussian"))
     {
-      double sigma = 1.0;
+      double sigma = 2.0;
       v1 = v1.normalized();
       v2 = v2.normalized();
       return exp(-(v1 - v2).squaredNorm() / (2*sigma));
@@ -224,7 +224,7 @@ double compute_similarity(VectorXd& v1, VectorXd& v2, const char* type)
     }
   else if(!strcmp(type, "InvMQ")) // inverse multiquadratic
     {
-      double csquare = 1.0;
+      double csquare = 0.001;
       double norm = (v1-v2).squaredNorm();
       return 1.0 / sqrt(norm + csquare);
     }

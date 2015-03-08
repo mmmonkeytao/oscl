@@ -30,7 +30,7 @@ namespace oscl {
 
     typedef std::vector<Eigen::VectorXd> DataSet;
 
-    OnlineStarClustering(uint feaSize, std::string similaritytype,double sigma = 0.6, double param = 2.0);
+    OnlineStarClustering(uint feaSize, std::string similaritytype,double sigma = 0.6, double param = 1.0);
     
     // Destructor
     virtual ~OnlineStarClustering();    

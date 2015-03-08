@@ -91,3 +91,41 @@ const std::vector<uint>& Galaxy::getCSChangedNum(){
 
   return _cs_changed;
 }
+
+void Galaxy::saveRequireLabel(char const*filename)const
+{
+  std::ofstream of(filename);
+
+  for(auto &x: require_label)
+    {
+      of << x << std::endl;
+    }
+
+  of.close();
+}
+
+void Galaxy::saveCenterCheckNum(char const*filename)const
+{
+  std::ofstream of(filename);
+
+  for(auto &x: center_check_num)
+    {
+      of << x << std::endl;
+    }
+
+  of.close();
+  
+}
+
+void Galaxy::saveStarBrokenNum(char const*filename)const
+{
+  std::ofstream of(filename);
+
+  for(auto &x: star_broken_num)
+    {
+      of << x << std::endl;
+    }
+
+  of.close();
+
+}

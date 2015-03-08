@@ -12,6 +12,7 @@ set(SOURCES src/Galaxy.cpp
 	    src/oscUpdate.cpp
 	    src/guided_osc_insert.cpp
 	    src/normal_osc_insert.cpp
+	    src/nearest_neighbors_insert.cpp
 	    )
 
 set(HEADER_SUBDIR "include")

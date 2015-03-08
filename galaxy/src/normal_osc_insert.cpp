@@ -30,7 +30,7 @@ void oscl::Galaxy::normal_osc_insert(Eigen::VectorXd vec, uint dataID, int label
     {
       // compute similarity between new node and stars
       uint cID = _dataIDs[i];
-      double sim = computeSimilarity(dataID, cID);
+      double sim = 1.0/computeSimilarity(dataID, cID); 
 
       if(sim > select_threshold){	      
 	L.push_back(cID);
@@ -40,7 +40,13 @@ void oscl::Galaxy::normal_osc_insert(Eigen::VectorXd vec, uint dataID, int label
   oscInsert(dataID, L);
   L.clear();
 
-  _cs_changed.push_back(_center_star_changed);
+  // compute queries
+  for(auto &x: _graph){
+    if(x.second.getType() == Planet::CENTER){
+      hquery(x.first) = 1;
+    }
+  }
+  //_cs_changed.push_back(_center_star_changed);
   
 
 }

@@ -53,6 +53,7 @@ namespace oscl {
     const std::vector<uint>& getCSChangedNum();
     
     const DataSet& getData();
+    int getLabel(uint id){ return _labels[id]; };
     const std::map<uint, int>& getLabelList();
     const std::map<uint, Planet> getGraph();
     const Eigen::MatrixXd& getSimilarityMat();
@@ -60,15 +61,21 @@ namespace oscl {
     // I/O
     void exportClusterInfo(const char* save_dir, uint threshold);
     void exportClustDot(char const*filename) const;
+    void saveRequireLabel(char const*filename)const;
+    void saveCenterCheckNum(char const*filename)const;
+    void saveStarBrokenNum(char const*filename)const;
 
     // insert data
     void unloaded_insert(uint id, int label, uint iter, double select_threshold);
 
-    void loaded_insert_noSim(Eigen::VectorXd vec, uint id, int label, uint iter, double select_threshold);
+    bool loaded_insert_noSim(Eigen::VectorXd vec, uint id, int label, uint iter, double select_threshold);
 
     void guided_osc_insert(Eigen::VectorXd vec, uint id, int label, uint iter, double select_threshold);
 
     void normal_osc_insert(Eigen::VectorXd vec, uint id, int label, uint iter, double select_threshold);
+
+    bool nearest_neighbors_insert(Eigen::VectorXd vec, uint id, int label, uint iter, double select_threshold);
+
     // cluster evaluation
     void V_measure(double beta, bool message);
     void Hquery_accuracy();
@@ -85,7 +92,28 @@ namespace oscl {
 
     // helper functions
     uint vertexIDMaxDeg(std::set<uint> const&) const;
-    
+
+    Eigen::VectorXi hquery;
+    void propagate_save_label(){
+
+      std::ofstream ofile("plabels.dat");
+
+      uint i = 0;
+      while(i<_datasize){
+	if(_graph[i].getType() == Planet::CENTER){
+	  ofile << _labels[i] << std::endl;
+	}
+	else{
+	  uint idx = _graph[i].getDomCenter();
+	  ofile << _labels[idx] << std::endl;
+	}
+	++i;
+      }
+
+      ofile.close();
+      
+    };
+
   protected:
 
     virtual double unloaded_computeSimilarity(uint id1, uint id2) const;
@@ -117,11 +145,12 @@ namespace oscl {
     uint _numClusters;
     double _h, _c;
 
-    const double _min_cluster_size_wanted = 25.0;
+    const double _min_cluster_size_wanted = 10.0;
     const double _clust_size_eps = 0.0002;
     const double _threshold_eps = 0.0002;
-    // const double _clust_size_eps = 0.002;
-    // const double _threshold_eps = 0.002;
+    
+    //const double _clust_size_eps = 0.002;
+    //const double _threshold_eps = 0.002;
 
     // priority Q
     std::priority_queue<Planet> _priorityQ;
@@ -129,7 +158,8 @@ namespace oscl {
     // measures for cluster evaluation
     std::vector<uint> center_check_num;
     std::vector<uint> star_broken_num;
-
+    std::vector<uint> require_label;
+    
     uint _center_star_changed;
     std::vector<uint> _cs_changed;
   };

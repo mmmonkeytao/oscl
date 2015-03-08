@@ -9,7 +9,7 @@ using namespace oscl;
 
 const uint NUM_FILES = 15;
 const uint FEA_SIZE = 42000;
-const uint NUM_SAVE_PER_ITER = 100;
+const uint NUM_SAVE_PER_ITER = 50;
 
 int main(int argc, char** argv){
 
@@ -69,9 +69,9 @@ int main(int argc, char** argv){
 	clock_t t = clock();
 #endif
 	lposc.calc_Vmeasure();	
-	//lposc.center_label_propagation("threshold");
+	lposc.center_label_propagation("threshold");
 	lposc.center_label_propagation("current_edge");
-	//lposc.center_label_propagation("all_edge");
+	lposc.center_label_propagation("all_edge");
 #ifdef OPTIMIZE
 	t = clock()-t;
 #endif

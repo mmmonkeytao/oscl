@@ -90,4 +90,21 @@ target_link_libraries(kitti_sim_analyze ${OSCL_ENGINE_LIBRARY})
 add_executable(kitti_osc_test src/kitti_osc_test.cpp)
 target_link_libraries(kitti_osc_test ${OSCL_ENGINE_LIBRARY} ${OSCL_GALAXY_LIBRARY})
 
+# compute_simMat.cpp
+add_executable(compute_simMat src/compute_simMat.cpp)
+target_link_libraries(compute_simMat ${STXXL_LIBRARIES})
+
+# draw_bounding_box.cpp
+add_executable(draw_bounding_box src/draw_bounding_box.cpp)
+target_link_libraries(draw_bounding_box ${PCL_LIBRARIES})
+
+# merge_kitti.cpp
+add_executable(merge_kitti src/draw_bounding_box.cpp)
+target_link_libraries(merge_kitti ${PCL_LIBRARIES})
+
+# kitti_video.cpp
+add_executable(kitti_video src/kitti_video.cpp)
+target_link_libraries(kitti_video ${PCL_LIBRARIES} ${OSCL_ENGINE_LIBRARY} ${OSCL_PCLOUD_LIBRARY})
+
+
 

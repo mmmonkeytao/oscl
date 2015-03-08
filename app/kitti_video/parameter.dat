@@ -1,0 +1,8 @@
+scale1 0.1
+scale2 0.8
+threshold 0.13
+segradius 0.5
+NUM_NEIGHBORS 45
+STD_DEVIATION 0.6
+radius 0.9
+distancethreshold 0.5

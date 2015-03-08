@@ -114,7 +114,7 @@ namespace oscl{
 	threshold = 0.13;
       uint   NUM_NEIGHBORS = 45; 
       // plane model segmentation
-      double distance_threshold = 0.5;
+      double distance_threshold = 0.3;
       // clustering for pcloud
       double segradius = 0.5;
     }fparam;

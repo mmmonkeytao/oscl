@@ -32,5 +32,7 @@ double oscl::Galaxy::loaded_computeSimilarity(uint id1, uint id2)
 
 double oscl::Galaxy::computeSimilarity(uint id1, uint id2)
 {
-  return 1.0 / (_dataXXL[id1] - _dataXXL[id2]).cwiseAbs().sum();
+  return (_dataXXL[id1] - _dataXXL[id2]).cwiseAbs().sum();
+
+  //return (_dataXXL[id1] - _dataXXL[id2]).norm();
 }

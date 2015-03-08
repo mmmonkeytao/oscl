@@ -30,19 +30,19 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
     // label changed
     int counter1 = 0, counter2 = 0, counter3 = 0;
     
-    for(uint j = 0; j < previous_size; ++j){
-      // if(totlabels_threshold[i](j) != totlabels_threshold[i-1](j))
-      // 	++counter1;
+    // for(uint j = 0; j < previous_size; ++j){
+    //   if(totlabels_threshold[i](j) != totlabels_threshold[i-1](j))
+    //    	++counter1;
       
-      if(totlabels_edges[i](j) != totlabels_edges[i-1](j))
-	++counter2;
+    //   if(totlabels_edges[i](j) != totlabels_edges[i-1](j))
+    // 	++counter2;
       
-      // if(totlabels_alledges[i](j) != totlabels_alledges[i-1](j))
-      // 	++counter3;
-    }
+    //   if(totlabels_alledges[i](j) != totlabels_alledges[i-1](j))
+    //    	++counter3;
+    // }
 
     //lch_threshold.push_back((float)counter1/(float)previous_size);
-    lch_edges.push_back((float)counter2/(float)previous_size);
+    //lch_edges.push_back((float)counter2/(float)previous_size);
     //lch_alledges.push_back((float)counter3/(float)previous_size);
 
     // center-star changed
@@ -53,22 +53,23 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
     for(auto &x: allcenterslist[current_size-1])
       if(x < previous_size)
 	vnew(x) = 1;
+    
     int NotEqual = (vold.cwiseNotEqual(vnew)).sum();   
     role_ch.push_back((float)NotEqual/(float)previous_size);
     
     // star's dom center changed
-    counter1 = 0;
-    for(auto &x: allstarslist[previous_size-1])
-      if(_graph[x].getType() == Vertex::SATELLITE){
-	auto iter = std::find(allstarslist[current_size-1].begin(), allstarslist[current_size-1].end(), x);
-	if(iter != allstarslist[current_size-1].end() && _graph[*iter].getType() == Vertex::SATELLITE){
-	  if(_graph[x].getDomCenter() != _graph[*iter].getDomCenter()){
-	    	    ++counter1;
-	  }
+    // counter1 = 0;
+    // for(auto &x: allstarslist[previous_size-1])
+    //   if(_graph[x].getType() == Vertex::SATELLITE){
+    // 	auto iter = std::find(allstarslist[current_size-1].begin(), allstarslist[current_size-1].end(), x);
+    // 	if(iter != allstarslist[current_size-1].end() && _graph[*iter].getType() == Vertex::SATELLITE){
+    // 	  if(_graph[x].getDomCenter() != _graph[*iter].getDomCenter()){
+    // 	    	    ++counter1;
+    // 	  }
 
-	}
-      }
-    domcenterch.push_back((float)counter1/(float)previous_size);
+    // 	}
+    //   }
+    // domcenterch.push_back((float)counter1/(float)previous_size);
 
     // single nodes
     counter1 = 0;
@@ -81,7 +82,7 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
     }
     singleNodes.push_back((float)counter1/(float)current_size);
     // Hqueries
-    Hqueries.push_back((float)(allcenterslist[current_size-1].size()-counter1)/(float)current_size);
+    // Hqueries.push_back((float)(allcenterslist[current_size-1].size()-counter1)/(float)current_size);
         
   }
 
@@ -90,7 +91,7 @@ void oscl::LPOSC::save_eval_files(const char* prefix)
   ofstream of1(savepath.c_str());
 
   //  of1 << "threshold edges alledges rolechange Hqueries singleNodes Homo Completeness DomCenterCh" << std::endl;
-  of1 << "edges rolechange Hqueries singleNodes Homo Completeness DomCenterCh" << std::endl;
+  of1 << "threshold alledges Hqueries outliers Homo Completeness" << std::endl;
 
   //for(uint i = 0; i < lch_threshold.size(); ++i)
   //  of1 << lch_threshold[i] << " ";

@@ -52,26 +52,6 @@ int main(int argc, char **argv)
     pcl::visualization::PCLVisualizer viewer("KITTI Viewer");
     viewer.setBackgroundColor (0, 0, 0);
 
-    // set camera position
-    pcl::visualization::Camera camera;
-
-    camera.clip[0] = 28.1809;
-    camera.clip[1] = 159.088;
-    camera.focal[0] = 0;
-    camera.focal[1] = 0;
-    camera.focal[2] = 0;
-    camera.pos[0] = -9.43671;
-    camera.pos[1] = -70.3455;
-    camera.pos[2] = 37.2992;
-    camera.view[0] = 0.0316502;
-    camera.view[1] = 0.464899;
-    camera.view[2] = 0.884798;
-    camera.fovy = 0.523599;
-    camera.window_size[0] = 1200;
-    camera.window_size[1] =650;
-    camera.window_pos[0] = 61;
-    camera.window_pos[1] = 52;
-
     viewer.setCameraParameters(camera);
     viewer.updateCamera();
 

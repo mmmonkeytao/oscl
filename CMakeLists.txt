@@ -179,6 +179,14 @@ install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/kitti_sim_analyze" DESTINATI
 
 install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/kitti_osc_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/kitti_osc_test/")
 
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/compute_simMat" DESTINATION "${CMAKE_SOURCE_DIR}/app/compute_simMat/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/draw_bounding_box" DESTINATION "${CMAKE_SOURCE_DIR}/app/draw_bounding_box/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/merge_kitti" DESTINATION "${CMAKE_SOURCE_DIR}/app/merge_kitti/")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/kitti_video" DESTINATION "${CMAKE_SOURCE_DIR}/app/kitti_video/")
+
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval_full" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval_full/")
 
 #install(DIRECTORY ${ONLINECLUST_HMP_INCLUDE} DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/test/lib/inc")

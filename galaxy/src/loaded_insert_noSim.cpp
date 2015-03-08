@@ -1,6 +1,6 @@
 #include "Galaxy.h"
 
-void oscl::Galaxy::loaded_insert_noSim(Eigen::VectorXd vec, uint dataID, int label, uint iter, double select_threshold)
+bool oscl::Galaxy::loaded_insert_noSim(Eigen::VectorXd vec, uint dataID, int label, uint iter, double select_threshold)
 {
   if(vec.size() != _feaSize)
     throw std::runtime_error("\nFeature size error!\n");
@@ -20,11 +20,12 @@ void oscl::Galaxy::loaded_insert_noSim(Eigen::VectorXd vec, uint dataID, int lab
 
   if(_datasize > 1){
     
-    //const uint min_clust_size = (uint)ceil(_min_cluster_size_wanted * (1.0 - exp(-_clust_size_eps*iter)));
-    const uint min_clust_size = 15; //_min_cluster_size_wanted;
+    const uint min_clust_size = (uint)ceil(_min_cluster_size_wanted * (1.0 - 0.1*exp(-_clust_size_eps*iter)));
+    //const uint min_clust_size = 15; //_min_cluster_size_wanted;
     
     //bool attr_flag = min_clust_size*_labelist.size() < _datasize;
-    bool attr_flag = 50 < _datasize;
+    //bool attr_flag = 20 * min_clust_size < _datasize;
+    bool attr_flag = min_clust_size * _centerList.size() < _datasize;
     
     /* extract best similar centers from the group */
     // to sort current centers
@@ -48,7 +49,7 @@ void oscl::Galaxy::loaded_insert_noSim(Eigen::VectorXd vec, uint dataID, int lab
     /* compute select rules */
     // select_threshold * (1 - exp(-0.0005*iter))
     double current_threshold
-      = max_center_sim * select_threshold * (1.0 - exp(-_threshold_eps*iter));
+      = max_center_sim * select_threshold * (1.0 - 0.1*exp(-_threshold_eps*iter));
 
     /////////////////////////////
     uint counter_center_check = 1;
@@ -180,11 +181,17 @@ void oscl::Galaxy::loaded_insert_noSim(Eigen::VectorXd vec, uint dataID, int lab
 	_graph[dataID].setDomCenter(maxID);
 	_graph[dataID].clearDomSatsList();
 	_graph[dataID].setType(Planet::STAR);
+
+	require_label.push_back(0);
       }
     else
       {
+
+	require_label.push_back(1);
+	  	
 	_graph[dataID].setType(Planet::CENTER);
 	_centerList.insert(dataID);
+
       }
 
     star_broken_num.push_back(counter_star_broken);
@@ -199,7 +206,11 @@ void oscl::Galaxy::loaded_insert_noSim(Eigen::VectorXd vec, uint dataID, int lab
     // performance analysis
     center_check_num.push_back(0);
     star_broken_num.push_back(0);
+
+    require_label.push_back(1);
   }
+
+  return 0;
 
 }
 
