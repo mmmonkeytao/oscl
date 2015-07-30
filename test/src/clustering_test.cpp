@@ -39,7 +39,7 @@ int main(int argc, char** argv)
       data.push_back(v);
     }
  
-    OnlineStarClustering osc(2, "Gaussian", atof(argv[3]));
+    OnlineStarClustering osc(2, "Gaussian", atof(argv[3]), 0.1);
 
     for(uint i = 0; i < fea_num; ++i){
       osc.insert(data[i], label[i]);
@@ -47,7 +47,7 @@ int main(int argc, char** argv)
 
     osc.V_measure(1, true);
     osc.exportClustDot("ClustDot.dot");
-    osc.exportDot("NormalDot.dot", false);
+    osc.exportDot("NormalDot.dot", true);
   } else {
 
     string path_depth21("rgbd2_");

@@ -38,7 +38,7 @@ int main(int argc, char** argv){
   long int ttot = 0;
   high_resolution_clock::time_point tt1, tt2;
 
-  global_counter = 1;
+  global_counter = 0;
 
   // vector used to compute H queries
   Eigen::VectorXi hquery = Eigen::VectorXi::Zero(NUM_FEAS);
@@ -63,16 +63,18 @@ int main(int argc, char** argv){
     for(uint k = 0; k < FEA_SIZE; ++k)
       idata >> vec(k);
 
+    //if(i==1000)
+    //global_counter = 0;
     /* insert data */
     // print label and data path
     //cout << label_path << "\n" << data_path << endl;
     tt1 = high_resolution_clock::now();
     //galaxy.loaded_insert_noSim(vec, i, label, i, 0.9);
     //bool flag = galaxy.loaded_insert_noSim(vec, i, label, global_counter, 0.9);
-    // galaxy.normal_osc_insert(vec, i, label, i, 9.5e-3);
+    //galaxy.normal_osc_insert(vec, i, label, i, 0.9);
     bool flag = galaxy.nearest_neighbors_insert(vec, i, label, i, 0.9);
     tt2 = high_resolution_clock::now();
-
+    //++global_counter;
     hquery(i) = flag;
     
     // if(false)
@@ -88,7 +90,7 @@ int main(int argc, char** argv){
 
       cout <<"Inserted  " << (i+1) << endl; 
       cout << "Time spent(s): " << (long double)ttot / 1000.0 << endl;
-      //galaxy.Hquery_accuracy();
+      galaxy.Hquery_accuracy();
       galaxy.V_measure(1, true);
 
       //auto vcnum = galaxy.getCenterCheckNum();
@@ -96,7 +98,7 @@ int main(int argc, char** argv){
 
       //cout << "Center evaluated: " << vcnum[i] << endl;
       //cout << "Center star broken: " << vsbnum[i] << endl;
-
+      
       //ofstream ofile("hquery.dat");
       //ofile << hquery.transpose();
       //ofile.close();
@@ -118,6 +120,7 @@ int main(int argc, char** argv){
   ofile << hquery.transpose() << endl;
   ofile.close();
 
+  galaxy.saveCenterList();
   galaxy.exportClusterInfo("clusterInfo.dat",0);
   //galaxy.exportClustDot("Clust.dot");
 

@@ -193,10 +193,11 @@ double compute_similarity(VectorXd& v1, VectorXd& v2, const char* type)
     }
   else if(!strcmp(type, "Gaussian"))
     {
-      double sigma = 2.0;
-      v1 = v1.normalized();
-      v2 = v2.normalized();
+      double sigma = 0.1;
+      //v1 = v1.normalized();
+      //v2 = v2.normalized();
       return exp(-(v1 - v2).squaredNorm() / (2*sigma));
+      //return exp(-(v1 - v2).dot(v1-v2) / (2*sigma));
     }
   else if(!strcmp(type, "exp"))
     {

@@ -64,7 +64,7 @@ void oscl::OnlineStarClustering::V_measure(double beta, bool message){
   if(H_CK == 0.0)
     h = 1.0;
   else 
-  h = 1.0 - H_CK / H_C;
+    h = 1.0 - H_CK / H_C;
 
   // completeness
   double H_KC = 0.0, H_K = 0.0;

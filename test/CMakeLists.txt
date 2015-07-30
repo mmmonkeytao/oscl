@@ -106,5 +106,8 @@ target_link_libraries(merge_kitti ${PCL_LIBRARIES})
 add_executable(kitti_video src/kitti_video.cpp)
 target_link_libraries(kitti_video ${PCL_LIBRARIES} ${OSCL_ENGINE_LIBRARY} ${OSCL_PCLOUD_LIBRARY})
 
+# plane_seg.cpp
+add_executable(plane_seg src/plane_seg.cpp)
+target_link_libraries(plane_seg ${PCL_LIBRARIES} ${OSCL_PCLOUD_LIBRARY} ${Boost_PROGRAM_OPTIONS_LIBRARY})
 
 

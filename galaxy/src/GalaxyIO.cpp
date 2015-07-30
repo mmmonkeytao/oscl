@@ -85,3 +85,15 @@ void oscl::Galaxy::exportClusterInfo(const char* save_dir, uint threshold)
   ofile.close();
   
 }
+
+void oscl::Galaxy::saveCenterList() const
+{
+
+  std::ofstream ofile("CenterIdx.dat");
+
+  for(auto &x: _centerList)
+    ofile << x << std::endl;
+
+  ofile.close();
+  
+}

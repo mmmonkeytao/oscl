@@ -56,9 +56,13 @@ int main(int argc, char** argv)
   // -----Open 3D viewer and add point cloud-----
   // --------------------------------------------
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
-  viewer->setBackgroundColor (0, 0, 0);
-  viewer->addPointCloud<pcl::PointXYZI> (cloud, "sample cloud");
-  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "sample cloud");
+  // color handle
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZI> tot_pcloud_color (cloud, 0,0,0);
+
+  viewer->addPointCloud<pcl::PointXYZI> (cloud, tot_pcloud_color, "sample cloud");
+
+  viewer->setBackgroundColor (255, 255, 255);
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, "sample cloud");
   viewer->addCoordinateSystem (1.0);
   viewer->initCameraParameters ();
 

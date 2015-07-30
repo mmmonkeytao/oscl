@@ -19,16 +19,16 @@ void oscl::OnlineStarClustering::exportDot(char const *filename, bool use_data) 
     if(v.getType() == Vertex::CENTER)
       
       ofile << it->first << "  [shape = doublecircle,style=filled,"
-	    << "fontsize = 20,label=\"" << it->first << "\"";
+	    << "fontsize = 20,label=\"" << _labels.at(it->first) << "\"";
     
     else 
       ofile << it->first << "  [shape = circle,fontsize = 20,label=\""
-	    << it->first << "\"";
+	    << _labels.at(it->first) << "\"";
     
     if(use_data){
-      uint point_idx = _id2idx.at(it->first);
-      ofile << ",pos = \""  << 10*_data[point_idx][0] << "," 
-	    << 10*_data[point_idx][1] << "!\"";
+      uint point_idx = it->first;//_id2idx.at(it->first);
+      ofile << ",pos = \""  << _data[point_idx](0) << "," 
+	    << _data[point_idx](1) << "!\"";
 
     }
     ofile << "]" << std::endl;
@@ -39,7 +39,7 @@ void oscl::OnlineStarClustering::exportDot(char const *filename, bool use_data) 
       it1 != _graph.end(); ++it1){
 
     if(it1->second.getType() == Vertex::CENTER){
-      auto adj_list = it1->second.getAdjVerticesList();
+      auto adj_list = it1->second.getConstDomSatsList();//it1->second.getAdjVerticesList();
 
       for(std::list<uint>::const_iterator it2 = adj_list.begin(); 
 	  it2 != adj_list.end(); ++it2)

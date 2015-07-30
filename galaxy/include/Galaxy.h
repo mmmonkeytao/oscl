@@ -64,7 +64,8 @@ namespace oscl {
     void saveRequireLabel(char const*filename)const;
     void saveCenterCheckNum(char const*filename)const;
     void saveStarBrokenNum(char const*filename)const;
-
+    void saveCenterList()const;
+    
     // insert data
     void unloaded_insert(uint id, int label, uint iter, double select_threshold);
 
@@ -145,7 +146,7 @@ namespace oscl {
     uint _numClusters;
     double _h, _c;
 
-    const double _min_cluster_size_wanted = 10.0;
+    const double _min_cluster_size_wanted = 25.0;
     const double _clust_size_eps = 0.0002;
     const double _threshold_eps = 0.0002;
     

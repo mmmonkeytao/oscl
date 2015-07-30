@@ -31,7 +31,7 @@ set(CMakeScripts_MODULE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 list(APPEND CMAKE_MODULE_PATH "${CMakeScripts_MODULE_DIR}")
 
 # Bring in helper functions to make dealing
-# with cache internal variables easier (functions from Dr.Rudolph)
+# with cache internal variables easier 
 include(CacheInternalHelpers)
 
 # the variable contains all headers directories
@@ -39,7 +39,6 @@ include(CacheInternalHelpers)
 
 #
 set(OSCL_LIBRARIES CACHE INTERNAL
-  "All individual libraries that go into the global one")
 
 
 ########################
@@ -101,7 +100,6 @@ list(APPEND CMAKE_MODULE_PATH "/usr/local/Cellar/vtk/6.1.0/lib/cmake/vtk-6.1/")
 find_package(VTK 6.1 REQUIRED)
 include(${VTK_USE_FILE})
 
-
 #########################
 # add subdirectories 
 #########################
@@ -122,7 +120,6 @@ set(OSCL_TARGETS
   "Targets which should be exported"
 )
 
-
 #########################
 # config script creation
 #########################
@@ -130,14 +127,14 @@ set(OSCL_TARGETS
 if (OSCL_LIBRARIES)
   list(REMOVE_DUPLICATES OSCL_LIBRARIES)
   export(TARGETS ${OSCL_LIBRARIES} FILE UseOSCL.cmake)
-endif ()
+endif()
 
 # # Stick build location in the central CMake user package registry, so that it may be easily found
 if ("${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}" GREATER 2.8)
   export(PACKAGE OSCL)
 endif()
 
-#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp/")
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_test" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp/")
 
 #install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hmp_rgbdeval" DESTINATION "${CMAKE_SOURCE_DIR}/app/hmp_rgbdeval/")
 
@@ -192,4 +189,6 @@ install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/kitti_video" DESTINATION "${
 #install(DIRECTORY ${ONLINECLUST_HMP_INCLUDE} DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/test/lib/inc")
 
 #install(DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY} DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/test/lib/bin")
+
+install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/plane_seg" DESTINATION "${CMAKE_SOURCE_DIR}/app/plane_seg/")
 

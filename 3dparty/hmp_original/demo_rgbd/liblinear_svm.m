@@ -47,9 +47,14 @@ if category
        if isunix
            %trainfea
            % dense float inputs
-           model = train(double(trainlabel),sparse(double(trainfea)),option);
+           %model = train(double(trainlabel),sparse(double(trainfea)),option);
+           model = train(double(rgbdclabel(cidx+1)),sparse(double(rgbdfea(cidx+1,:))),option);                    
+           %model = train(double(labels),sparse(double(rgbdfea(1:7112,:))),option);
            % compute classification accuracy
-           [predictlabel, accuracy, decvalues] = predict(double(testlabel), sparse(double(testfea)), model);
+           %[predictlabel, accuracy, decvalues] = predict(double(testlabel), sparse(double(testfea)), model);
+           [predictlabel, accuracy, decvalues] = predict(double(rgbdclabel(7113:20000)), sparse(double(rgbdfea(7113:20000,:))), model);
+           [predictlabel, accuracy, decvalues] = predict(double(rgbdclabel(20001:30000)), sparse(double(rgbdfea(20001:30000,:))), model);
+           [predictlabel, accuracy, decvalues] = predict(double(rgbdclabel(30001:41876)), sparse(double(rgbdfea(30001:41876,:))), model);
        else
            % sparse double inputs
            trainfea = sparse(double(trainfea));
