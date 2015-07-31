@@ -27,7 +27,7 @@ add_executable(lposc_test src/lposc_test.cpp)
 target_link_libraries(lposc_test ${OSCL_LPOSC_LIBRARY})
 
 # omp_test.cpp
-add_executable(openmp_test src/openmp_test.cpp)
+# add_executable(openmp_test src/openmp_test.cpp)
 
 # print_distr.cpp
 add_executable(print_distr src/print_distr.cpp)

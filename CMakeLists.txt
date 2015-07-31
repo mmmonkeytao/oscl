@@ -39,7 +39,7 @@ include(CacheInternalHelpers)
 
 #
 set(OSCL_LIBRARIES CACHE INTERNAL
-
+  "All individual libraries that go into the global one")
 
 ########################
 # compiler settings
@@ -190,5 +190,4 @@ install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/kitti_video" DESTINATION "${
 
 #install(DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY} DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/test/lib/bin")
 
-install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/plane_seg" DESTINATION "${CMAKE_SOURCE_DIR}/app/plane_seg/")
-
+#install(PROGRAMS "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/plane_seg" DESTINATION "${CMAKE_SOURCE_DIR}/app/plane_seg/")
